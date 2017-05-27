@@ -1,0 +1,18 @@
+branches:
+  only:
+    - master
+
+sudo: required
+
+language: generic
+
+services:
+  - docker
+
+cache:
+  directories:
+  - $HOME/.portage
+
+script:
+  - 'if [ "${TRAVIS_EVENT_TYPE}" != "cron" ]; then docker run --rm -ti -v "${HOME}"/.portage:/usr/portage -v "${PWD}":/overlay -w /overlay gentoo/stage3-amd64:latest /overlay/tests/runtests.sh; fi'
+  # - 'if [ "${TRAVIS_EVENT_TYPE}" == "cron" ]; then docker run --rm -ti -v "${PWD}/tests/newversionchecker.toml":/app/newversionchecker.toml -e GITHUB_API_TOKEN simonvanderveldt/newversionchecker; fi'

@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+set -x
+
+# Disable news messages from portage and disable rsync's output
+export FEATURES="-news" PORTAGE_RSYNC_EXTRA_OPTS="-q"
+
+# Update the portage tree and install dependencies
+emerge --sync
+emerge -q --buildpkg --usepkg dev-vcs/git app-portage/repoman
+
+# Run the tests
+repoman full --xmlparse
