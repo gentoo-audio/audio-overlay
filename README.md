@@ -1,6 +1,6 @@
 # Audio overlay [![Build Status](https://travis-ci.org/gentoo-audio/audio-overlay.svg?branch=master)](https://travis-ci.org/gentoo-audio/audio-overlay)
 
-Overlay containing pro audio applications
+Gentoo/Funtoo overlay containing pro audio applications
 
 ## How to use this overlay
 - Add an entry to [`/etc/portage/repos.conf`](https://wiki.gentoo.org/wiki//etc/portage/repos.conf):
@@ -17,6 +17,10 @@ auto-sync = yes
 emerge --sync
 ```
 - You're all set. Go and install a package :)
+
+## Contact
+
+Join us at #proaudio-overlay at irc.freenode.org
 
 ## Problems?
 If you run into problems please [create an issue](https://github.com/gentoo-audio/audio-overlay/issues/new) or send a pull request if you already know how to fix it :)
