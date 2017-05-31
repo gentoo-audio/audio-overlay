@@ -1,0 +1,148 @@
+﻿End-User License Agreement (“EULA”)
+
+
+I.	Subject-Matter
+
+This EULA applies to all contractual relationships on the basis of which the recipient of the services (“User”) receives a final version of the software Bitwig Studio and Bitwig 8-Track (hereinafter also referred to as “Final Version”), as well as for beta versions of Bitwig Studio (hereinafter referred to as “Beta Version”). Bitwig Studio is a multi-platform software for creating, producing and playing back music. Bitwig 8-Track is a feature limited version of Bitwig Studio.
+
+
+II.	Bitwig Studio Final Version
+
+1.	Scope
+
+1.1.	This EULA applies to the following editions of the Final Version that are available, in the latest release respectively: “Demo”, “Standard”, “EDU”, “Standard Site”, “EDU Site”, “NFR” and „8-Track“. Whilst each edition equips the User with the same software, the editions vary as regards both to the scope of functions activated and the rights of use granted under this EULA.
+1.2.	This EULA also applies for bug fix updates, provided they are made available to the User by Bitwig GmbH. Bitwig GmbH is under no obligation however to make any bug fix updates available to the User.
+1.3.	This EULA also applies for upgrades. Upgrades are add-ons which extend the Final Version’s functions in all editions except the Demo Edition. The Demo Edition’s scope of functions cannot be extended by means of upgrades. The scope of functions of the other editions can be extended by means of upgrades. The User receives upgrades under a separate contractual agreement: they are not covered by the contractual agreement under which the User receives the Final Version. This still applies even if the upgrade is a new version of the Final Version (e.g. V 2.0).
+
+2.	Rights of Use
+
+2.1.	The Final Version is protected by copyright.
+2.2.	Bitwig GmbH, Schwedter Str. 13, 10119 Berlin, Germany (“Bitwig GmbH”) grants the User the non-exclusive right to use the Final Version in perpetuity for producing and playing back music.
+2.2.1	Demo Edition: Bitwig GmbH grants the User the non-exclusive right to permanently install the Final Version for non-commercial purposes on a terminal device, and to run and copy it on such device to the extent required in order to test the Final Version’s functions. However, the User may not use the Final Version to store the music produced by means of the Final Version, nor may the User export any work results obtained from the Final Version.
+2.2.3.	Standard Edition: Bitwig GmbH grants the User the non-exclusive right to permanently install the Final Version on up to three terminal devices, and to run and copy it on such devices to the extent required in order to produce and play back music.
+2.2.4.	EDU Edition: This software may only be acquired and used by students or individuals who are working at educational establishments either public or private on the acquisition date. Bitwig GmbH grants the User the non-exclusive right to permanently install the Final Version on up to three terminal devices concurrently, and to run and copy it on such devices to the extent required in order to produce and play back music. Simultaneous use of the license on the end devices on which the Final Version has been activated is not permitted.
+2.2.5.	Standard Site Edition: Bitwig GmbH grants the User the non-exclusive right to permanently install the Final Version on the contractually agreed number of terminal devices concurrently, and to run and copy it on such devices to the extent required in order to teach how to produce and play back music. Under a contractual agreement, the agreed number of terminal devices can be subsequently increased in return for separate payment. Section 7 below applies to the remuneration.
+2.2.6.	EDU Site Edition: Bitwig GmbH grants the User the non-exclusive right to permanently install the Final Version for educational purposes on the contractually agreed number of terminal devices concurrently, and to run and copy it on such devices to the extent required in order to teach how to produce and play back music. Under a contractual agreement, the agreed number of terminal devices can be subsequently increased in return for separate payment. Section 7 below applies to the remuneration.
+2.2.7.	NFR Edition: Bitwig GmbH grants the User the non-exclusive right to permanently install the Final Version on one terminal device, and to run and copy it on such device to the extent required in order to produce and play back music.
+2.2.8.	8-Track Edition: Bitwig 8-Track is a feature limited version of Bitwig Studio, limited to 8 tracks and with further limitations. You can find further details in the 8-Track menu of the software. Bitwig GmbH grants the User the non-exclusive right to permanently install the Final Version on up to two terminal devices, and to run and copy it on such device to the extent required in order to produce and play back music.
+2.3.	If he has received a new version of the Final Version in an upgrade, the User shall still be entitled to continue using the previous version of the Final Version. The old version and the new version may be installed for parallel use by one and the same User on the number of terminal devices laid down in Sections 2.2.1 – 2.2.8 above, but it is not technically possible to use them simultaneously on one and the same terminal device. The User may not transfer one of the versions or the other version to a third party in accordance with Section 5 below.
+2.4.	The samples contained in the Final Version may be used by the User – also for commercial purposes – as part of the music that is produced, played back and rendered audible with the Final Version. However, disseminating unaltered samples, making same publicly accessible and publicly reproducing same in any other manner are not permitted.
+2.5	With regard to the Open Source components (a list of which can be found here: Bitwig Studio Menu -> Help -> About -> Legal) of the Final Version, such may be used as described above. The User can obtain further rights to use the Open Source components from the respective rightholders if he concludes license agreements with these rightholders under the conditions of the applicable Open Source license. In such case, the use of the Open Source components will not fall under the scope of this agreement, but will be based solely on the respective Open Source license (cp. Bitwig Studio Menu -> Help -> About -> Legal).
+2.6	The User has the right to adapt and for such adaption, analyze and reengineer such proprietary components of the Final Version that are linked with libraries licensed under the GNU Lesser General Public License (“LGPL”) for internal use only. Distribution or transfer of any information obtained by such analyzing or reengineering or of any adapted code shall not be permitted. A list of libraries licensed under the LGPL can be found here (Bitwig Studio Menu -> Help -> About -> Legal).
+
+
+3.	Receipt of Services, Technical Requirements
+
+3.1.	The User receives the Final Version via downloading, as a demo-CD from Bitwig GmbH or one of the latter’s distribution partners, or as a copy on a storage medium (“Box”).
+3.2.	The User can use the Demo Edition of the Final Version without any activation needed.
+3.3.	All other editions of the Final Version can be used as soon as they’ve been activated via the User’s account. Unless activated via the User’s account, only the demonstration mode applies (storage and exporting not permitted). A user account can be set up at [www.bitwig.com/register].
+3.4.	Each time the Final Version is activated, Bitwig GmbH installs an encrypted file which refers to the respective terminal device’s serial number in order to link the Final Version to that particular device (challenge-response authentication).
+
+
+4.	Prohibited Forms of Use
+
+4.1.	Any use of the Final Version beyond that permitted in accordance with Section 2 above is prohibited. In particular, adapting, circulating, copying or hiring out the Final Version or making it publicly accessible without express permission from Bitwig GmbH is prohibited.
+4.2.	Section 4.1 above shall not restrict the User’s right to activate the Final Version on another device following its initial activation on the number of terminal devices covered by the license, provided the installation initially activated or one of the installations previously activated is reversed at the same time by erasing the Final Version on the device concerned. The User will need a new license key if he wants to activate the Final Version on another terminal device in addition to the number of devices permitted under the User’s license. Bitwig GmbH shall provide the User with a new license key if a request is sent to activation@bitwig.com. At the same time, Bitwig GmbH shall deactivate the Final Version on the device specified by the User and activate it for the new terminal device.
+4.3. 	Any manner of interference with the Final Version – such as e.g. decompilation, disassembly, reverse engineering – is prohibited.
+4.4.	The prohibited forms of use laid out in this Section shall not apply if forms of usage are permitted under legal restrictions, principles of fair use or other rules and regulations applying in the country where the terminal device on which the Final Version has been activated is located.
+
+
+5.	Transferral of the Final Version
+
+5.1.	The Final Version, including the rights granted in accordance with Section 2 above, may be permanently transferred to third parties provided the third party agrees to be bound by this License Agreement. Such third party shall then be entitled to use the Final Version to the extent of the permission granted to the User pursuant to Section 2.
+5.2.	In the event of any transfer, the User shall be under obligation to reverse (i.e. erase) the installation of the Final Version activated on its terminal device.
+5.3.	The third party may use the Final Version as soon as it has activated it in accordance with Section 3.
+5.4.	The user account is not transferrable. However, the third party can open its own user account on accepting this License Agreement. Bitwig GmbH shall then transfer the license to such new user account. Bitwig GmbH generally processes such a license transfer free of charge, but reserves the right to charge for a transfer in the future and in special cases, such as if the same User requests a license transfer multiple times.
+5.5.	In the case of the NFR Edition, the Final Version is tied to a specific user account and can only be used by the holder of that user account.
+
+
+6.	Other Contractual Obligations
+
+The User is under obligation to use the Final Version such that the music produced, played back or rendered audible with the Final Version does not infringe third-party rights.
+
+
+7.	Remuneration
+
+The prices in force at the time of contract closure shall apply. All prices are end prices and include applicable statutory turnover tax. A list of prices can be obtained at [www.bitwig.com/shop].
+
+
+8.	Warranty
+
+8.1.	In accordance with statutory regulations, Bitwig GmbH assumes a guarantee for the proper functioning of the Final Version supplied to the User. Bitwig GmbH shall not assume any guarantee for faults that arise from or are due to the Internet access or Internet provider used by the User, or any terminal device or software that is not the subject-matter of the contractual agreement.
+8.2.	Bitwig GmbH has carefully checked that the Final Version is clear of third-party rights and devoid of defects in title. If any third party files claims alleging rights in the Final Version or the inadmissibility of the Final Version’s contractual use, the party on which such claims are filed shall immediately inform the other party accordingly. Notwithstanding its statutory warranty rights, the User shall be bound at Bitwig GmbH’s request in any such case to immediately cease using the Final Versions and/or to erase same from its terminal devices.
+
+
+9.	Liability
+
+9.1.	Bitwig GmbH shall be liable in accordance with statutory provisions for any loss or damage sustained by the User which is caused willfully, results from gross negligence or is due to a breach of cardinal duty, i.e. a contractual duty performance of which is a prerequisite for due implementation of the contract in the first place and may always be relied upon by the contractual partner, and which conversely may jeopardize attainment of the contractual purpose if breached. Bitwig GmbH shall also be liable in accordance with statutory provisions for any loss or damage which is based on a lack of warranted characteristics, or results from any mortal injury, physical harm or health damage for which Bitwig GmbH is responsible or for which liability has to be borne under the Product Liability Act.
+9.2.	In the event of a breach of cardinal duty, liability – provided the loss or damage is due merely to slight negligence and does not involve mortal injury, physical harm or health damage – shall be limited to compensation for the loss or damage which may typically be anticipated and foreseen in the context of rendering services such as those hereunder.
+9.3.	Other than in the cases specified in the above clauses, Bitwig GmbH’s liability – for whatsoever legal cause – shall be excluded. In particular, Bitwig GmbH shall not be responsible for any damage sustained in connection with loss of data, insofar as such damage could have been avoided, had the User made a full back-up of all the relevant data at regular intervals. Moreover, Bitwig GmbH shall not be liable for any loss or damage simply resulting from a non-contractual modification to the Final Version by the User. In addition, Bitwig GmbH shall not be liable for any infringement of third-party rights which is caused by the music that is produced, played back or rendered audible by the Final Version.
+
+
+III.	Bitwig Studio Beta Version
+
+1.	Scope
+
+This EULA applies to all Bitwig Studio Beta Versions provided by Bitwig GmbH.
+
+
+2.	Rights of use
+
+Bitwig GmbH hereby grants the User a non-exclusive, non-transferable license to use the Beta Version in accordance with its documentation and solely for purposes of internal testing and evaluation. In particular, the User may not make any copies of the Beta Version, except as reasonably necessary for backup purposes. Title to the Beta Version and all copies thereof remain with Bitwig GmbH. 
+
+
+3.	Transferral of the Beta Version
+
+By clicking the accept button or by downloading, installing or using the Beta Version, the User assents to and is bound by this EULA.
+
+
+4.	Feedback 
+
+4.1.	Bitwig is happy to receive the Users suggestions, comments and feedback (“Feedback”). 
+
+4.2.	In order to be able to safely make use of the Feedback, Bitwig GmbH needs to ensure that it has sufficient permissions under the intellectual property rights, in particular copyright, that may in some cases be vested in the Feedback. Therefore, if the User provides such Feedback to Bitwig GmbH, he grants Bitwig GmbH the non-exclusive, perpetual, irrevocable, world-wide, transferable and sub-licensable, fully paid up rights to use the Feedback for developing and improving any Bitwig GmbH products, technology, services, specifications or other documentations. This includes in particular Bitwig GmbH’s right to reproduce, modify, adapt, arrange, translate or otherwise alter the Feedback, and to distribute, make publicly available, publicly perform, broadcast, license, sell or rent the Feedback as part of any Bitwig GmbH Beta Version. 
+
+4.3.	Feedback can be send to support@bitwig.com.
+
+
+5.	Beta Disclaimer 
+
+5.1.	The Beta Version is not a final product. As such it may contain errors and/or defects. The purpose of the beta testing license is to gather Feedback on performance and stability and to identify errors and defects. The User should make sure to backup important data and not rely in any way on the correct functioning or performance of the Beta Version and/or the accompanying materials. 
+
+5.2.	As the Beta Version is provided to the User in an unfinished version and free of charge, Bitwig GmbH’s liability is limited to damages Bitwig GmbH causes the User with intent or gross negligence. 
+
+
+6.	Support 
+
+Bitwig is not obliged to provide technical support for Beta Versions under the terms of this EULA.
+
+
+7.	Duration of Use and Term of This EULA 
+
+The beta builds are configured so that they expire after about four to eight weeks, which means that the installers don’t open anymore after that date. The User can find the exact expiration date of his build in the release notes file which gets displayed in his browser after clicking the download link of the installer in his user account. Regardless of that expiration date the Users rights to use the Beta Version will end upon either the initial commercial release of the Final Version by Bitwig GmbH or six months after the last date the User received the Beta Version or any update.
+
+
+IV. 	Indemnification Clause
+
+The User shall release and discharge Bitwig GmbH from all and any claims which are brought against the latter by third parties as a result of their rights being infringed by the music that is produced, played back or rendered audible by any Bitwig Studio software.
+
+
+V.	Data Protection
+
+Bitwig GmbH attaches great importance to compliance with legislation on data protection. It uses the personal data disclosed by the User exclusively for performing its contractual obligations. No data is passed on to third parties. Further information can be obtained from our Privacy Policy at [www.bitwig.com/privacy].
+
+
+VI.	Final Provisions
+
+VI.1.	If any provisions of this EULA are or become ineffective, this shall not affect the validity of the remaining provisions.
+VI.2.	All the agreements by and between the parties pertaining to their contractual relations must be done in writing. This requirement shall also apply to any agreements on written form. Statutory regulations under which a contract has to be publicly recorded by a notary shall remain unaffected.
+VI.3.	The entire legal relationship under this contract shall be exclusively governed by and interpreted in accordance with the laws of Germany with the exclusion of the UN Convention on the International Sale of Goods (CISG) and the German (including EU) conflict of laws provisions. 
+VI.4. 	If the User is a registered trader within the meaning of the Commercial Code, a public corporation or a trust managing public assets, the courts of Berlin shall have exclusive jurisdiction for all and any claims arising from or in connection with the contractual relationship hereunder.
+
+
+
+Bitwig is a registered trademark of Bitwig GmbH, Germany.
+
+
+
+Revision III: February 09, 2015
