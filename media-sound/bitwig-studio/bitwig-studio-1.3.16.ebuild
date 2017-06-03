@@ -82,9 +82,11 @@ src_install() {
 	dosym ${BITWIG_HOME}/bitwig-studio /usr/bin/bitwig-studio
 
 	doicon -s scalable usr/share/icons/hicolor/scalable/apps/bitwig-studio.svg
-	make_desktop_entry ${PN} "Bitwig Studio" "" "" \
-		"MimeType=application/bitwig-project;application/bitwig-template"
-
+	sed -i \
+	-e 's/Icon=.*/Icon=bitwig-studio/' \
+	-e 's/Categories=.*/Categories=AudioVideo;Audio;AudioVideoEditing/' \
+	usr/share/applications/bitwig-studio.desktop || die 'sed on desktop file failed'
+	domenu usr/share/applications/bitwig-studio.desktop
 	doicon -s scalable -c mimetypes usr/share/icons/hicolor/scalable/mimetypes/*.svg
 	insinto /usr/share/mime/packages
 	doins usr/share/mime/packages/bitwig-studio.xml
