@@ -66,7 +66,6 @@ QA_PRESTRIPPED="
 	opt/bitwig-studio/lib/bitwig-studio/libxcb-xkb.so.1
 	opt/bitwig-studio/lib/jre/lib/amd64/libjfxwebkit.so"
 
-
 S=${WORKDIR}
 
 src_install() {
