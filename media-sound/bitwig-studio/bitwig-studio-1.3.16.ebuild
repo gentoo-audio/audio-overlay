@@ -22,6 +22,7 @@ DEPEND=""
 RDEPEND="${DEPEND}
 	app-arch/bzip2
 	dev-libs/expat
+	gnome-extra/zenity
 	jack? ( virtual/jack )
 	media-libs/alsa-lib
 	media-libs/fontconfig
