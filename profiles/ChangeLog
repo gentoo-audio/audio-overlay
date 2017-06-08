@@ -10,3 +10,4 @@
   - Added a ChangeLog
   - Initial proaudio profile target and default import
   - Updated eapi to 5
+  - Dropped the outdated and in portage desktop profile USE flags
