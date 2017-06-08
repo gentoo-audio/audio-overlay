@@ -1,0 +1,12 @@
+# Copyright 1999-2012 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+# Dominique Michel <dominique_libre@sourceforge.net>
+# We don't want anything that install *kit
+app-emulation/wine -udisks
+gnome-base/gvfs -gdu -udisks
+xfce-base/thunar -udev
+xfce-base/xfce4-session -udev
+xfce-extra/xfce4-systemload-plugin -udev
+xfce-extra/xfce4-weather-plugin -udev

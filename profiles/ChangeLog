@@ -7,4 +7,5 @@
 # here. If in doubt put a record here!
 
   8 Jun 2017; Dominique Michel <dominique_libre@users.sourceforge.net>
-  Added a ChangeLog
+  - Added a ChangeLog
+  - Initial proaudio profile import

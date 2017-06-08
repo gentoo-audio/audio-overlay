@@ -1,0 +1,7 @@
+# Copyright 1999-2012 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+# This setting will remove anything that hard depend on *kit including pulseaudio,
+# gnome and a few other desktops.
+USE="alsa -arts audiofile cddb cdparanoia -consolekit dssi ffmpeg fftw fluidsynth jack jackmidi ladspa lame lash libsamplerate lv2 midi mikmod mms mmx modplug musepack osc -policykit raw sndfile sse taglib theora threads timidity -udisks -udisks2 unicode -upower twolame vcd wavpack xft"
