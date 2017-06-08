@@ -9,4 +9,4 @@
   8 Jun 2017; Dominique Michel <dominique_libre@users.sourceforge.net>
   - Added a ChangeLog
   - Initial proaudio profile target and default import
-  
+  - Updated eapi to 5
