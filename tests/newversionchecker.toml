@@ -2,3 +2,4 @@ github_repo = "gentoo-audio/audio-overlay"
 check_interval = 24
 
 [projects]
+drumkv1 = "https://github.com/rncbc/drumkv1"
