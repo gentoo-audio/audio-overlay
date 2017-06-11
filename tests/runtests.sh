@@ -9,4 +9,4 @@ emerge --sync
 emerge -q --buildpkg --usepkg dev-vcs/git app-portage/repoman
 
 # Run the tests
-repoman full --xmlparse
+repoman full -d
