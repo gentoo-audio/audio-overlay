@@ -1,0 +1,23 @@
+#############################################
+# This is a list of valid profiles for each architecture.  This file is used by
+# repoman when doing a repoman scan or repoman full.
+# DO NOT ADD PROFILES WITH A "die" or "exit" IN THEM OR IT KILLS REPOMAN
+#
+#layout:
+#arch		profile_directory				             status
+
+# AMD64 Profiles
+amd64           default/linux/amd64/13.0/desktop/proaudio                    stable
+amd64           default/linux/amd64/13.0/desktop/proaudio/gnome              stable
+amd64           default/linux/amd64/13.0/desktop/proaudio/gnome/systemd      stable
+amd64           default/linux/amd64/13.0/desktop/proaudio/plasma             stable
+amd64           default/linux/amd64/13.0/desktop/proaudio/plasma/systemd     stable
+
+# x86 Profiles
+x86             default/linux/x86/13.0/desktop/proaudio                      stable
+x86             default/linux/x86/13.0/desktop/proaudio/gnome                stable
+x86             default/linux/x86/13.0/desktop/proaudio/gnome/systemd        stable
+x86             default/linux/x86/13.0/desktop/proaudio/plasma               stable
+x86             default/linux/x86/13.0/desktop/proaudio/plasma/systemd       stable
+
+# vim: set ts=8:

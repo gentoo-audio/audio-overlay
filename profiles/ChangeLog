@@ -16,3 +16,6 @@
   - Removed non mandatory USE flags
   - Added desktop/gnome and desktop/plasma with parents to the corresponding
     portage profiles
+
+  14 Jun 2017; Dominique Michel <dominique_libre@users.sourceforge.net>
+  - Add profiles.desc: needed by eselect
