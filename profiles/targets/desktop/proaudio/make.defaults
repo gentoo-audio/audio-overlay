@@ -1,0 +1,2 @@
+# This setting will add pro audio related USE flags
+USE="jack lv2"
