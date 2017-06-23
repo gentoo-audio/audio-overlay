@@ -1,0 +1,21 @@
+diff --git a/setup.py b/setup.py
+index 5093a0a..10b4a30 100755
+--- a/setup.py
++++ b/setup.py
+@@ -46,11 +46,14 @@ def pkgconfig(pkg):
+             library_dirs.append(val)
+ 
+ def boost_lib_name(lib):
++    vmaj = sys.version_info[0]
++    vmin = sys.version_info[1]
++
+     for libdir in ('/usr/lib', '/usr/local/lib', '/usr/lib64', '/usr/local/lib64'):
+         for suffix in ('', '-mt'):
+-            libname = 'lib%s%s.so' % (lib, suffix)
++            libname = 'lib%s-%d.%d%s.so' % (lib, vmaj, vmin, suffix)
+             if os.path.isfile(os.path.join(libdir, libname)):
+-                return lib + suffix
++                return '%s-%d.%d%s' % (lib, vmaj, vmin, suffix)
+     return lib + '-mt'
+ 
+ 
