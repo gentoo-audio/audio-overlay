@@ -10,7 +10,6 @@ inherit eutils python-single-r1 scons-utils toolchain-funcs udev multilib-minima
 DESCRIPTION="Driver for IEEE1394 (Firewire) audio interfaces"
 HOMEPAGE="http://www.ffado.org"
 
-RESTRICT="mirror"
 if [ "${PV}" = "9999" ]; then
 	inherit subversion
 	ESVN_REPO_URI="http://subversion.ffado.org/ffado/trunk/${PN}"
