@@ -4,7 +4,7 @@ branches:
 
 cache:
   directories:
-  - $HOME/.portage
+  - $HOME/.portage-pkgdir
 
 matrix:
   include:
@@ -15,7 +15,7 @@ matrix:
       sudo: required
       script:
         - 'if [ "${TRAVIS_EVENT_TYPE}" != "cron" ]; then
-          docker run --rm -ti -v "${HOME}"/.portage:/usr/portage -v "${PWD}":/usr/local/portage -w /usr/local/portage gentoo/stage3-amd64:latest /usr/local/portage/tests/repoman.sh; fi'
+          docker run --rm -ti -v "${HOME}"/.portage-pkgdir:/usr/portage/packages -v "${PWD}":/usr/local/portage -w /usr/local/portage gentoo/stage3-amd64:latest /usr/local/portage/tests/repoman.sh; fi'
     - os: linux
       env: BUILD_TYPE=emerge # marker environment variable to make the build matrix more readable in the UI
       services: docker
@@ -23,7 +23,7 @@ matrix:
       sudo: required
       script:
         - 'if [ "${TRAVIS_EVENT_TYPE}" != "cron" ] && [ "${TRAVIS_PULL_REQUEST}" != "false" ] ; then
-          docker run --rm -ti -v "${HOME}"/.portage:/usr/portage -v "${PWD}":/usr/local/portage -w /usr/local/portage -e BASE_BRANCH="${TRAVIS_BRANCH}" gentoo/stage3-amd64:latest /usr/local/portage/tests/emerge.sh; fi'
+          docker run --rm -ti -v "${HOME}"/.portage-pkgdir:/usr/portage/packages -v "${PWD}":/usr/local/portage -w /usr/local/portage -e BASE_BRANCH="${TRAVIS_BRANCH}" gentoo/stage3-amd64:latest /usr/local/portage/tests/emerge.sh; fi'
 
 script:
   - 'if [ "${TRAVIS_EVENT_TYPE}" == "cron" ]; then
