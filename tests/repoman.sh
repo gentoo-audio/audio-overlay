@@ -1,6 +1,6 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 # "Unit" test if overlay and ebuilds have basic issues
-set -x
+set -ex
 
 # Disable news messages from portage and disable rsync's output
 export FEATURES="-news" PORTAGE_RSYNC_EXTRA_OPTS="-q"
