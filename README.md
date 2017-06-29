@@ -29,8 +29,14 @@ If you run into problems please [create an issue](https://github.com/gentoo-audi
 - GitHub's [branch protection](https://help.github.com/articles/about-protected-branches/) is enabled for the `master` branch
 - Changes can only be done using [pull requests](https://help.github.com/articles/about-pull-requests/) and need at least one approval
 - Pull requests can only be merged if they pass the automated tests, which are run by [Travis CI](https://travis-ci.org/gentoo-audio/audio-overlay)
-- [Travis CI](https://travis-ci.org/gentoo-audio/audio-overlay) also runs daily checks if a new version of one of the packages in this overlay is released. If so, an issue requesting a version bump will be created
+- [Travis CI](https://travis-ci.org/gentoo-audio/audio-overlay) also runs daily checks if a new version of one of the packages in this overlay is released.
+If so, an issue requesting a version bump will be created
 
 ### Automated tests
 The following tests are run for every pull request:
 - [`repoman full`](https://wiki.gentoo.org/wiki/Repoman): Validate if the ebuilds, overlay and metadata are correct
+- Emerge of new or changed ebuilds: Validate if the ebuild builds and installs correctly
+
+#### Emerge test configuration
+To enable configuring packages for the `emerge` test a `.conf` file matching the package is sourced before the package is emerged. These `.conf` files should be placed in the `tests/packages` directory using the same package category structure as the overlay itself.
+For example to configure the package `media-sound/somesynth-1.2.3` the `.conf` file should be called `tests/packages/media-sound/somesynth-1.2.3.conf`.
