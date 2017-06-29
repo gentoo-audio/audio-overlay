@@ -2,9 +2,10 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer type="project">
-    <email>webmaster@gentoostudio.org</email>
+        <name>Gentoo Studio</name>
+        <email>webmaster@gentoostudio.org</email>
   </maintainer>
   <longdescription>
-	Distrho is an open source project for cross-platform audio plugins.
+        Distrho is an open source project for cross-platform audio plugins.
   </longdescription>
 </pkgmetadata>
