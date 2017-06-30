@@ -3,3 +3,4 @@ check_interval = 24
 
 [projects]
 drumkv1 = "https://github.com/rncbc/drumkv1"
+samplv1 = "https://github.com/rncbc/samplv1"
