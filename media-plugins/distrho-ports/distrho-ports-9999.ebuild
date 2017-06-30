@@ -14,8 +14,10 @@ EGIT_REPO_URI="https://github.com/DISTRHO/DISTRHO-Ports.git"
 LICENSE="GPL-2"
 SLOT="0"
 
-RDEPEND="media-libs/alsa-lib
-        virtual/jack"
+IUSE="+alsa +jack"
+
+RDEPEND="alsa? ( media-libs/alsa-lib )
+        jack? ( virtual/jack )"
 DEPEND="${RDEPEND}
 	media-libs/ladspa-sdk
         media-libs/freetype
