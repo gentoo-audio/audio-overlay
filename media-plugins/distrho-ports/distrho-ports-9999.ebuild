@@ -17,6 +17,7 @@ SLOT="0"
 RDEPEND="media-libs/alsa-lib
         virtual/jack"
 DEPEND="${RDEPEND}
+	media-libs/ladspa-sdk
         media-libs/freetype
         dev-util/premake:3"
 
