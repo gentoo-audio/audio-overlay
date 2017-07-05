@@ -21,7 +21,8 @@ RDEPEND="alsa? ( media-libs/alsa-lib )
 DEPEND="${RDEPEND}
 	media-libs/ladspa-sdk
         media-libs/freetype
-        dev-util/premake:3"
+        dev-util/premake:3
+	x11-libs/libx11"
 
 src_prepare() {
         default
