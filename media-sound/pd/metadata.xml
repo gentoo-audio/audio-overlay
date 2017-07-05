@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="project">
+	<email>webmaster@gentoostudio.org</email>
+	<name>Gentoo Studio</name>
+  </maintainer>
+	<longdescription>
+Pure Data (or just "Pd") is an open-source visual programming language for multimedia.
+	</longdescription>
+</pkgmetadata>
