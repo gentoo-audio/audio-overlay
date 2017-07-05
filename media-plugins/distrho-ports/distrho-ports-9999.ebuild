@@ -26,6 +26,8 @@ DEPEND="${RDEPEND}
 	x11-libs/libXext
 	x11-libs/libXcursor"
 
+S="${WORKDIR}"
+
 src_prepare() {
         default
         scripts/premake-update.sh linux
