@@ -18,6 +18,13 @@ export FEATURES="-news" PORTAGE_RSYNC_EXTRA_OPTS="-q"
 # Update the portage tree
 emerge --sync
 
+# Set portage's distdir to /tmp/distfiles
+# This is a workaround for a bug in portage/git-r3 where git-r3 can't
+# create the distfiles/git-r3 directory when no other distfiles have been
+# downloaded by portage first, which happens when using binary packages
+# https://bugs.gentoo.org/481434
+export DISTDIR="/tmp/distfiles"
+
 # Setup overlay
 mkdir -p /etc/portage/repos.conf
 cat > /etc/portage/repos.conf/localrepo.conf <<EOF
