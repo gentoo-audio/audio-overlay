@@ -22,7 +22,8 @@ DEPEND="${RDEPEND}
 	media-libs/ladspa-sdk
         media-libs/freetype
         dev-util/premake:3
-	x11-libs/libX11"
+	x11-libs/libX11
+	x11-libs/libXext"
 
 src_prepare() {
         default
