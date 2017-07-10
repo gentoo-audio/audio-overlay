@@ -17,14 +17,14 @@ SLOT="0"
 IUSE="+alsa +jack"
 
 RDEPEND="alsa? ( media-libs/alsa-lib )
-        jack? ( virtual/jack )"
-DEPEND="${RDEPEND}
-	media-libs/ladspa-sdk
-        media-libs/freetype
-        dev-util/premake:3
+        jack? ( virtual/jack )
 	x11-libs/libX11
 	x11-libs/libXext
 	x11-libs/libXcursor"
+DEPEND="${RDEPEND}
+	media-libs/ladspa-sdk
+        media-libs/freetype
+        dev-util/premake:3"
 
 S="${WORKDIR}"
 
