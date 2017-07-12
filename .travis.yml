@@ -24,7 +24,11 @@ matrix:
       script:
         - 'if [ "${TRAVIS_EVENT_TYPE}" != "cron" ] && [ "${TRAVIS_PULL_REQUEST}" != "false" ] ; then
           ./tests/emerge_new_or_changed_ebuilds.sh; fi'
-
-script:
-  - 'if [ "${TRAVIS_EVENT_TYPE}" == "cron" ]; then
-    docker run --rm -ti -v "${PWD}/tests/newversionchecker.toml":/app/newversionchecker.toml -e GITHUB_API_TOKEN simonvanderveldt/newversionchecker; fi'
+    - os: linux
+      env: BUILD_TYPE=newversioncheck # marker environment variable to make the build matrix more readable in the UI
+      services: docker
+      language: generic
+      sudo: required
+      script:
+        - 'if [ "${TRAVIS_EVENT_TYPE}" == "cron" ]; then
+          docker run --rm -ti -v "${PWD}/tests/newversionchecker.toml":/app/newversionchecker.toml -e GITHUB_API_TOKEN simonvanderveldt/newversionchecker; fi'
