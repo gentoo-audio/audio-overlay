@@ -9,7 +9,6 @@ cache:
 matrix:
   include:
     - os: linux
-      env: BUILD_TYPE=repoman # marker environment variable to make the build matrix more readable in the UI
       services: docker
       language: generic
       sudo: required
@@ -17,7 +16,6 @@ matrix:
         - 'if [ "${TRAVIS_EVENT_TYPE}" != "cron" ]; then
           docker run --rm -ti -v "${HOME}"/.portage-pkgdir:/usr/portage/packages -v "${PWD}":/usr/local/portage -w /usr/local/portage gentoo/stage3-amd64:latest /usr/local/portage/tests/repoman.sh; fi'
     - os: linux
-      env: BUILD_TYPE=emerge-changed # marker environment variable to make the build matrix more readable in the UI
       services: docker
       language: generic
       sudo: required
@@ -33,7 +31,6 @@ matrix:
         - 'if [ "${TRAVIS_EVENT_TYPE}" == "cron" ]; then
           docker run --rm -ti -v "${PWD}/tests/newversionchecker.toml":/app/newversionchecker.toml -e GITHUB_API_TOKEN simonvanderveldt/newversionchecker; fi'
     - os: linux
-      env: BUILD_TYPE=emerge-random # marker environment variable to make the build matrix more readable in the UI
       services: docker
       language: generic
       sudo: required
