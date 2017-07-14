@@ -42,11 +42,14 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-src_configure() {
+src_prepare() {
 	if [[ ${PV} == *9999 ]]; then
 		eautoreconf
 	fi
+	default
+}
 
+src_configure() {
 	# Disable stripping
 	echo "QMAKE_STRIP=" >> src/src_core.pri.in
 	echo "QMAKE_STRIP=" >> src/src_jack.pri.in
