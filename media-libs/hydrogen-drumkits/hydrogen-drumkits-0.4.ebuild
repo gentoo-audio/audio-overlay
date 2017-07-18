@@ -31,12 +31,11 @@ SRC_URI="mirror://sourceforge/hydrogen/ForzeeStereo.h2drumkit
 	 mirror://sourceforge/hydrogen/BJA_Pacific.h2drumkit"
 RESTRICT="mirror"
 
-LICENSE="as-is"
+LICENSE="GPL-2 ZLIB"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
 IUSE=""
-RDEPEND="media-sound/hydrogen"
 
 S="${WORKDIR}"
 
