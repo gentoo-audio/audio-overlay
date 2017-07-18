@@ -26,8 +26,6 @@ DEPEND="${RDEPEND}
         media-libs/freetype
         dev-util/premake:3"
 
-S="${WORKDIR}"
-
 src_prepare() {
         default
         scripts/premake-update.sh linux
