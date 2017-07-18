@@ -1,0 +1,23 @@
+# ChangeLog for media-libs/hydrogen-drumkits
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*hydrogen-drumkits-0.4 (07 May 2011)
+
+  07 May 2011; Frieder Buerzele <evermind@tuxfamily.org>,
+  +hydrogen-drumkits-0.4.ebuild:
+  added circAfrique.h2drumkit 
+
+*hydrogen-drumkits-0.3 (26 Feb 2010)
+
+  26 Feb 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  -hydrogen-drumkits-0.2.ebuild, +hydrogen-drumkits-0.3.ebuild:
+  added BJA_Pacific.h2drumkit
+
+  27 Jan 2009; Thomas Kuther <gimpel@sonnenkinder.org>
+  +hydrogen-drumkits-0.2.ebuild:
+  bump
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

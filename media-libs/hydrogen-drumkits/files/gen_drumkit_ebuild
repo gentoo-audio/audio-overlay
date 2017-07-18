@@ -1,0 +1,11 @@
+#!/bin/bash
+fetch_urls(){
+	wget -c http://www.hydrogen-music.org/?p=drumkits -O -|egrep -i '.zip|h2drumkit|tar'|egrep -o 'http://.*"'|sed -e 's@?download"@@g'|sed -e 's@"@@g'|sed -e 's@http://prdownloads.sourceforge.net@mirror://sourceforge@g'
+}
+fetch_urls
+#echo ${lol[@]}
+#exit
+
+#sed  -e '/\(SRC_URI="\)/,/LICENSE/d' hydrogen-drumkits-0.1.ebuild |sed -e'/HOMEPAGE=/'a"SRC_URI=\"`fetch_urls`\nLICENSE=\"as-is\""
+
+
