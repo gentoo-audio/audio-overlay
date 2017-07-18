@@ -23,7 +23,7 @@ HOMEPAGE="http://www.hydrogen-music.org"
 
 LICENSE="GPL-2 ZLIB"
 SLOT="0"
-IUSE="+alsa +archive debug doc +jack jack-session ladspa lash oss portaudio portmidi -pulseaudio rubberband static"
+IUSE="+alsa +archive debug doc +extra +jack jack-session ladspa lash oss portaudio portmidi -pulseaudio rubberband static"
 REQUIRED_USE="lash? ( alsa )"
 
 RDEPEND="archive? ( app-arch/libarchive )
@@ -39,7 +39,7 @@ RDEPEND="archive? ( app-arch/libarchive )
 	portmidi? ( media-libs/portmidi )
 	pulseaudio? ( media-sound/pulseaudio )
 	rubberband? ( media-libs/rubberband )
-	media-libs/hydrogen-drumkits"
+	extra? ( media-libs/hydrogen-drumkits )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	doc? ( app-doc/doxygen )"
