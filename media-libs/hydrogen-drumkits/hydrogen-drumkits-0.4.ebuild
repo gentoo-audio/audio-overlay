@@ -2,7 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-DESCRIPTION="free drumkits for hydrogen"
+EAPI=6
+
+DESCRIPTION="Free drumkits for Hydrogen"
 HOMEPAGE="http://www.hydrogen-music.org"
 SRC_URI="mirror://sourceforge/hydrogen/ForzeeStereo.h2drumkit
 	mirror://sourceforge/hydrogen/3355606kit.h2drumkit
