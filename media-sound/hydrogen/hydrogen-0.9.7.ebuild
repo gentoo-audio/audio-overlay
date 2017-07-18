@@ -42,6 +42,7 @@ RDEPEND="archive? ( app-arch/libarchive )
 	extra? ( media-libs/hydrogen-drumkits )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
+	media-libs/raptor
 	doc? ( app-doc/doxygen )"
 
 DOCS=( AUTHORS ChangeLog DEVELOPERS README.txt )
