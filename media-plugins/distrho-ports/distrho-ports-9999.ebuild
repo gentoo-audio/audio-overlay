@@ -32,3 +32,8 @@ src_prepare() {
         default
         scripts/premake-update.sh linux
 }
+
+src_install() {
+	default
+	rm -rf "${ED}"/usr/src/distrho
+}
