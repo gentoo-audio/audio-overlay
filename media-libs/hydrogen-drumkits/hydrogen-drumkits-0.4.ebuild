@@ -8,7 +8,7 @@ DESCRIPTION="Free drumkits for Hydrogen"
 HOMEPAGE="http://www.hydrogen-music.org"
 SRC_URI="http://gentoostudio.org/src/hydrogen-drumkits/ForzeeStereo.h2drumkit
 	http://gentoostudio.org/src/hydrogen-drumkits/Boss_DR-110.h2drumkit
-	http://gentoostudio.org/src/hydrogen-drumkits/circAfrique%20v4.h2drumkit
+	http://gentoostudio.org/src/hydrogen-drumkits/circAfriquev4.h2drumkit
 	http://gentoostudio.org/src/hydrogen-drumkits/BJA_Pacific.h2drumkit
 	http://gentoostudio.org/src/hydrogen-drumkits/DeathMetal.h2drumkit
 	http://gentoostudio.org/src/hydrogen-drumkits/Millo_MultiLayered3.h2drumkit
