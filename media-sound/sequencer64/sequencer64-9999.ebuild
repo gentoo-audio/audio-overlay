@@ -29,10 +29,6 @@ RDEPEND="dev-cpp/gtkmm:2.4
 
 DEPEND="${RDEPEND}"
 
-PATCHES=(
-	"${FILESDIR}/${PN}-fix-ladish-client.patch"
-)
-
 src_prepare()
 {
 	default
