@@ -23,7 +23,7 @@ RDEPEND="${DEPEND}
 	app-arch/bzip2
 	dev-libs/expat
 	gnome-extra/zenity
-	jack? ( virtual/jack )
+	jack? ( media-sound/jack2 )
 	media-libs/alsa-lib
 	media-libs/fontconfig
 	media-libs/freetype
