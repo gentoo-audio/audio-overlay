@@ -2,6 +2,7 @@ github_repo = "gentoo-audio/audio-overlay"
 check_interval = 24
 
 [projects]
+artyfx = "https://github.com/openAVproductions/openAV-ArtyFX"
 drumkv1 = "https://github.com/rncbc/drumkv1"
 ladish = "https://github.com/LADI/ladish"
 mididings = "https://github.com/dsacre/mididings"
