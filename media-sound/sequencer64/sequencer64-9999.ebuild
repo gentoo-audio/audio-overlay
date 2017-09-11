@@ -25,7 +25,7 @@ RDEPEND="dev-cpp/gtkmm:2.4
 	media-libs/libpng:=
 	media-libs/alsa-lib
 	jack? ( virtual/jack )
-	lash? ( || ( media-sound/lash media-sound/ladish[lash] ) )"
+	lash? ( virtual/lash )"
 
 DEPEND="${RDEPEND}"
 

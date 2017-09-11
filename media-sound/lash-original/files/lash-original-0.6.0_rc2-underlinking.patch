@@ -1,0 +1,24 @@
+# Author: Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+# This patch fixes underlinking issues.
+
+diff -ur lash-0.6.0.594.orig/clients/synth/Makefile.am lash-0.6.0.594/clients/synth/Makefile.am
+--- lash-0.6.0.594.orig/clients/synth/Makefile.am	2015-03-19 23:22:45.961307671 +0100
++++ lash-0.6.0.594/clients/synth/Makefile.am	2015-04-03 09:33:12.024989681 +0200
+@@ -19,4 +19,4 @@
+ 	$(JACK_LIBS) \
+ 	$(ALSA_LIBS) \
+ 	$(GTK2_LIBS) \
+-	-lpthread
++	-lm -lpthread
+diff -ur lash-0.6.0.594.orig/lashd/Makefile.am lash-0.6.0.594/lashd/Makefile.am
+--- lash-0.6.0.594.orig/lashd/Makefile.am	2015-03-19 23:22:45.959307671 +0100
++++ lash-0.6.0.594/lashd/Makefile.am	2015-04-03 09:32:12.345988383 +0200
+@@ -46,7 +46,7 @@
+ 	$(UUID_LIBS) \
+ 	$(DBUS_LIBS) \
+ 	$(top_builddir)/dbus/liblashdbus.a \
+-	-lstdc++ -lutil
++	-ldl -lstdc++ -lutil
+ 
+ AM_CFLAGS = \
+ 	$(LASH_CFLAGS) \

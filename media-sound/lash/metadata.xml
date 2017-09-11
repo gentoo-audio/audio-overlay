@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>simon.vandervelt+audio-overlay@gmail.com</email>
+		<name>Simon van der Velt</name>
+	</maintainer>
+	<use>
+		<flag name="ladish">Pull in <pkg>media-sound/ladish</pkg></flag>
+	</use>
+</pkgmetadata>
