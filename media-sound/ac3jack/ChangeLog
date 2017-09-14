@@ -1,0 +1,37 @@
+# ChangeLog for media-sound/ac3jack
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*ac3jack-2.0.3-r1 (15 Dec 2013)
+
+  15 Dec 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  ac3jack-2.0.3.ebuild, +ac3jack-2.0.3-r1.ebuild,
+  files/ac3jack-2.0.3-compile-fix.patch, metadata.xml:
+  Bump to EAPI 5.
+  Version 2.0.3 is not allowed to have any keywords until a non-live 
+  ebuild of media-libs/aften exists.
+  Update patch. Thanks to Zlobin Nikita for the new patch.
+  Order dependencies alphabetically.
+  Change desktop the name of the desktop entry to AC3Jack instead of 
+  ac3jack.
+  The compilation fails without -lboost_system so append it. 
+  Remove no-herd from metadata.xml.
+
+  29 Jul 2012; Dominique Mochel <dominique@tuxfamily.org>
+  ac3jack-2.0.3.ebuild: + installation of a menu desktop file
+
+  06 Apr 2010; Viktor Lazarev <taurus101v@gmail.com>
+  files/ac3jack-2.0.3-compile-fix.patch:
+  Changed patch, see bgo #238324
+
+*ac3jack-2.0.3 (30 Mar 2010)
+
+  30 Mar 2010; Viktor Lazarev <taurus101v@gmail.com> +ac3jack-2.0.3.ebuild:
+  version bump
+
+  28 Mar 2010; Stephane Angot <sa@hydre.org> ac3jack-0.1.2.ebuild:
+  Fix LICENCE to GPL-2
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

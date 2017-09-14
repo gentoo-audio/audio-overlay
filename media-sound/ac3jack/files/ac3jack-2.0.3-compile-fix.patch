@@ -1,0 +1,52 @@
+--- old/src/alsa_spdif_writer.cpp	2008-11-09 05:52:25.000000000 +0500
++++ new/src/alsa_spdif_writer.cpp	2013-11-23 18:57:52.991015659 +0600
+@@ -401,7 +401,7 @@
+ 	xtime sleeptime;
+ 
+         while (_buffer->read_space() == 0 && _active) {
+-                xtime_get(&sleeptime, TIME_UTC);
++                xtime_get(&sleeptime, TIME_UTC_);
+                 sleeptime.nsec += 100000000;
+                 if (sleeptime.nsec >= 1000000000) {
+                         sleeptime.sec += 1;
+--- old/src/file_writer.cpp	2008-11-09 05:52:37.000000000 +0500
++++ new/src/file_writer.cpp	2013-11-23 18:57:08.671012379 +0600
+@@ -165,7 +165,7 @@
+ 	xtime sleeptime;
+ 
+         while (_buffer->read_space() == 0 && _active) {
+-                xtime_get(&sleeptime, TIME_UTC);
++                xtime_get(&sleeptime, TIME_UTC_);
+                 sleeptime.nsec += 100000000;
+                 if (sleeptime.nsec >= 1000000000) {
+                         sleeptime.sec += 1;
+--- old/src/jack_audio_driver.cpp	2008-11-09 09:19:53.000000000 +0500
++++ new/src/jack_audio_driver.cpp	2013-11-23 18:59:48.923024240 +0600
+@@ -20,6 +20,7 @@
+ #include <string>
+ #include <iostream>
+ #include <cstdlib>
++#include <cstdio>
+ 
+ #include <jack/jack.h>
+ 
+--- old/src/ringbuffer.hpp	2007-08-12 18:41:53.000000000 +0600
++++ new/src/ringbuffer.hpp	2013-11-23 19:01:02.827993238 +0600
+@@ -23,6 +23,7 @@
+ 
+ #include <sys/mman.h>
+ #include "atomic.h"
++#include <cstring>
+ 
+ template<class T>
+ class RingBuffer 
+--- old/src/control_osc.cpp	2009-12-22 13:03:37.723470941 +0100
++++ new/src/control_osc.cpp	2009-12-22 13:03:02.986366348 +0100
+@@ -34,6 +34,7 @@
+ 
+ #include <lo/lo.h>
+ #include <sigc++/sigc++.h>
++#include <cstring>
+ using namespace SigC;
+ 
+ using namespace AC3JACK;
