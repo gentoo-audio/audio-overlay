@@ -7,6 +7,6 @@
   </maintainer>
   <use>
     <flag name="plugins">Enables examples plugins.</flag>
-	<flag name="covereage">Enable code coverage support</flag>
+	<flag name="coverage">Enable code coverage support</flag>
   </use>
 </pkgmetadata>
