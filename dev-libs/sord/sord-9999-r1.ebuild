@@ -19,7 +19,8 @@ IUSE="coverage debug doc static static-libs test +utils"
 
 # libpcre is automagic dependency
 RDEPEND=">=dev-libs/serd-9999
-	dev-libs/libpcre"
+	dev-libs/libpcre
+	!!media-sound/drobilla"
 DEPEND="${RDEPEND}
 	${PYTHON_DEPS}
 	virtual/pkgconfig

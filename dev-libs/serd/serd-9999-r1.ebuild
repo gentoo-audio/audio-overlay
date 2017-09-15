@@ -17,7 +17,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE="coverage debug doc sanity-check static static-libs test +utils"
 
-RDEPEND=""
+RDEPEND="!!media-sound/drobilla"
 DEPEND="${RDEPEND}
 	${PYTHON_DEPS}
 	doc? ( app-doc/doxygen )"
