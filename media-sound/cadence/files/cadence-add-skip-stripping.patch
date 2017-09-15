@@ -1,0 +1,80 @@
+From 5ce075b3a15482917aab6f6ac19c71ea52e53975 Mon Sep 17 00:00:00 2001
+From: Simon van der Veldt <simon.vanderveldt@gmail.com>
+Date: Sat, 3 Jun 2017 13:27:04 +0200
+Subject: [PATCH] Add SKIP_STRIPPING option to Makefiles to allow disabling
+ stripping of binaries
+
+---
+ c++/Makefile.mk           | 6 ++++--
+ c++/jackmeter/Makefile    | 4 ++--
+ c++/xycontroller/Makefile | 4 ++--
+ 3 files changed, 8 insertions(+), 6 deletions(-)
+
+diff --git a/c++/Makefile.mk b/c++/Makefile.mk
+index cc733ff..f8433a6 100644
+--- a/c++/Makefile.mk
++++ b/c++/Makefile.mk
+@@ -10,7 +10,6 @@ CXX ?= g++
+ MOC ?= $(shell pkg-config --variable=moc_location QtCore)
+ RCC ?= $(shell pkg-config --variable=rcc_location QtCore)
+ UIC ?= $(shell pkg-config --variable=uic_location QtCore)
+-STRIP ?= strip
+ WINDRES ?= windres
+ 
+ # --------------------------------------------------------------
+@@ -20,7 +19,6 @@ DEBUG ?= false
+ ifeq ($(DEBUG),true)
+ BASE_FLAGS  = -O0 -g -Wall -Wextra
+ BASE_FLAGS += -DDEBUG
+-STRIP       = true # FIXME
+ else
+ BASE_FLAGS  = -O2 -ffast-math -mtune=generic -msse -mfpmath=sse -Wall -Wextra
+ BASE_FLAGS += -DNDEBUG
+@@ -34,6 +32,10 @@ ifneq ($(DEBUG),true)
+ BUILD_CXX_FLAGS += -DQT_NO_DEBUG -DQT_NO_DEBUG_STREAM -DQT_NO_DEBUG_OUTPUT
+ endif
+ 
++ifneq ($(SKIP_STRIPPING),true)
++LINK_FLAGS += -Wl,--strip-all
++endif
++
+ # --------------------------------------------------------------
+ 
+ # Currently broken
+diff --git a/c++/jackmeter/Makefile b/c++/jackmeter/Makefile
+index ede9178..a6ec57d 100644
+--- a/c++/jackmeter/Makefile
++++ b/c++/jackmeter/Makefile
+@@ -31,10 +31,10 @@ OBJS = \
+ all: cadence-jackmeter
+ 
+ cadence-jackmeter: $(FILES) $(OBJS)
+-	$(CXX) $(OBJS) $(LINK_FLAGS) -ldl -o $@ && $(STRIP) $@
++	$(CXX) $(OBJS) $(LINK_FLAGS) -ldl -o $@
+ 
+ cadence-jackmeter.exe: $(FILES) $(OBJS) icon.o
+-	$(CXX) $(OBJS) icon.o $(LINK_FLAGS) -limm32 -lole32 -luuid -lwinspool -lws2_32 -mwindows -o $@ && $(STRIP) $@
++	$(CXX) $(OBJS) icon.o $(LINK_FLAGS) -limm32 -lole32 -luuid -lwinspool -lws2_32 -mwindows -o $@
+ 
+ # --------------------------------------------------------------
+ 
+diff --git a/c++/xycontroller/Makefile b/c++/xycontroller/Makefile
+index af57a05..7ba35e6 100644
+--- a/c++/xycontroller/Makefile
++++ b/c++/xycontroller/Makefile
+@@ -35,10 +35,10 @@ OBJS  = xycontroller.o \
+ all: cadence-xycontroller
+ 
+ cadence-xycontroller: $(FILES) $(OBJS)
+-	$(CXX) $(OBJS) $(LINK_FLAGS) -ldl -o $@ && $(STRIP) $@
++	$(CXX) $(OBJS) $(LINK_FLAGS) -ldl -o $@
+ 
+ cadence-xycontroller.exe: $(FILES) $(OBJS) icon.o
+-	$(CXX) $(OBJS) icon.o $(LINK_FLAGS) -limm32 -lole32 -luuid -lwinspool -lws2_32 -mwindows -o $@ && $(STRIP) $@
++	$(CXX) $(OBJS) icon.o $(LINK_FLAGS) -limm32 -lole32 -luuid -lwinspool -lws2_32 -mwindows -o $@
+ 
+ # --------------------------------------------------------------
+ 
+-- 
+2.13.0
+
