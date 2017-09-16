@@ -27,7 +27,7 @@ IUSE="+a2jmidid +capture pulseaudio +ladish"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="${PYTHON_DEPS}
-   || ( >=media-sound/jack-audio-connection-kit-1[dbus]
+   || ( media-sound/jack-audio-connection-kit[dbus]
    		media-sound/jack2[dbus] )
    dev-python/PyQt4[examples,${PYTHON_USEDEP}]
    dev-python/dbus-python[${PYTHON_USEDEP}]"

@@ -21,7 +21,7 @@ REQUIRED_USE="session? ( !jack-dbus )"
 RDEPEND=">=dev-cpp/glibmm-2.14:2=
 	>=dev-cpp/gtkmm-2.12:2.4=
 	>=media-libs/ganv-9999[light-theme=]
-	jack-dbus? ( || ( >=media-sound/jack-audio-connection-kit-0.120.0[dbus] 
+	jack-dbus? ( || ( >=media-sound/jack-audio-connection-kit-0.120[dbus] 
 	                  media-sound/jack2[dbus] )
 		dev-libs/dbus-glib
         sys-apps/dbus )
