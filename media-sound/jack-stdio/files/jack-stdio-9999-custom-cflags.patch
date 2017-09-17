@@ -1,0 +1,26 @@
+From 0228076a6a20a5119ec6bb527943db84a42f462f Mon Sep 17 00:00:00 2001
+From: Nikita Zlobin <nick87720z@gmail.com>
+Date: Mon, 16 May 2016 18:05:16 +0500
+Subject: [PATCH] custom cflags
+
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index d3f738d..4a73c57 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,8 @@
+ # override e.g. `make install PREFIX=/usr`
+ PREFIX ?= /usr/local
+ 
+-CFLAGS=-Wall `pkg-config --cflags jack` -O3
++CFLAGS ?= -O3
++CFLAGS += -Wall `pkg-config --cflags jack`
+ LIBS=`pkg-config --libs jack` -lpthread -lm
+ #compat w/ NetBSD and GNU Make
+ LDADD=${LIBS}
+--
+libgit2 0.23.4
+

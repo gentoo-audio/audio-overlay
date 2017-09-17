@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>simon.vanderveldt+audio-overlay@gmail.com</email>
-		<name>Simon van der Veldt</name>
-	</maintainer>
+  <maintainer>
+	<email>proaudio@tuxfamily.org</email>
+	<name>pro-audio overlay team</name>
+  </maintainer>
+  <longdescription>
+LADI Session Handler or simply ladish is a session management system for JACK applications. Its aim is to allow you to have many different audio programs running at once, to save their setup, close them down and then easily reload the setup at some other time.
+  </longdescription>
 </pkgmetadata>
