@@ -14,7 +14,7 @@ EGIT_REPO_URI="https://github.com/drobilla/lv2.git"
 
 LICENSE="ISC"
 SLOT="0"
-KEYWORDS="amd64 ~mips ppc ppc64 x86"
+KEYWORDS=""
 IUSE="coverage debug doc plugins test"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
