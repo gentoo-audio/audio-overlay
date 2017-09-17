@@ -24,21 +24,22 @@ RDEPEND=">=dev-libs/serd-9999
 DEPEND="${RDEPEND}
 	${PYTHON_DEPS}
 	virtual/pkgconfig
-    doc? ( app-doc/doxygen )"
+	doc? ( app-doc/doxygen )"
 
 DOCS=( AUTHORS NEWS README )
 
 src_configure() {
-	waf-utils_src_configure \
-		--docdir=/usr/share/doc/${PF} \
-		$(usex test   '--test --verbose-tests' '') \
-		$(usex doc         --docs '') \
-        $(usex static-libs --static '') \
-		$(usex static    --static-progs '') \
-		$(usex coverage '' --no-coverage) \
-		$(usex debug   '--debug --dump=all' '') \
-		$(usex utils    '' --no-utils)
-
+	conf_args=(
+		--docdir=/usr/share/doc/${PF}
+		$(usex test        '--test --verbose-tests' '')
+		$(usex doc         '--docs'                 '')
+		$(usex static-libs '--static'               '')
+		$(usex static      '--static-progs'         '')
+		$(usex coverage    ''          '--no-coverage')
+		$(usex debug       '--debug --dump=all'     '')
+		$(usex utils       '' '--no-utils')
+	)
+	waf-utils_src_configure ${conf_args[@]}
 }
 
 src_test() {

@@ -9,7 +9,7 @@
 		<flag name="midi">Adds support for MIDI</flag>
 		<flag name="osd">Freetype On-Screen.Display support</flag>
 		<flag name="osdfont">Embed OSD font into executable</flag>
-		<flag name="portmidi">Adds support for MIDI through <pkg>media-libs/portmidi</pkg></flag>
+		<flag name="portmidi">Adds support for MIDI through <pkg>media-libs/portmidi</pkg> (not recommended, try alsa or jack midi instead)</flag>
 		<flag name="tools">Install contrib tools</flag>
 		<flag name="ipc">Enable synchronization via IPC</flag>
 		<flag name="posixmq">Enable synchronization via Posix Messagee Queue</flag>

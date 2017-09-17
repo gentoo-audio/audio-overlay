@@ -3,7 +3,7 @@
 
 EAPI="6"
 
-inherit versionator autotools flag-o-matic
+inherit versionator autotools flag-o-matic linux-info
 
 MY_P="${PN}-$(replace_version_separator "3" ".")"
 
@@ -56,25 +56,27 @@ src_prepare() {
 
 src_configure() {
 	eautoreconf
-	econf \
-		--enable-imlib2=$(usex imlib) \
-		--enable-alsamidi=$(usex alsa) \
-		--enable-portmidi=$(usex portmidi) \
-		--enable-midi=$(usex midi) \
-		--enable-osc=$(usex osc) \
-		--enable-ft=$(usex osd) \
-		--enable-qtgui=$(usex qt4) \
-		--enable-sdl=$(usex sdl) \
-		--enable-contrib=$(usex tools) \
-		--enable-xv=$(usex xv) \
-		--enable-opengl=$(usex opengl) \
-		--enable-jacksession=$(usex jacksession) \
-		--enable-embed-font=$(usex osdfont) \
-		--enable-ltc=$(usex ltc) \
-		--enable-ipc=$(usex ipc) \
-		--enable-mq=$(usex posixmq) \
-		--enable-timescale=$(usex timescale) \
+	conf_args=(
+		--enable-imlib2=$(usex imlib)
+		--enable-alsamidi=$(usex alsa)
+		--enable-portmidi=$(usex portmidi)
+		--enable-midi=$(usex midi)
+		--enable-osc=$(usex osc)
+		--enable-ft=$(usex osd)
+		--enable-qtgui=$(usex qt4)
+		--enable-sdl=$(usex sdl)
+		--enable-contrib=$(usex tools)
+		--enable-xv=$(usex xv)
+		--enable-opengl=$(usex opengl)
+		--enable-jacksession=$(usex jacksession)
+		--enable-embed-font=$(usex osdfont)
+		--enable-ltc=$(usex ltc)
+		--enable-ipc=$(usex ipc)
+		--enable-mq=$(usex posixmq)
+		--enable-timescale=$(usex timescale)
 		--enable-framecrop=$(usex framecrop)
+	)
+	econf ${conf_args[@]}
 }
 
 src_install() {
@@ -88,10 +90,9 @@ src_install() {
 }
 
 pkg_postinst() {
-    use qt4 && {
-        ewarn "qjadeo is deprecated an not intended to be used."
-        ewarn "It will be removed in future releases."
-        ewarn "Xjadeo now features a complete built-in user interface."
-    }
+	use qt4 && {
+		ewarn "qjadeo is deprecated an not intended to be used."
+		ewarn "It will be removed in future releases."
+		ewarn "Xjadeo now features a complete built-in user interface."
+	}
 }
-

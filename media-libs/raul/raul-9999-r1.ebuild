@@ -26,11 +26,13 @@ DEPEND="${RDEPEND}
 DOCS=( AUTHORS NEWS README )
 
 src_configure() {
-	waf-utils_src_configure \
-		$(usex test     --test '') \
-		$(usex coverage '' --no-coverage) \
-		$(usex debug    --debug '') \
-		$(usex doc     --docs '')
+	conf_args=(
+		$(usex test     '--test'        '')
+		$(usex coverage '' '--no-coverage')
+		$(usex debug    '--debug'       '')
+		$(usex doc      '--docs'        '')
+	)
+	waf-utils_src_configure ${conf_args[@]}
 }
 
 src_test() {

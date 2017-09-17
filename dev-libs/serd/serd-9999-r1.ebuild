@@ -25,19 +25,21 @@ DEPEND="${RDEPEND}
 DOCS=( AUTHORS NEWS README.md )
 
 src_configure() {
-    waf-utils_src_configure \
-        --docdir=/usr/share/doc/${PF} \
-        $(usex test  '--test --verbose-tests' '') \
-        $(usex doc         --docs '') \
-        $(usex static-libs --static '') \
-		$(usex static   --static-progs '') \
-		$(usex debug       --debug '') \
-		$(usex utils ''    --no-utils) \
-		$(usex sanity-check --stack-check '') \
-		$(usex coverage  '' --no-coverage)
+	conf_args=(
+		--docdir=/usr/share/doc/${PF}
+		$(usex test         '--test --verbose-tests' '')
+		$(usex doc          '--docs'                 '')
+		$(usex static-libs  '--static'               '')
+		$(usex static       '--static-progs'         '')
+		$(usex debug        '--debug'                '')
+		$(usex utils        ''             '--no-utils')
+		$(usex sanity-check '--stack-check'          '')
+		$(usex coverage     ''          '--no-coverage')
+	)
+	waf-utils_src_configure ${conf_args[@]}
 }
 
 src_test() {
-    ./waf test || die
+	./waf test || die
 }
 

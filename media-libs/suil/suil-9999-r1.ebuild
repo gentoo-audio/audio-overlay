@@ -34,13 +34,15 @@ DOCS=( AUTHORS NEWS README )
 src_configure() {
 	use qt5 && append-cxxflags -std=c++11
 
-	waf-utils_src_configure \
-	--mandir="${EPREFIX}/usr/share/man" \
-	--docdir="${EPREFIX}/usr/share/doc/${PF}" \
-	$(usex gtk '' --no-gtk) \
-	$(usex qt4 '' --no-qt4) \
-	$(usex qt5 '' --no-qt5) \
-	$(usex debug --debug '') \
-	$(usex doc   --docs '') \
-	$(usex static-libs --static '')
+	conf_args=(
+		--mandir="${EPREFIX}/usr/share/man"
+		--docdir="${EPREFIX}/usr/share/doc/${PF}"
+		$(usex gtk         '' '--no-gtk')
+		$(usex qt4         '' '--no-qt4')
+		$(usex qt5         '' '--no-qt5')
+		$(usex debug       '--debug'  '')
+		$(usex doc         '--docs'   '')
+		$(usex static-libs '--static' '')
+	)
+	waf-utils_src_configure ${conf_args[@]}
 }

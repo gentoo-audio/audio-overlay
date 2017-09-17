@@ -18,10 +18,10 @@ IUSE="qt5"
 inherit qmake-utils eutils
 
 DEPEND="media-libs/portaudio
-        media-libs/libsndfile
-		media-libs/libsamplerate
-		qt5? ( dev-qt/qtgui:5 )
-		!qt5? ( dev-qt/qtgui:4 )"
+	media-libs/libsndfile
+	media-libs/libsamplerate
+	qt5? ( dev-qt/qtgui:5 )
+	!qt5? ( dev-qt/qtgui:4 )"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${PN}-${COMMIT}"

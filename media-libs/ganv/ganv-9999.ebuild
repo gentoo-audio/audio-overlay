@@ -23,27 +23,27 @@ RDEPEND="
 	introspection? (
 		app-text/yelp-tools
 		dev-libs/gobject-introspection:=[doctool] )
-	!!media-sound/drobilla
-"
+	!!media-sound/drobilla"
 DEPEND="${RDEPEND}
 	${PYTHON_DEPS}
 	nls? ( virtual/libintl )
-	doc? ( app-doc/doxygen )
-"
+	doc? ( app-doc/doxygen )"
 
 DOCS=( AUTHORS NEWS README )
 
 src_configure() {
 	append-cxxflags -std=c++11
-	waf-utils_src_configure \
-		$(usex graphviz '' --no-graphviz) \
-		$(usex fdgl '' --no-fdgl) \
-		$(usex nls '' --no-nls) \
-		$(usex introspection --gir '') \
-		$(usex light-theme --light-theme '') \
-		$(usex doc --docs '') \
-		$(usex test '--test --verbose-tests' '') \
-		$(usex coverage '' --no-coverage)
+	conf_args=(
+		$(usex graphviz      '' '--no-graphviz')
+		$(usex fdgl          ''     '--no-fdgl')
+		$(usex nls           ''      '--no-nls')
+		$(usex introspection '--gir'         '')
+		$(usex light-theme   '--light-theme' '')
+		$(usex doc           '--docs'        '')
+		$(usex test          '--test --verbose-tests' '')
+		$(usex coverage      '' '--no-coverage')
+	)
+	waf-utils_src_configure ${conf_args[@]}
 }
 
 src_test() {

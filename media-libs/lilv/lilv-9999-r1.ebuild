@@ -30,23 +30,25 @@ DEPEND="${RDEPEND}
 DOCS=( AUTHORS NEWS README )
 
 src_configure() {
-	waf-utils_src_configure \
-	--docdir="${EPREFIX}"/usr/share/doc/${PF} \
-	$(usex debug --debug '') \
-	$(usex doc --docs '') \
-	$(usex python --bindings '') \
-	$(usex dyn-manifest --dyn-manifest '') \
-	$(usex bash-completion '' --no-bash-completion) \
-	$(usex static '--static-progs' '') \
-	$(usex static-libs --static '') \
-	$(usex test   '--test --verbose-tests' '') \
-	$(usex utils '' --no-utils) \
-	$(usex coverage '' --no-coverage) \
-	--python="${PYTHON}" \
-	--pythondir="${PYTHON_SITEDIR}"
+	conf_args=(
+		--docdir="${EPREFIX}"/usr/share/doc/${PF}
+		$(usex debug           '--debug'                '')
+		$(usex doc             '--docs'                 '')
+		$(usex python          '--bindings'             '')
+		$(usex dyn-manifest    '--dyn-manifest'         '')
+		$(usex bash-completion ''   '--no-bash-completion')
+		$(usex static          '--static-progs'         '')
+		$(usex static-libs     '--static'               '')
+		$(usex test            '--test --verbose-tests' '')
+		$(usex utils           ''             '--no-utils')
+		$(usex coverage        ''          '--no-coverage')
+		--python="${PYTHON}"
+		--pythondir="${PYTHON_SITEDIR}"
+	)
+	waf-utils_src_configure ${conf_args[@]}
 }
 
 src_test() {
-    ./waf test || die
+	./waf test || die
 }
 

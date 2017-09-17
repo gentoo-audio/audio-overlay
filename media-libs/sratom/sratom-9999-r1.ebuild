@@ -30,13 +30,15 @@ DEPEND="${RDEPEND}
 DOCS=( NEWS README )
 
 src_configure() {
-	waf-utils_src_configure \
-		--docdir=/usr/share/doc/${PF} \
-		$(usex debug       --debug '') \
-		$(usex doc         --docs  '') \
-		$(usex static-libs --static '') \
-		$(usex coverage   '' --no-coverage) \
-		$(usex test '--test --verbose-tests' '')
+	conf_args=(
+		--docdir=/usr/share/doc/${PF}
+		$(usex debug       '--debug'       '')
+		$(usex doc         '--docs'        '')
+		$(usex static-libs '--static'      '')
+		$(usex coverage    '' '--no-coverage')
+		$(usex test        '--test --verbose-tests' '')
+	)
+	waf-utils_src_configure ${conf_args[@]}
 }
 
 src_test() {

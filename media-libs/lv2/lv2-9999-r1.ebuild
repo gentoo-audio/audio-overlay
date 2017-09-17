@@ -34,15 +34,17 @@ DEPEND="${DEPEND}
 DOCS=( "README.md" )
 
 src_configure() {
-	waf-utils_src_configure \
-		--docdir="${EPREFIX}"/usr/share/doc/${PF} \
-		--lv2dir="${EPREFIX}"/usr/$(get_libdir)/lv2 \
-		--copy-headers \
-		$(usex plugins '' --no-plugins) \
-		$(usex doc     '--docs --online-docs' '') \
-		$(use test     '--test --verbose-tests' '') \
-		$(use debug    --debug '') \
-		$(use coverage '' --no-coverage)
+	conf_args=(
+		--docdir="${EPREFIX}"/usr/share/doc/${PF}
+		--lv2dir="${EPREFIX}"/usr/$(get_libdir)/lv2
+		--copy-headers
+		$(usex plugins ''           '--no-plugins')
+		$(usex doc     '--docs --online-docs'   '')
+		$(use test     '--test --verbose-tests' '')
+		$(use debug    '--debug'                '')
+		$(use coverage ''          '--no-coverage')
+	)
+	waf-utils_src_configure ${conf_args[@]}
 }
 
 src_install() {

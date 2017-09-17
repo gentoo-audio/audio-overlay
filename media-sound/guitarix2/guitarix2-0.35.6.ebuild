@@ -72,16 +72,16 @@ src_configure() {
 		--no-ldconfig
 		--no-desktop-update
 		#--glade-support   # FIXME: fails to build with this option
-		$(usex nls --enable-nls '')
-		$(usex avahi '' --no-avahi)
-		$(usex bluetooth '' --no-bluez)
-		$(usex debug --debug '')
-		$(usex faust --faust --no-faust)
+		$(usex nls       '--enable-nls' '')
+		$(usex avahi     ''   '--no-avahi')
+		$(usex bluetooth ''   '--no-bluez')
+		$(usex debug     '--debug'      '')
+		$(usex faust     '--faust' '--no-faust')
 		$(usex ladspa --ladspadir="${EPREFIX}"/usr/share/ladspa '--no-ladspa --no-new-ladspa')
 		$(usex lv2 --lv2dir="${EPREFIX}"/usr/$(get_libdir)/lv2 --no-lv2)
-		$(usex profile --with-gcov '')
-		$(usex python --python-wrapper '')
-		$(usex sse '' --disable-sse)
+		$(usex profile '--with-gcov' '')
+		$(usex python  '--python-wrapper' '')
+		$(usex sse     '' '--disable-sse')
 	)
 	waf-utils_src_configure ${mywafconfargs[@]}
 }
