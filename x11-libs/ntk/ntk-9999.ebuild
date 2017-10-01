@@ -6,12 +6,18 @@ EAPI=6
 PYTHON_COMPAT=( python2_7 python3_4 )
 PYTHON_REQ_USE='threads(+)'
 
-inherit git-r3 python-any-r1 waf-utils
+inherit python-any-r1 waf-utils
 
 DESCRIPTION="FLTK fork, improved rendering via Cairo, streamlined and enhanced widget set"
 HOMEPAGE="http://non.tuxfamily.org/wiki/NTK"
-EGIT_REPO_URI="git://git.tuxfamily.org/gitroot/non/fltk.git"
-KEYWORDS=""
+if [[ ${PV} == *9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="git://git.tuxfamily.org/gitroot/non/fltk.git"
+	KEYWORDS=""
+else
+	SRC_URI="https://github.com/original-male/ntk/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
+fi
 LICENSE="FLTK"
 SLOT="0"
 
