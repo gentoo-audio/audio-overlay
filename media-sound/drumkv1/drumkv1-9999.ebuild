@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit fdo-mime
+inherit xdg-utils
 
 DESCRIPTION="An old-school all-digital drum-kit sampler synthesizer with stereo fx"
 HOMEPAGE="http://drumkv1.sourceforge.net/"
@@ -71,9 +71,9 @@ src_configure() {
 }
 
 pkg_postinst() {
-	fdo-mime_mime_database_update
+	xdg_mimeinfo_database_update
 }
 
 pkg_postrm() {
-	fdo-mime_mime_database_update
+	xdg_mimeinfo_database_update
 }
