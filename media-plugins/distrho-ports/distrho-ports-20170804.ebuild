@@ -9,7 +9,7 @@ DESCRIPTION="Linux ports of Distrho plugins."
 HOMEPAGE="http://distrho.sourceforge.net"
 EGIT_REPO_URI="https://github.com/DISTRHO/DISTRHO-Ports.git"
 EGIT_COMMIT="f591a1066cd3929536699bb516caa4b5efd9d025"
-KEYWORDS=""
+KEYWORDS="~amd64"
 LICENSE="GPL-2"
 SLOT="0"
 
