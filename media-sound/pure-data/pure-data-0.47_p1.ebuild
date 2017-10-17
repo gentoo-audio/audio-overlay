@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit autotools eutils fdo-mime
+inherit autotools eutils xdg-utils
 
 DESCRIPTION="Visual programming language for multimedia"
 HOMEPAGE="http://msp.ucsd.edu/software.html"
@@ -61,9 +61,9 @@ src_install() {
 }
 
 pkg_postinst() {
-	fdo-mime_desktop_database_update
+	xdg_mimeinfo_database_update
 }
 
 pkg_postrm() {
-	fdo-mime_desktop_database_update
+	xdg_mimeinfo_database_update
 }

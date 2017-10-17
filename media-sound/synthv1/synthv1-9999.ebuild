@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit fdo-mime
+inherit xdg-utils
 
 DESCRIPTION="Old-school all-digital 4-oscillator subtractive polyphonic synthesizer"
 HOMEPAGE="http://synthv1.sourceforge.net"
@@ -71,9 +71,9 @@ src_configure() {
 }
 
 pkg_postinst() {
-	fdo-mime_mime_database_update
+	xdg_mimeinfo_database_update
 }
 
 pkg_postrm() {
-	fdo-mime_mime_database_update
+	xdg_mimeinfo_database_update
 }
