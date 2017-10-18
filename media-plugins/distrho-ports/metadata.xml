@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-        <name>Audiodef</name>
-        <email>webmaster@gentoostudio.org</email>
-  </maintainer>
-  <longdescription>Distrho is an open source project for cross-platform audio plugins.</longdescription>
-  <use>
+	<maintainer type="person">
+				<name>Audiodef</name>
+				<email>webmaster@gentoostudio.org</email>
+	</maintainer>
+	<longdescription>Distrho is an open source project for cross-platform audio plugins.</longdescription>
+	<use>
 		<flag name="lv2">Enable building of LV2 plugin</flag>
 		<flag name="vst">Enable building of VST plugin</flag>
 	</use>
