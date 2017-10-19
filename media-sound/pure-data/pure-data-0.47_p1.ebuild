@@ -25,8 +25,8 @@ SLOT="0"
 IUSE="alsa fftw jack"
 
 RDEPEND="
-	dev-lang/tcl
-	dev-lang/tk[truetype]
+	dev-lang/tcl:=
+	dev-lang/tk:=[truetype]
 	alsa? ( media-libs/alsa-lib )
 	jack? ( virtual/jack )
 	fftw? ( >=sci-libs/fftw-3 )"
