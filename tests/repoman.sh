@@ -3,6 +3,8 @@
 set -ex
 
 docker run --rm -ti \
+  -e TRAVIS_REPO_SLUG \
+  -e TRAVIS_PULL_REQUEST \
   -e TRAVIS_BOT_GITHUB_TOKEN \
   -v "${HOME}/.portage-pkgdir":/usr/portage/packages \
   -v "${PWD}":/usr/local/portage \

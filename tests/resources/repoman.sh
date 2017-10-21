@@ -8,7 +8,16 @@ export FEATURES="-news" PORTAGE_RSYNC_EXTRA_OPTS="-q"
 
 # Update the portage tree and install dependencies
 emerge --sync
-emerge -q --buildpkg --usepkg dev-vcs/git app-portage/repoman
+emerge -q --buildpkg --usepkg dev-vcs/git app-portage/repoman dev-python/pip
+pip install --user https://github.com/simonvanderveldt/travis-github-pr-bot/archive/master.zip
+PATH="~/.local/bin:$PATH"
 
 # Run the tests
-repoman full -d
+if ! repoman_output=$(repoman full -d -q); then
+  echo "$repoman_output"
+  echo "$repoman_output" | travis-bot --description "Repoman QA results:"
+  exit 1
+else
+  echo "$repoman_output"
+  echo "$repoman_output" | travis-bot --description "Repoman QA results:"
+fi
