@@ -1,13 +1,10 @@
 #!/usr/bin/env bash
-# "Unit" test if overlay and ebuilds have basic issues
+# Run repoman in a clean amd64 stage3
 set -ex
 
-# Disable news messages from portage and disable rsync's output
-export FEATURES="-news" PORTAGE_RSYNC_EXTRA_OPTS="-q"
-
-# Update the portage tree and install dependencies
-emerge --sync
-emerge -q --buildpkg --usepkg dev-vcs/git app-portage/repoman
-
-# Run the tests
-repoman full -d
+docker run --rm -ti \
+  -e TRAVIS_BOT_GITHUB_TOKEN \
+  -v "${HOME}/.portage-pkgdir":/usr/portage/packages \
+  -v "${PWD}":/usr/local/portage \
+  -w /usr/local/portage gentoo/stage3-amd64:latest \
+  /usr/local/portage/tests/resources/repoman.sh
