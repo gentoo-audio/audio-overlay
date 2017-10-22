@@ -13,7 +13,8 @@ EBUILD="${1}"
 echo "Emerging ${EBUILD}"
 
 # Disable news messages from portage and disable rsync's output
-export FEATURES="-news" PORTAGE_RSYNC_EXTRA_OPTS="-q"
+export FEATURES="-news" \
+       PORTAGE_RSYNC_EXTRA_OPTS="-q"
 
 # Update the portage tree
 emerge --sync
@@ -43,7 +44,16 @@ if [ -f "${PKG_CONF_FILE}" ]; then
 fi
 
 # Emerge dependencies first
-emerge --quiet-build --buildpkg --usepkg --onlydeps --autounmask=y --autounmask-continue=y "=${PKG_CATEGORY}/${PKG_NAME}"
+emerge \
+    --quiet-build \
+    --buildpkg \
+    --usepkg \
+    --onlydeps \
+    --autounmask=y \
+    --autounmask-continue=y \
+    "=${PKG_CATEGORY}/${PKG_NAME}"
 
 # Emerge the ebuild itself
-emerge -v "=${PKG_CATEGORY}/${PKG_NAME}"
+emerge \
+    --verbose \
+    "=${PKG_CATEGORY}/${PKG_NAME}"
