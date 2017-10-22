@@ -12,17 +12,26 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 # it also supports vst but it's masked in the tree at this moment
-IUSE="alsa doc dssi jack ladspa lv2 sf2 sqlite static-libs"
+IUSE="alsa dbus doc dssi flac jack ladspa lv2 sf2 sqlite static-libs vorbis"
 REQUIRED_USE="|| ( alsa jack )"
 
-# media-libs/dssi, media-libs/ladspa, media-libs/lv2 automagic
+# media-libs/dssi, media-libs/flac, media-libs/ladspa, media-libs/lv2, media-libs/libogg,
+# media-libs/libvorbis, sys-apps/dbus automagic
+# sys-apps/dbus is linked to the libraries but not declared anywhere in the sources
 RDEPEND=">media-libs/libgig-4
+	media-libs/libsndfile
 	alsa? ( media-libs/alsa-lib )
+	dbus? ( sys-apps/dbus )
 	dssi? ( media-libs/dssi )
+	flac? ( media-libs/flac )
 	jack? ( virtual/jack )
 	ladspa? ( media-libs/ladspa-sdk )
 	lv2? ( media-libs/lv2 )
-	sqlite? ( >=dev-db/sqlite-3.3 )"
+	sqlite? ( >=dev-db/sqlite-3.3 )
+	vorbis? (
+		media-libs/libogg
+		media-libs/libvorbis
+	)"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	doc? ( app-doc/doxygen )"
