@@ -41,16 +41,26 @@ DOCS=( AUTHORS ChangeLog NEWS README )
 src_configure() {
 	emake -f Makefile.svn
 
+	# upstream does not support --disable-static during configuration,
+	# just --enable-static=no
 	econf \
 		$(use_enable alsa alsa-driver) \
 		--disable-arts-driver \
 		$(use_enable jack jack-driver) \
 		$(use_enable sqlite instruments-db) \
 		$(use_enable sf2 sf2-engine) \
-		$(use_enable static-libs static)
+		$(! has static-libs && echo --enable-static=no)
 }
 
 src_compile() {
 	emake
 	use doc && emake docs
+}
+
+src_install() {
+	emake DESTDIR="${D}" install
+
+	# for some reason static libs are installed even when disabled in configuration
+	# so we have to remove them manually
+	! use static-libs && find "${D}" -name "*.la" -delete
 }
