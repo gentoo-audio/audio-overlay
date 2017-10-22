@@ -61,5 +61,4 @@ src_install(){
 	-e 's/Categories=.*/Categories=AudioVideo;Audio;AudioVideoEditing/' \
 	usr/share/applications/praxis_live.desktop || die 'sed on desktop file failed'
 	domenu usr/share/applications/praxis_live.desktop
-
 }
