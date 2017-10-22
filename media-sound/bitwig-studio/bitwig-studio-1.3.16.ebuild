@@ -6,7 +6,8 @@
 # - Install docs in correct location? (currently in /opt/bitwig-studio/resources/doc)
 
 EAPI=6
-inherit eutils fdo-mime unpacker
+
+inherit eutils unpacker xdg-utils
 
 DESCRIPTION="Multi-platform music-creation system for production, performance and DJing"
 HOMEPAGE="http://bitwig.com"
@@ -93,11 +94,11 @@ src_install() {
 }
 
 pkg_postinst() {
-	fdo-mime_mime_database_update
-	fdo-mime_desktop_database_update
+	xdg_mimeinfo_database_update
+	xdg_desktop_database_update
 }
 
 pkg_postrm() {
-	fdo-mime_mime_database_update
-	fdo-mime_desktop_database_update
+	xdg_mimeinfo_database_update
+	xdg_desktop_database_update
 }
