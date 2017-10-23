@@ -6,8 +6,7 @@ set -ex
 # Disable news messages from portage and disable rsync's output
 export FEATURES="-news" PORTAGE_RSYNC_EXTRA_OPTS="-q"
 
-# Update the portage tree and install dependencies
-emerge --sync
+# Install dependencies
 emerge -q --buildpkg --usepkg dev-vcs/git app-portage/repoman dev-python/pip
 pip install --user https://github.com/simonvanderveldt/travis-github-pr-bot/archive/master.zip
 PATH="~/.local/bin:$PATH"
