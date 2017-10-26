@@ -15,9 +15,6 @@ echo "Emerging ${EBUILD}"
 # Disable news messages from portage and disable rsync's output
 export FEATURES="-news" PORTAGE_RSYNC_EXTRA_OPTS="-q"
 
-# Update the portage tree
-emerge --sync
-
 # Set portage's distdir to /tmp/distfiles
 # This is a workaround for a bug in portage/git-r3 where git-r3 can't
 # create the distfiles/git-r3 directory when no other distfiles have been
