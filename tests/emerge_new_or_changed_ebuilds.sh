@@ -20,6 +20,7 @@ docker pull gentoo/stage3-amd64
 for EBUILD in "${EBUILDS[@]}"
 do
   docker run --rm -ti \
+    --cap-add=SYS_PTRACE \
     --volumes-from portage \
     -v "${HOME}/.portage-pkgdir":/usr/portage/packages \
     -v "${PWD}":/usr/local/portage \
