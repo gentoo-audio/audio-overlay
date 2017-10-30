@@ -2,8 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer type="person">
-    <name>Ingolf Wagner</name>
-    <email>contact@ingolf-wagner.de</email>
+    <name>Simon van der Veldt</name>
+    <email>simon.vanderveldt+audio-overlay@gmail.com</email>
   </maintainer>
   <longdescription>
     Bitwig Studio is a dynamic software for creation and performance of your musical ideas on stage or in the studio.
