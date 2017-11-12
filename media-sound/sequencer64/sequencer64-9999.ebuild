@@ -31,6 +31,7 @@ DEPEND="${RDEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-fix-configure-ac-error.patch"
+	"${FILESDIR}/${PN}-fix-configureac-use-rtmidi-as-default-backend.patch"
 )
 
 src_prepare()
