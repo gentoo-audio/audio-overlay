@@ -1,1 +1,1 @@
-sequencer64-9999.ebuild
+sequencer64-0.93.2.ebuild

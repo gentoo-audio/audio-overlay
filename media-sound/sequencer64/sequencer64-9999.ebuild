@@ -29,6 +29,10 @@ RDEPEND="dev-cpp/gtkmm:2.4
 
 DEPEND="${RDEPEND}"
 
+PATCHES=(
+	"${FILESDIR}/${PN}-fix-configure-ac-error.patch"
+)
+
 src_prepare()
 {
 	default
