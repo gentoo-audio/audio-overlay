@@ -1,0 +1,55 @@
+From 8cf689ccc0f52b4382fe5c3f124b7bde4f0a0062 Mon Sep 17 00:00:00 2001
+From: Simon van der Veldt <simon.vanderveldt@gmail.com>
+Date: Mon, 13 Nov 2017 08:54:43 +0100
+Subject: [PATCH] Fix configure.ac quoting error
+
+Fixes #117
+---
+ configure.ac | 14 ++++----------
+ 1 file changed, 4 insertions(+), 10 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index cdb9dedd..d607feb1 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -90,11 +90,11 @@ dnl so we only run them on non MinGW-Systems. For MinGW we also need to link
+ dnl against ws2_32.
+ dnl
+ dnl case $host_os in
+-dnl 
++dnl
+ dnl 	mingw*)
+ dnl 		LDFLAGS="-lws2_32"
+ dnl 		;;
+-dnl 
++dnl
+ dnl 	*)
+ dnl 		AC_TYPE_OFF_T
+ dnl 		AC_TYPE_SIZE_T
+@@ -338,7 +338,7 @@ if test x"${as_needed}" = x"unknown" ; then
+         [],
+         [as_needed="1"],
+         [as_needed=""])
+-    LDFLAGS="${ac_old_ldflags}" 
++    LDFLAGS="${ac_old_ldflags}"
+ fi
+ if test -n "$as_needed"; then
+     AC_MSG_RESULT(yes)
+@@ -813,13 +813,7 @@ case "$host_os" in
+     *)
+         AC_MSG_NOTICE([normal pthreads support])
+         AC_MSG_CHECKING([Running normal PTHREAD test.])
+-        AX_PTHREAD([
+-            echo Using settings from AX_PTHREAD
+-            LIBS="$PTHREAD_LIBS $LIBS"
+-            CFLAGS="  $PTHREAD_CFLAGS $CFLAGS"
+-            CXXFLAGS="$PTHREAD_CFLAGS $CXXFLAGS "
+-            CC="$PTHREAD_CC"],
+-            [AC_MSG_ERROR(Sequencer64 requires pthreads)])
++        AX_PTHREAD
+         ;;
+ esac
+ 
+-- 
+2.13.6
+
