@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Emerge a random ebuild out of all the ebuilds in the overlay
+# Emerge a random ebuild out of all the ebuilds in the overlay in a clean amd64 stage3
 # Used to do continuous tests if our ebuilds still work
 # As well as making sure Travis's cache of the master branch is filled
 set -ex
@@ -25,4 +25,4 @@ docker run --rm -ti \
   -v "${HOME}/.portage-pkgdir":/usr/portage/packages \
   -v "${PWD}":/usr/local/portage \
   -w /usr/local/portage gentoo/stage3-amd64 \
-  /usr/local/portage/tests/emerge_ebuild.sh "${EBUILD}"
+  /usr/local/portage/tests/resources/emerge-ebuild.sh "${EBUILD}"
