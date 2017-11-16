@@ -34,7 +34,7 @@ unset ACCEPT_KEYWORDS
 unset USE
 PKG_NAME=$(basename "${EBUILD}" ".ebuild")
 PKG_CATEGORY="${EBUILD%%/*}"
-PKG_CONF_FILE="./tests/packages/${PKG_CATEGORY}/${PKG_NAME}.conf"
+PKG_CONF_FILE="./tests/resources/packages/${PKG_CATEGORY}/${PKG_NAME}.conf"
 if [ -f "${PKG_CONF_FILE}" ]; then
   source "${PKG_CONF_FILE}"
 fi

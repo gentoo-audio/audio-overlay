@@ -19,24 +19,48 @@ emerge --sync
 - You're all set. Go and install a package :)
 
 ## Contact
+Join us at the `#proaudio-overlay` channel at `irc.freenode.org` or [create an issue](https://github.com/gentoo-audio/audio-overlay/issues/new).
 
-Join us at #proaudio-overlay at irc.freenode.org
-
-## Problems?
-If you run into problems please [create an issue](https://github.com/gentoo-audio/audio-overlay/issues/new) or send a pull request if you already know how to fix it :)
-
-## Automated quality control
-- GitHub's [branch protection](https://help.github.com/articles/about-protected-branches/) is enabled for the `master` branch
-- Changes can only be done using [pull requests](https://help.github.com/articles/about-pull-requests/) and need at least one approval
-- Pull requests can only be merged if they pass the automated tests, which are run by [Travis CI](https://travis-ci.org/gentoo-audio/audio-overlay)
-- [Travis CI](https://travis-ci.org/gentoo-audio/audio-overlay) also runs daily checks if a new version of one of the packages in this overlay is released.
-If so, an issue requesting a version bump will be created
+## Quality control
+- GitHub's [branch protection](https://help.github.com/articles/about-protected-branches/) is enabled for the `master` branch.
+- Changes can only be done using [pull requests](https://help.github.com/articles/about-pull-requests/) and need at least one approval.
+- Pull requests can only be merged if they pass the automated tests, which are run by [Travis CI](https://travis-ci.org/gentoo-audio/audio-overlay).
+<br>We have a zero-tolerance policy for test failures and warnings, only changes that have no failures and warnings are merged.
 
 ### Automated tests
-The following tests are run for every pull request:
-- [`repoman full`](https://wiki.gentoo.org/wiki/Repoman): Validate if the ebuilds, overlay and metadata are correct
-- Emerge of new or changed ebuilds: Validate if the ebuild builds and installs correctly
+All tests that are meant to be executed by the user or by CI can be found in the `./tests` directory.
 
-#### Emerge test configuration
-To enable configuring packages for the `emerge` test a `.conf` file matching the package is sourced before the package is emerged. These `.conf` files should be placed in the `tests/packages` directory using the same package category structure as the overlay itself.
-For example to configure the package `media-sound/somesynth-1.2.3` the `.conf` file should be called `tests/packages/media-sound/somesynth-1.2.3.conf`.
+All tests need `app-emulation/docker` to be installed.
+
+#### Pull Requests
+Every pull request must pass the following tests before it can be merged:
+- Validation if the ebuild(s), metadata and other overlay files are correct. This is done using [repoman](https://wiki.gentoo.org/wiki/Repoman).
+<br>Run this test using `./tests/repoman.sh`.
+- Validation if the ebuilds that are new or changed in the Pull Request can be emerged. This is done in a clean amd64 stage3.
+<br>Run this test using `./tests/emerge-new-or-changed-ebuilds.sh` from the branch which contains the new or changed ebuild(s).
+<br>Note that this will create a binary package cache at `${HOME}/.portage-pkgdir`.
+
+#### Daily checks
+Every day the following tests are run:
+- A random ebuild is picked and emerged to validate that emerging it can still be emerged correctly. This is done in a clean amd64 stage3.
+<br>Run this test using `./tests/emerge-random-ebuild.sh`.
+<br>Note that this will create a binary package cache at `${HOME}/.portage-pkgdir`.
+- A check if a new version of any of the packages in the overlay is released. This is done using [newversionchecker](https://github.com/simonvanderveldt/newversionchecker). If a new version has been released an issue requesting a version bump will be created.
+<br>Run this test using `./tests/newversioncheck.sh`.
+
+#### Development
+To check if an ebuild you're working on can be emerged without issue use `./tests/emerge-ebuild.sh <path>/<to>/<ebuild>.ebuild`. This is done in a clean amd64 stage3.
+<br>For example to emerge the ebuild `media-sound/somesynth/somesynth-1.2.3.ebuild` run `./tests/emerge-ebuild.sh media-sound/somesynth/somesynth-1.2.3.ebuild`.
+<br>Note that this will create a binary package cache at `${HOME}/.portage-pkgdir`.
+
+Also see the tests described under [Pull Requests](#pull-requests).
+
+#### Test configuration
+All test configuration can be found in `./tests/resources`.
+
+##### Emerge tests
+To enable configuring packages for the `emerge` tests a `.conf` file matching the package is sourced before the package is emerged. These `.conf` files should be placed in the `./tests/resources/packages` directory using the same package category structure as the overlay itself.
+<br>For example to configure the package `media-sound/somesynth-1.2.3` the `.conf` file should be called `./tests/resources/packages/media-sound/somesynth-1.2.3.conf`.
+
+##### New version check
+The new version check uses `./test/resources/newversionchecker.toml` as it's configuration.

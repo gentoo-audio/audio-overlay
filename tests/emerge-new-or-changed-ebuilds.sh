@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Determine which ebuilds are new or changed and emerge them
+# Determine which ebuilds are new or changed and emerge them in a clean amd64 stage3
 set -ex
 
 # Get list of new or changed ebuilds
@@ -25,5 +25,5 @@ do
     -v "${HOME}/.portage-pkgdir":/usr/portage/packages \
     -v "${PWD}":/usr/local/portage \
     -w /usr/local/portage gentoo/stage3-amd64 \
-    /usr/local/portage/tests/emerge_ebuild.sh "${EBUILD}"
+    /usr/local/portage/tests/resources/emerge-ebuild.sh "${EBUILD}"
 done

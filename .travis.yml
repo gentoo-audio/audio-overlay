@@ -21,7 +21,7 @@ matrix:
       sudo: required
       script:
         - 'if [ "${TRAVIS_EVENT_TYPE}" != "cron" ] && [ "${TRAVIS_PULL_REQUEST}" != "false" ] ; then
-          ./tests/emerge_new_or_changed_ebuilds.sh; fi'
+          ./tests/emerge-new-or-changed-ebuilds.sh; fi'
     - os: linux
       env: BUILD_TYPE=newversioncheck # marker environment variable to make the build matrix more readable in the UI
       services: docker
@@ -29,11 +29,11 @@ matrix:
       sudo: required
       script:
         - 'if [ "${TRAVIS_EVENT_TYPE}" == "cron" ]; then
-          docker run --rm -ti -v "${PWD}/tests/newversionchecker.toml":/app/newversionchecker.toml -e GITHUB_API_TOKEN simonvanderveldt/newversionchecker; fi'
+          ./tests/newversioncheck.sh; fi'
     - os: linux
       services: docker
       language: generic
       sudo: required
       script:
         - 'if [ "${TRAVIS_EVENT_TYPE}" == "cron" ]; then
-          ./tests/emerge_random_ebuild.sh; fi'
+          ./tests/emerge-random-ebuild.sh; fi'
