@@ -29,11 +29,6 @@ RDEPEND="dev-cpp/gtkmm:2.4
 
 DEPEND="${RDEPEND}"
 
-PATCHES=(
-	"${FILESDIR}/${PN}-fix-configure-ac-error.patch"
-	"${FILESDIR}/${PN}-fix-configureac-use-rtmidi-as-default-backend.patch"
-)
-
 src_prepare()
 {
 	default
