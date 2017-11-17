@@ -42,7 +42,7 @@ Every pull request must pass the following tests before it can be merged:
 
 #### Daily checks
 Every day the following tests are run:
-- A random ebuild is picked and emerged to validate that emerging it can still be emerged correctly. This is done in a clean amd64 stage3.
+- A random ebuild is picked and emerged to validate that it can still be emerged correctly. This is done in a clean amd64 stage3.
 <br>Run this test using `./tests/emerge-random-ebuild.sh`.
 <br>Note that this will create a binary package cache at `${HOME}/.portage-pkgdir`.
 - A check if a new version of any of the packages in the overlay is released. This is done using [newversionchecker](https://github.com/simonvanderveldt/newversionchecker). If a new version has been released an issue requesting a version bump will be created.
