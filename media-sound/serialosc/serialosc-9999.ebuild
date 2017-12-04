@@ -12,7 +12,7 @@ inherit git-r3 python-any-r1 waf-utils
 DESCRIPTION="Multi-device, bonjour-capable monome OSC server "
 HOMEPAGE="https://github.com/monome/serialosc"
 EGIT_REPO_URI="https://github.com/monome/serialosc.git"
-EGIT_SUBMODULES=()
+EGIT_SUBMODULES=( "*" "-third-party/libuv" )
 KEYWORDS=""
 LICENSE="ISC"
 SLOT="0"
@@ -26,7 +26,6 @@ RDEPEND="virtual/libudev
 	dev-libs/libuv
 	zeroconf? ( net-dns/avahi[mdnsresponder-compat] )"
 DEPEND="${RDEPEND}"
-EGIT_SUBMODULES=()
 
 src_configure() {
 	local mywafconfargs=(
