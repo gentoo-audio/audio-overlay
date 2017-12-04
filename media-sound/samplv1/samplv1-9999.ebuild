@@ -5,7 +5,7 @@ EAPI=6
 
 inherit xdg-utils
 
-DESCRIPTION="Old-school polyphonic sampler "
+DESCRIPTION="Old-school polyphonic sampler"
 HOMEPAGE="http://samplv1.sourceforge.io"
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3 autotools
