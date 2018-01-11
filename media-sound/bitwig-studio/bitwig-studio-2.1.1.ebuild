@@ -7,7 +7,7 @@
 
 EAPI=6
 
-inherit eutils unpacker xdg-utils
+inherit eutils unpacker xdg-utils gnome2-utils
 
 DESCRIPTION="Multi-platform music-creation system for production, performance and DJing"
 HOMEPAGE="http://bitwig.com"
@@ -95,9 +95,11 @@ src_install() {
 pkg_postinst() {
 	xdg_mimeinfo_database_update
 	xdg_desktop_database_update
+	gnome2_icon_cache_update
 }
 
 pkg_postrm() {
 	xdg_mimeinfo_database_update
 	xdg_desktop_database_update
+	gnome2_icon_cache_update
 }
