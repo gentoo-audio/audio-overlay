@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit git-r3
+inherit git-r3 gnome2-utils
 
 DESCRIPTION="Collection of tools useful for audio production"
 HOMEPAGE="http://kxstudio.linuxaudio.org"
@@ -12,13 +12,13 @@ KEYWORDS=""
 LICENSE="GPL-2"
 SLOT="0"
 
-IUSE="-pulseaudio a2jmidid"
+IUSE="-pulseaudio a2jmidid ladish"
 
 RDEPEND="virtual/jack
 	dev-python/PyQt4[X,svg]
 	dev-python/dbus-python
-	>=media-sound/ladish-9999
 	a2jmidid? ( media-sound/a2jmidid )
+	ladish? ( >=media-sound/ladish-9999 )
 	pulseaudio? ( media-sound/pulseaudio[jack] )"
 DEPEND=${RDEPEND}
 
@@ -37,8 +37,27 @@ src_install() {
 	# Clean up stuff that shouldn't be installed
 	rm -rf "${D}/etc/X11/xinit/xinitrc.d/61cadence-session-inject"
 	rm -rf "${D}/etc/xdg/autostart/cadence-session-start.desktop"
+	rm -rf "${D}/usr/share/applications/catarina.desktop"
+	rm -rf "${D}/usr/bin/catarina"
 	if use !pulseaudio; then
+		rm -rf "${D}/usr/bin/cadence-pulse2jack"
+		rm -rf "${D}/usr/bin/cadence-pulse2loopback"
 		rm -rf "${D}/usr/share/cadence/pulse2jack"
 		rm -rf "${D}/usr/share/cadence/pulse2loopback"
 	fi
+	if use !ladish; then
+		rm -rf "${D}/usr/bin/claudia-launcher"
+		rm -rf "${D}/usr/bin/claudia"
+		rm -rf "${D}/usr/share/cadence/icons/claudia-hicolor/"
+		rm -rf "${D}/usr/share/applications/claudia.desktop"
+		rm -rf "${D}/usr/share/applications/claudia-launcher.desktop"
+	fi
+}
+
+pkg_postinst() {
+	gnome2_icon_cache_update
+}
+
+pkg_postrm() {
+	gnome2_icon_cache_update
 }
