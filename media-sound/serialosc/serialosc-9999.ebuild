@@ -13,7 +13,12 @@ DESCRIPTION="Multi-device, bonjour-capable monome OSC server"
 HOMEPAGE="https://github.com/monome/serialosc"
 EGIT_REPO_URI="https://github.com/monome/serialosc.git"
 EGIT_SUBMODULES=( "*" "-third-party/libuv" )
-KEYWORDS=""
+if [[ ${PV} == *9999 ]]; then
+	KEYWORDS=""
+else
+	EGIT_COMMIT="v${PV}"
+	KEYWORDS="~amd64"
+fi
 LICENSE="ISC"
 SLOT="0"
 
@@ -22,7 +27,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="virtual/libudev
 	media-libs/liblo
-	media-libs/libmonome
+	>=media-libs/libmonome-1.4.1
 	dev-libs/libuv
 	zeroconf? ( net-dns/avahi[mdnsresponder-compat] )"
 DEPEND="${RDEPEND}"
