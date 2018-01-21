@@ -3,7 +3,8 @@
 
 EAPI=6
 
-inherit git-r3 gnome2-utils
+PYTHON_COMPAT=( python3_{4,5,6} )
+inherit git-r3 python-single-r1 gnome2-utils
 
 DESCRIPTION="Collection of tools useful for audio production"
 HOMEPAGE="http://kxstudio.linuxaudio.org"
@@ -15,7 +16,7 @@ SLOT="0"
 IUSE="-pulseaudio a2jmidid ladish"
 
 RDEPEND="virtual/jack
-	dev-python/PyQt4[X,svg]
+	dev-python/PyQt4[X,svg,${PYTHON_USEDEP}]
 	dev-python/dbus-python
 	a2jmidid? ( media-sound/a2jmidid )
 	ladish? ( >=media-sound/ladish-9999 )
