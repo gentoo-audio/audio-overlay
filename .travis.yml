@@ -6,34 +6,42 @@ cache:
   directories:
   - $HOME/.portage-pkgdir
 
-matrix:
+jobs:
   include:
-    - os: linux
+    - if: type = pull_request
+      os: linux
       services: docker
       language: generic
       sudo: required
-      script:
-        - 'if [ "${TRAVIS_EVENT_TYPE}" != "cron" ]; then
-          ./tests/repoman.sh; fi'
-    - os: linux
+      script: ./tests/repoman.sh
+    - if: type = pull_request
+      os: linux
       services: docker
       language: generic
       sudo: required
-      script:
-        - 'if [ "${TRAVIS_EVENT_TYPE}" != "cron" ] && [ "${TRAVIS_PULL_REQUEST}" != "false" ] ; then
-          ./tests/emerge-new-or-changed-ebuilds.sh; fi'
-    - os: linux
-      env: BUILD_TYPE=newversioncheck # marker environment variable to make the build matrix more readable in the UI
+      script: ./tests/emerge-new-or-changed-ebuilds.sh
+    - if: type != pull_request AND type != cron
+      os: linux
       services: docker
       language: generic
       sudo: required
-      script:
-        - 'if [ "${TRAVIS_EVENT_TYPE}" == "cron" ]; then
-          ./tests/newversioncheck.sh; fi'
-    - os: linux
+      script: ./docs/generate-site.sh
+      deploy:
+        provider: pages
+        skip-cleanup: true
+        local-dir: docs/site
+        github-token: $GITHUB_API_TOKEN
+        target-branch: gh-pages
+        keep-history: false
+    - if: type = cron
+      os: linux
       services: docker
       language: generic
       sudo: required
-      script:
-        - 'if [ "${TRAVIS_EVENT_TYPE}" == "cron" ]; then
-          ./tests/emerge-random-ebuild.sh; fi'
+      script: ./tests/newversioncheck.sh
+    - if: type = cron
+      os: linux
+      services: docker
+      language: generic
+      sudo: required
+      script: ./tests/emerge-random-ebuild.sh
