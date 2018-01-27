@@ -6,7 +6,7 @@ cache:
   directories:
   - $HOME/.portage-pkgdir
 
-jobs:
+matrix:
   include:
     - if: type = pull_request
       os: linux
