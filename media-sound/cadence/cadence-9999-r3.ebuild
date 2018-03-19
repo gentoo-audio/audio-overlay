@@ -16,7 +16,7 @@ SLOT="0"
 IUSE="-pulseaudio a2jmidid ladish"
 
 RDEPEND="virtual/jack
-	dev-python/PyQt4[X,svg,${PYTHON_USEDEP}]
+	dev-python/PyQt5[gui,svg,widgets,${PYTHON_USEDEP}]
 	dev-python/dbus-python
 	a2jmidid? ( media-sound/a2jmidid )
 	ladish? ( >=media-sound/ladish-9999 )
