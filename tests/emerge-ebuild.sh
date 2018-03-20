@@ -7,7 +7,6 @@ if [ "$#" -ne 1 ]; then
   exit 1
 fi
 
-# Pick a random ebuild
 EBUILD="${1}"
 
 # Create volume container named "portage" with today's gentoo tree in it
