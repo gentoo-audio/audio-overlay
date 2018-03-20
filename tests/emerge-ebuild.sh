@@ -27,5 +27,6 @@ docker run --rm -ti \
   --volumes-from portage \
   -v "${HOME}/.portage-pkgdir":/usr/portage/packages \
   -v "${PWD}":/usr/local/portage \
-  -w /usr/local/portage gentoo/stage3-amd64 \
+  -w /usr/local/portage \
+  gentoo/stage3-amd64 \
   /usr/local/portage/tests/resources/emerge-ebuild.sh "${EBUILD}"
