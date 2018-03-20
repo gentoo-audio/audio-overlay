@@ -45,3 +45,9 @@ matrix:
       language: generic
       sudo: required
       script: ./tests/emerge-random-ebuild.sh
+    - if: type = cron
+      os: linux
+      services: docker
+      language: generic
+      sudo: required
+      script: ./tests/emerge-random-live-ebuild.sh
