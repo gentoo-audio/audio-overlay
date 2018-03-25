@@ -40,7 +40,7 @@ if [ -f "${PKG_CONF_FILE}" ]; then
 fi
 
 # Emerge dependencies first
-emerge --quiet-build --buildpkg --usepkg --onlydeps --autounmask=y --autounmask-continue=y "=${PKG_CATEGORY}/${PKG_NAME}"
+time emerge --quiet-build --buildpkg --usepkg --onlydeps --autounmask=y --autounmask-continue=y "=${PKG_CATEGORY}/${PKG_NAME}"
 
 # Emerge the ebuild itself
-emerge -v "=${PKG_CATEGORY}/${PKG_NAME}"
+time emerge -v "=${PKG_CATEGORY}/${PKG_NAME}"
