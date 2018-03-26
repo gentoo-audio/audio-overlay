@@ -14,8 +14,8 @@ echo "Emerging ${EBUILD}"
 
 # Disable news messages from portage and disable rsync's output
 export FEATURES="binpkg-multi-instance parallel-install -news" PORTAGE_RSYNC_EXTRA_OPTS="-q"
-export EMERGE_DEFAULT_OPTS="--jobs 3 --load-average 2.4"
-export MAKEOPTS="-j3 -l2.4"
+export EMERGE_DEFAULT_OPTS="--jobs 3 --load-average 2"
+export MAKEOPTS="-j3 -l2"
 
 # Set portage's distdir to /tmp/distfiles
 # This is a workaround for a bug in portage/git-r3 where git-r3 can't
