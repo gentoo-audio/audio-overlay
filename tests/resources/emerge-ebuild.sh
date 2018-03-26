@@ -41,6 +41,8 @@ if [ -f "${PKG_CONF_FILE}" ]; then
   source "${PKG_CONF_FILE}"
 fi
 
+emerge-webrsync
+
 # Emerge dependencies first
 time emerge --quiet-build --buildpkg --usepkg --onlydeps --autounmask=y --autounmask-continue=y "=${PKG_CATEGORY}/${PKG_NAME}"
 
