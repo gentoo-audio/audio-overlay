@@ -51,15 +51,16 @@ RDEPEND="${DEPEND}
 
 QA_PREBUILT="opt/bitwig-studio/lib/engine/*"
 QA_PRESTRIPPED="
+	opt/bitwig-studio/lib/bitwig-studio/libcairo.so.2
+	opt/bitwig-studio/lib/bitwig-studio/libfreetype.so.6
+	opt/bitwig-studio/lib/bitwig-studio/libharfbuzz.so.0
+	opt/bitwig-studio/lib/bitwig-studio/liblwjgl.so
 	opt/bitwig-studio/lib/bitwig-studio/libpng16.so.16
 	opt/bitwig-studio/lib/bitwig-studio/libXau.so.6
-	opt/bitwig-studio/lib/bitwig-studio/libcairo.so.2
-	opt/bitwig-studio/lib/bitwig-studio/libharfbuzz.so.0
 	opt/bitwig-studio/lib/bitwig-studio/libxcb-xkb.so.1
 	opt/bitwig-studio/lib/bitwig-studio/libXcursor.so.1
-	opt/bitwig-studio/lib/bitwig-studio/libfreetype.so.6
-	opt/bitwig-studio/lib/bitwig-studio/liblwjgl.so
 	opt/bitwig-studio/lib/bitwig-studio/libXdmcp.so.6
+	opt/bitwig-studio/lib/bitwig-studio/libz.so.1
 	opt/bitwig-studio/bitwig-studio
 	opt/bitwig-studio/bin32/BitwigPluginHost32
 	opt/bitwig-studio/bin/BitwigStudioEngine
