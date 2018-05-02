@@ -15,9 +15,10 @@ SLOT="0"
 
 IUSE="-pulseaudio a2jmidid ladish"
 
-RDEPEND="virtual/jack
+RDEPEND="${PYTHON_DEPS}
+	virtual/jack
 	dev-python/PyQt5[gui,svg,widgets,${PYTHON_USEDEP}]
-	dev-python/dbus-python
+	dev-python/dbus-python[${PYTHON_USEDEP}]
 	a2jmidid? ( media-sound/a2jmidid )
 	ladish? ( >=media-sound/ladish-9999 )
 	pulseaudio? ( media-sound/pulseaudio[jack] )"
@@ -30,6 +31,20 @@ src_compile() {
 		SKIP_STRIPPING=true
 	)
 	emake "${myemakeargs[@]}"
+}
+
+src_prepare() {
+	sed -i -e "s/python3/${EPYTHON}/" data/cadence || die "sed failed"
+	sed -i -e "s/python3/${EPYTHON}/" data/cadence-aloop-daemon || die "sed failed"
+	sed -i -e "s/python3/${EPYTHON}/" data/cadence-jacksettings || die "sed failed"
+	sed -i -e "s/python3/${EPYTHON}/" data/cadence-logs || die "sed failed"
+	sed -i -e "s/python3/${EPYTHON}/" data/cadence-render || die "sed failed"
+	sed -i -e "s/python3/${EPYTHON}/" data/cadence-session-start || die "sed failed"
+	sed -i -e "s/python3/${EPYTHON}/" data/catarina || die "sed failed"
+	sed -i -e "s/python3/${EPYTHON}/" data/catia || die "sed failed"
+	sed -i -e "s/python3/${EPYTHON}/" data/claudia || die "sed failed"
+	sed -i -e "s/python3/${EPYTHON}/" data/claudia-launcher || die "sed failed"
+	default
 }
 
 src_install() {
@@ -53,6 +68,7 @@ src_install() {
 		rm -rf "${D}/usr/share/applications/claudia.desktop"
 		rm -rf "${D}/usr/share/applications/claudia-launcher.desktop"
 	fi
+	python_fix_shebang "${ED}"usr/share/cadence/src
 }
 
 pkg_postinst() {
