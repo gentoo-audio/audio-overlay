@@ -1,0 +1,25 @@
+# Author: Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+# A patch to make sure package provided aclocal macros are found.
+
+diff -ur lash-0.6.0.594.orig/Makefile.am lash-0.6.0.594/Makefile.am
+--- lash-0.6.0.594.orig/Makefile.am	2015-03-19 23:22:45.955307671 +0100
++++ lash-0.6.0.594/Makefile.am	2015-04-03 09:26:25.239980837 +0200
+@@ -1,3 +1,5 @@
++ACLOCAL_AMFLAGS = -I m4
++
+ SUBDIRS = m4 docs lash common dbus liblash lashd clients icons pylash
+ 
+ pkgconfigdir = $(libdir)/pkgconfig
+diff -ur lash-0.6.0.594.orig/configure.ac lash-0.6.0.594/configure.ac
+--- lash-0.6.0.594.orig/configure.ac	2015-03-19 23:22:45.954307671 +0100
++++ lash-0.6.0.594/configure.ac	2015-04-03 09:25:41.968979896 +0200
+@@ -1,8 +1,8 @@
+ AC_INIT([LASH],[0.6.0])
+ AC_CONFIG_SRCDIR([lash/types.h])
+ AC_CONFIG_HEADER([config.h])
++AC_CONFIG_MACRO_DIR([m4])
+ AM_INIT_AUTOMAKE
+-#AM_ACLOCAL_INCLUDE([m4])
+ 
+ 
+ ### Check for programs ###

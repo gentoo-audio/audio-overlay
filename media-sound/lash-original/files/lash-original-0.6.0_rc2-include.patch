@@ -1,0 +1,14 @@
+# Author: Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+# A patch to include uuid/uuid.h even when alsa is not built.
+
+diff -ur lash-0.6.0.594.orig/lashd/server.h lash-0.6.0.594/lashd/server.h
+--- lash-0.6.0.594.orig/lashd/server.h	2008-09-23 01:54:38.000000000 +0200
++++ lash-0.6.0.594/lashd/server.h	2013-06-06 11:36:31.270051682 +0200
+@@ -26,6 +26,7 @@
+ #include <stdbool.h>
+ #include <sys/types.h>
+ #include <dbus/dbus.h>
++#include <uuid/uuid.h>
+ 
+ #include "types.h"
+ #include "dbus/service.h"

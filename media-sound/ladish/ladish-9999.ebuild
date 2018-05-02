@@ -31,7 +31,6 @@ RDEPEND="media-libs/alsa-lib
 	media-sound/jack2[dbus]
 	sys-apps/dbus
 	dev-libs/expat
-	lash? ( !media-sound/lash )
 	gtk? (
 		dev-libs/glib
 		dev-libs/dbus-glib
