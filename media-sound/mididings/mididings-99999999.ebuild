@@ -11,7 +11,7 @@ HOMEPAGE="http://das.nasophon.de/mididings/"
 
 if [ "${PV}" = "99999999" ]; then
 	inherit git-r3
-	EGIT_REPO_URI="git://github.com/dsacre/mididings.git"
+	EGIT_REPO_URI="https://github.com/dsacre/mididings.git"
 	KEYWORDS=""
 else
 	SRC_URI="http://das.nasophon.de/download/${P}.tar.gz"
