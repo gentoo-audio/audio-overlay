@@ -15,10 +15,10 @@ SLOT="0"
 
 IUSE="-pulseaudio a2jmidid ladish"
 
-RDEPEND="virtual/jack
-	dev-python/PyQt5[gui,svg,widgets,${PYTHON_USEDEP}]
+RDEPEND="media-sound/jack2[dbus]
+	dev-python/PyQt5[dbus,gui,svg,widgets,${PYTHON_USEDEP}]
 	dev-python/dbus-python
-	a2jmidid? ( media-sound/a2jmidid )
+	a2jmidid? ( media-sound/a2jmidid[dbus] )
 	ladish? ( >=media-sound/ladish-9999 )
 	pulseaudio? ( media-sound/pulseaudio[jack] )"
 DEPEND=${RDEPEND}
