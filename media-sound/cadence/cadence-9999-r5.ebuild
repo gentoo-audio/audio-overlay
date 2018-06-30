@@ -13,10 +13,10 @@ KEYWORDS=""
 LICENSE="GPL-2"
 SLOT="0"
 
-IUSE="-pulseaudio a2jmidid ladish"
+IUSE="-pulseaudio a2jmidid ladish opengl"
 
 RDEPEND="media-sound/jack2[dbus]
-	dev-python/PyQt5[dbus,gui,svg,widgets,${PYTHON_USEDEP}]
+	dev-python/PyQt5[dbus,gui,opengl?,svg,widgets,${PYTHON_USEDEP}]
 	dev-python/dbus-python
 	a2jmidid? ( media-sound/a2jmidid[dbus] )
 	ladish? ( >=media-sound/ladish-9999 )
