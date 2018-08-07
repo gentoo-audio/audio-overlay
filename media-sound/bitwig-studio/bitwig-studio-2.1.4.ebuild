@@ -11,7 +11,7 @@ inherit eutils unpacker xdg-utils gnome2-utils
 
 DESCRIPTION="Multi-platform music-creation system for production, performance and DJing"
 HOMEPAGE="http://bitwig.com"
-SRC_URI="http://downloads.bitwig.com/${P}.deb"
+SRC_URI="https://downloads.bitwig.com/stable/${PV}/${P}.deb"
 LICENSE="Bitwig"
 SLOT="0"
 KEYWORDS="~amd64"
