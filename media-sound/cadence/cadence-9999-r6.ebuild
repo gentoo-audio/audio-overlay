@@ -15,15 +15,31 @@ SLOT="0"
 
 IUSE="-pulseaudio a2jmidid ladish opengl"
 
-RDEPEND="media-sound/jack2[dbus]
+RDEPEND="${PYTHON_DEPS}
+	media-sound/jack2[dbus]
 	dev-python/PyQt5[dbus,gui,opengl?,svg,widgets,${PYTHON_USEDEP}]
-	dev-python/dbus-python
+	dev-python/dbus-python[${PYTHON_USEDEP}]
 	a2jmidid? ( media-sound/a2jmidid[dbus] )
 	ladish? ( >=media-sound/ladish-9999 )
 	pulseaudio? ( media-sound/pulseaudio[jack] )"
 DEPEND=${RDEPEND}
 
 PATCHES=( "${FILESDIR}"/${PN}-add-skip-stripping.patch )
+
+src_prepare() {
+	sed -i -e "s/python3/${EPYTHON}/" \
+		data/cadence \
+		data/cadence-aloop-daemon \
+		data/cadence-jacksettings \
+		data/cadence-logs \
+		data/cadence-render \
+		data/cadence-session-start \
+		data/catarina \
+		data/catia \
+		data/claudia \
+		data/claudia-launcher || die "sed failed"
+	default
+}
 
 src_compile() {
 	myemakeargs=(PREFIX="/usr"
