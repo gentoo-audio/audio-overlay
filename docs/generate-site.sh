@@ -12,7 +12,9 @@ docker rm -f portage || true
 docker create --name portage gentoo/portage
 
 # Run overlay-packagelist to render our template
-mkdir docs/site
+mkdir -p docs/site
+rm -rf docs/site/*
+
 docker run --rm -ti \
   --volumes-from portage \
   -v "${HOME}/.portage-pkgdir":/usr/portage/packages \
