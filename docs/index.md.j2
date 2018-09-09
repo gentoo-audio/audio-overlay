@@ -22,6 +22,6 @@ Join us at the `#proaudio-overlay` channel at `irc.freenode.org` or [create an i
 #### {{ package.name }}
 Homepage: [{{ package.homepage }}]({{ package.homepage_url }})<br>
 {{ package.description }}<br>
-Available versions: {{ package.versions|join(', ') }}
+Available versions: {% for version in package.versions %}`{{ version }}`{% if not loop.last %}, {% endif %}{% endfor %}
 {% endfor %}
 {% endfor %}
