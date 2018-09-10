@@ -1,0 +1,25 @@
+From 02563e8c9b91961c5ce30c5d15fe0c12e2526d6a Mon Sep 17 00:00:00 2001
+From: Simon van der Veldt <simon.vanderveldt@gmail.com>
+Date: Tue, 11 Sep 2018 09:29:16 +0200
+Subject: [PATCH] lash fix get_ppqn function call
+
+---
+ libseq64/src/lash.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/libseq64/src/lash.cpp b/libseq64/src/lash.cpp
+index 9338831f..5c5cf2f9 100644
+--- a/libseq64/src/lash.cpp
++++ b/libseq64/src/lash.cpp
+@@ -300,7 +300,7 @@ lash::handle_event (lash_event_t * ev)
+ 
+         midifile f
+         (
+-            str, m_perform.ppqn(), rc().legacy_format(),
++            str, m_perform.get_ppqn(), rc().legacy_format(),
+             usr().global_seq_feature()
+         );
+         f.write(m_perform);
+-- 
+2.16.4
+

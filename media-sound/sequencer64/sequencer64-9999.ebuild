@@ -14,6 +14,7 @@ if [[ ${PV} == *9999 ]]; then
 else
 	SRC_URI="https://github.com/ahlstromcj/sequencer64/archive/${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
+	RESTRICT="mirror"
 fi
 LICENSE="GPL-2"
 SLOT="0"
@@ -28,6 +29,8 @@ RDEPEND="dev-cpp/gtkmm:2.4
 	lash? ( || ( media-sound/lash media-sound/ladish[lash] ) )"
 
 DEPEND="${RDEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-0.95.1-lash-fix-get_ppqn-function-call.patch" )
 
 src_prepare()
 {
