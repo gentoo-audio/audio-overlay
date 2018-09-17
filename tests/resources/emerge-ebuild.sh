@@ -11,6 +11,7 @@ if [ "$#" -ne 1 ]; then
   exit 1
 fi
 
+SCRIPT_NAME=$(basename "${0}")
 EBUILD_PATH="${1}"
 
 # Disable news messages from portage and disable rsync's output
@@ -53,8 +54,38 @@ if [ -f "./tests/resources/packages/${PKG_CATEGORY}/${PKG_FULL_NAME}.conf" ]; th
   source "./tests/resources/packages/${PKG_CATEGORY}/${PKG_FULL_NAME}.conf"
 fi
 
+if [ "${SCRIPT_NAME}" == "emerge-ebuild-usecombis.sh" ]; then
+  echo "Emerging all possible USE flag combinations for ${EBUILD}"
+  # Use 9999 until a release containing https://github.com/gentoo/tatt/pull/34 is made
+  echo 'app-portage/tatt **' >> /etc/portage/package.accept_keywords/tatt
+  emerge -q --buildpkg --usepkg app-portage/tatt
+  # Replace templates
+  rm /usr/share/tatt/templates/use-loop
+  echo "" > /usr/share/tatt/templates/use-test-snippet
+cat > /usr/share/tatt/templates/use-snippet <<EOF
 # Emerge dependencies first
-emerge --quiet-build --buildpkg --usepkg --onlydeps --autounmask=y --autounmask-continue=y "=${PKG_CATEGORY}/${PKG_FULL_NAME}"
-
+@@USE@@ emerge --quiet-build --buildpkg --usepkg --onlydeps --autounmask=y --autounmask-continue=y @@CPV@@
 # Emerge the ebuild itself
-emerge -v "=${PKG_CATEGORY}/${PKG_FULL_NAME}"
+@@USE@@ emerge -v @@CPV@@
+EOF
+cat > /usr/share/tatt/templates/use-header << EOF
+#!/bin/bash
+set -ex
+
+source "@@TEMPLATEDIR@@tatt_functions.sh"
+EOF
+
+  # Generate script to emerge all USE flag combinations
+  pushd /tmp
+  tatt -u "=${EBUILD}"
+
+  # Run emerge script
+  ./${PKG_NAME}-useflags.sh
+  popd
+else
+  echo "Emerging dependencies for ${EBUILD}"
+  emerge --quiet-build --buildpkg --usepkg --onlydeps --autounmask=y --autounmask-continue=y "=${PKG_CATEGORY}/${PKG_FULL_NAME}"
+
+  echo "Emerging ${EBUILD}"
+  emerge -v "=${PKG_CATEGORY}/${PKG_FULL_NAME}"
+fi

@@ -2,6 +2,8 @@
 # Emerge a specific ebuild in a clean amd64 stage3
 set -ex
 
+SCRIPT_NAME=$(basename "${0}")
+
 if [ "$#" -ne 1 ]; then
   echo "Usage: $0 <package category>/<package name>/<package name and version>.ebuild" >&2
   exit 1
@@ -28,4 +30,4 @@ docker run --rm -ti \
   -v "${PWD}":/usr/local/portage \
   -w /usr/local/portage \
   gentoo/stage3-amd64 \
-  /usr/local/portage/tests/resources/emerge-ebuild.sh "${EBUILD}"
+  /usr/local/portage/tests/resources/${SCRIPT_NAME} "${EBUILD}"

@@ -23,39 +23,53 @@ Join us at the `#proaudio-overlay` channel at `irc.freenode.org` or [create an i
 <br>We have a zero-tolerance policy for test failures and warnings, only changes that have no failures and warnings are merged.
 
 ### Automated tests
-All tests that are meant to be executed by the user or by CI can be found in the `./tests` directory.
+All tests that are meant to be executed by the user or by CI can be found in the root of the `./tests` directory.
 
-All tests need `app-emulation/docker` to be installed.
+Note that the tests will create a binary package cache at `${HOME}/.portage-pkgdir`.
 
-#### Pull Requests
-Every pull request must pass the following tests before it can be merged:
-- Validation if the ebuild(s), metadata and other overlay files are correct. This is done using [repoman](https://wiki.gentoo.org/wiki/Repoman).
-<br>Run this test using `./tests/repoman.sh`.
-- Validation if the ebuilds that are new or changed in the Pull Request can be emerged. This is done in a clean amd64 stage3.
-<br>Run this test using `./tests/emerge-new-or-changed-ebuilds.sh` from the branch which contains the new or changed ebuild(s).
-<br>Note that this will create a binary package cache at `${HOME}/.portage-pkgdir`.
+#### Dependencies
+All tests need `app-emulation/docker`, they use the [gentoo/stage3-amd64](https://hub.docker.com/r/gentoo/stage3-amd64/) and [gentoo/portage](https://hub.docker.com/r/gentoo/portage/) image.
 
-#### Daily checks
-Every day the following tests are run:
-- A random ebuild is picked and emerged to validate that it can still be emerged correctly. This is done in a clean amd64 stage3.
-<br>Run this test using `./tests/emerge-random-ebuild.sh`.
-<br>Note that this will create a binary package cache at `${HOME}/.portage-pkgdir`.
-- A check if a new version of any of the packages in the overlay is released. This is done using [newversionchecker](https://github.com/simonvanderveldt/newversionchecker). If a new version has been released an issue requesting a version bump will be created.
-<br>Run this test using `./tests/newversioncheck.sh`.
+#### Test overview
+- `./tests/emerge-ebuild.sh <path>/<to>/<ebuild>.ebuild`
+Emerges the ebuild in a clean amd64 stage3.
 
-#### Development
-To check if an ebuild you're working on can be emerged without issue use `./tests/emerge-ebuild.sh <path>/<to>/<ebuild>.ebuild`. This is done in a clean amd64 stage3.
-<br>For example to emerge the ebuild `media-sound/somesynth/somesynth-1.2.3.ebuild` run `./tests/emerge-ebuild.sh media-sound/somesynth/somesynth-1.2.3.ebuild`.
-<br>Note that this will create a binary package cache at `${HOME}/.portage-pkgdir`.
+- `./tests/emerge-ebuild-usecombis.sh <path>/<to>/<ebuild>.ebuild`
+Emerges the ebuild once for every possible USE flag combination.
+Depending on the amount of USE flags and the package's compilation time this might take a while.
 
-Also see the tests described under [Pull Requests](#pull-requests).
+- `./tests/emerge-new-or-changed-ebuilds.sh`
+Determines which ebuilds are new and/or changed and will execute `./tests/emerge-ebuild.sh` for all of them.
+Should be run from a branch that contains new or changed ebuilds.
+This test is run for every Pull Request.
+This test needs `dev-vcs/git`.
+
+- `./tests/emerge-random-ebuild.sh`
+A random ebuild is picked and emerged using `./tests/emerge-ebuild.sh` to validate that the chosen ebuild can still be emerged correctly.
+This test is run daily on CI.
+
+- `./tests/emerge-random-live-ebuild.sh`
+A random live (`9999`) ebuild is picked and emerged using `./tests/emerge-ebuild.sh` to validate that the chosen ebuild can still be emerged correctly.
+This test is run daily on CI.
+
+- `./tests/repoman.sh`
+Validates if the ebuilds, metadata and other overlay files are correct.
+This is done using [repoman](https://wiki.gentoo.org/wiki/Repoman).
+This test is run for every Pull Request.
+
+- `./tests/newversioncheck.sh`
+Checks if a new version of any of the packages in the overlay is released.
+This is done using [newversionchecker](https://github.com/simonvanderveldt/newversionchecker).
+If a new version has been released an issue requesting a version bump will be created.
+This check is run daily on CI.
+
 
 #### Test configuration
 All test configuration can be found in `./tests/resources`.
 
 ##### Emerge tests
-To enable configuring packages for the `emerge` tests a `.conf` file matching the package is sourced before the package is emerged. These `.conf` files should be placed in the `./tests/resources/packages` directory using the same package category structure as the overlay itself.
+To enable configuring packages for the `emerge` tests a `.conf` file matching the package is sourced before the package is emerged. These `.conf` files should be placed in the `./tests/resources/packages` directory using the same `<category>/<package>` structure as the overlay itself.
 <br>For example to configure the package `media-sound/somesynth-1.2.3` the `.conf` file should be called `./tests/resources/packages/media-sound/somesynth-1.2.3.conf`.
 
 ##### New version check
-The new version check uses `./test/resources/newversionchecker.toml` as it's configuration.
+The new version is configured using `./test/resources/newversionchecker.toml`.
