@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_{4,5,6} )
 inherit git-r3 python-single-r1 gnome2-utils
 
 DESCRIPTION="Collection of tools useful for audio production"
-HOMEPAGE="http://kxstudio.linuxaudio.org"
+HOMEPAGE="http://kxstudio.linuxaudio.org/Applications:Cadence"
 EGIT_REPO_URI="https://github.com/falkTX/Cadence.git"
 KEYWORDS=""
 LICENSE="GPL-2"
