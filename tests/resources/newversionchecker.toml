@@ -5,6 +5,7 @@ check_interval = 24
 artyfx = "https://github.com/openAVproductions/openAV-ArtyFX"
 cadence = "https://github.com/falkTX/Cadence"
 carla = "https://github.com/falkTX/Carla"
+deteriorate-lv2 = "https://github.com/blablack/deteriorate-lv2"
 drumkv1 = "https://github.com/rncbc/drumkv1"
 ladish = "https://github.com/LADI/ladish"
 libmonome = "https://github.com/monome/libmonome"
