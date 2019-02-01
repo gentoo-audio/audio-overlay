@@ -15,12 +15,19 @@ docker pull gentoo/stage3-amd64
 
 # Run the repoman tests in a clean stage3
 docker run --rm -ti \
+  -e GITHUB_TOKEN \
+  -e TRAVIS \
   -e TRAVIS_REPO_SLUG \
   -e TRAVIS_PULL_REQUEST \
-  -e TRAVIS_BOT_GITHUB_TOKEN \
   -e TRAVIS_SECURE_ENV_VARS \
+  -e CIRCLECI \
+  -e CIRCLE_PROJECT_USERNAME \
+  -e CIRCLE_PROJECT_REPONAME \
+  -e CIRCLE_PULL_REQUEST \
+  -e CIRCLE_PR_NUMBER \
   --volumes-from portage \
   -v "${HOME}/.portage-pkgdir":/usr/portage/packages \
   -v "${PWD}":/usr/local/portage \
-  -w /usr/local/portage gentoo/stage3-amd64 \
+  -w /usr/local/portage \
+  gentoo/stage3-amd64 \
   /usr/local/portage/tests/resources/repoman.sh

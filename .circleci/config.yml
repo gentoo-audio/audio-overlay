@@ -1,0 +1,112 @@
+version: 2.1
+
+jobs:
+  check new versions:
+    machine: true
+    steps:
+      - checkout
+      - run: ./tests/newversioncheck.sh
+  emerge random ebuild:
+    machine: true
+    steps:
+      - checkout
+      - restore_cache:
+          key: portage-pkgdir-emerge
+      - run: ./tests/emerge-random-ebuild.sh
+      - save_cache:
+          key: portage-pkgdir-emerge-{{ epoch }}
+          paths:
+            - ~/.portage-pkgdir
+  emerge random live ebuild:
+    machine: true
+    steps:
+      - checkout
+      - restore_cache:
+          key: portage-pkgdir-emerge
+      - run: ./tests/emerge-random-live-ebuild.sh
+      - save_cache:
+          key: portage-pkgdir-emerge-{{ epoch }}
+          paths:
+            - ~/.portage-pkgdir
+  repoman:
+    machine: true
+    steps:
+      - checkout
+      - restore_cache:
+          key: portage-pkgdir-repoman
+      - run: ./tests/repoman.sh
+      - save_cache:
+          key: portage-pkgdir-repoman-{{ epoch }}
+          paths:
+            - ~/.portage-pkgdir
+  emerge new or changed ebuilds:
+    machine: true
+    steps:
+      - checkout
+      - restore_cache:
+          key: portage-pkgdir-emerge
+      - run: ./tests/emerge-new-or-changed-ebuilds.sh
+      - save_cache:
+          key: portage-pkgdir-emerge-{{ epoch }}
+          paths:
+            - ~/.portage-pkgdir
+  generate site:
+    machine: true
+    steps:
+      - checkout
+      - run: ./docs/generate-site.sh
+      - persist_to_workspace:
+          root: docs/site
+          paths:
+            - index.md
+  deploy site:
+    machine: true
+    steps:
+      - checkout
+      - attach_workspace:
+          at: /tmp/docs
+      - run: .circleci/deploy-gh-pages.sh
+
+
+workflows:
+  version: 2
+  daily tests:
+    triggers:
+     - schedule:
+         cron: "0 16 * * *"
+         filters:
+           branches:
+             only:
+               - master
+    jobs:
+      - check new versions
+      - emerge random ebuild
+      - emerge random live ebuild:
+          requires:
+            - emerge random ebuild
+  pullrequest:
+    jobs:
+      - repoman:
+          filters:
+            branches:
+              ignore: master
+      - emerge new or changed ebuilds:
+          requires:
+            - repoman
+          filters:
+            branches:
+              ignore: master
+  update site:
+    jobs:
+      - generate site:
+          filters:
+            branches:
+              only:
+                - master
+      - deploy site:
+          requires:
+            - generate site
+          filters:
+            branches:
+              only:
+                - master

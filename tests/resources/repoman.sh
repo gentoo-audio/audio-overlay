@@ -14,21 +14,9 @@ PATH="~/.local/bin:$PATH"
 # Run the tests
 if ! repoman_output=$(repoman full -d -q); then
   echo "$repoman_output"
-  # Don't report back to GitHub for third-party pull requests
-  # This is to prevent build failures because the required encrypted env vars are missing for 3rd party PRs
-  if [[ "$TRAVIS_SECURE_ENV_VARS" == "true" ]]; then
-    echo "$repoman_output" | travis-bot --description "Repoman QA results:"
-  else
-    echo "Skipping posting repoman QA results to GitHub because TRAVIS_SECURE_ENV_VARS is not 'true'"
-  fi
+  echo "$repoman_output" | travis-bot --description "Repoman QA results:"
   exit 1
 else
   echo "$repoman_output"
-  # Don't report back to GitHub for third-party pull requests
-  # This is to prevent build failures because the required encrypted env vars are missing for 3rd party PRs
-  if [[ "$TRAVIS_SECURE_ENV_VARS" == "true" ]]; then
-    echo "$repoman_output" | travis-bot --description "Repoman QA results:"
-  else
-    echo "Skipping posting repoman QA results to GitHub because TRAVIS_SECURE_ENV_VARS is not 'true'"
-  fi
+  echo "$repoman_output" | travis-bot --description "Repoman QA results:"
 fi
