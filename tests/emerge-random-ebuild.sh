@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Emerge a random non-live ebuild out of all the ebuilds in the overlay in a clean amd64 stage3
 # Used to do continuous tests if our ebuilds still work
-# As well as making sure Travis's cache of the master branch is filled
+# as well as make sure the binary package cache is updated on our CI service
 set -ex
 
 SCRIPT_PATH=$(dirname "$0")

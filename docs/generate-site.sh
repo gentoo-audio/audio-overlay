@@ -15,9 +15,11 @@ docker create --name portage gentoo/portage
 mkdir -p docs/site
 rm -rf docs/site/*
 
+# The sed replacement is a workaround for an issue on CircleCI where the echo'd output
+# gets prefixed with "^@^@"
 docker run --rm -ti \
   --volumes-from portage \
   -v "${HOME}/.portage-pkgdir":/usr/portage/packages \
   -v "${PWD}":/usr/local/portage \
   -w /usr/local/portage simonvanderveldt/overlay-packagelist \
-  docs/index.md.j2 > docs/site/index.md
+  docs/index.md.j2 | sed -e "s/^\^@\^@//" > docs/site/index.md
