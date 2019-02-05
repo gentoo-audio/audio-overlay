@@ -78,7 +78,7 @@ Available versions: `9999`
 #### drumkv1
 Homepage: [drumkv1.sourceforge.net/](http://drumkv1.sourceforge.net/)<br>
 An old-school all-digital drum-kit sampler synthesizer with stereo fx<br>
-Available versions: `0.9.1`, `0.9.2`, `0.9.3`, `9999-r1`
+Available versions: `0.9.1`, `0.9.2`, `9999-r1`
 
 #### guitarix
 Homepage: [guitarix.sourceforge.net/](http://guitarix.sourceforge.net/)<br>
