@@ -49,6 +49,7 @@ src_configure() {
 	# Disable stripping
 	echo "QMAKE_STRIP=" >> src/src_core.pri.in
 	echo "QMAKE_STRIP=" >> src/src_jack.pri.in
+	echo "QMAKE_STRIP=" >> src/src_ui.pri.in
 
 	local -a myeconfargs=(
 		$(use_enable debug)
