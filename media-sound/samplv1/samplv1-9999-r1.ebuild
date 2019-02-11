@@ -36,6 +36,8 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+PATCHES=( "${FILESDIR}"/${PN}-dont-compress-manpages.patch )
+
 src_prepare() {
 	if [[ ${PV} == *9999 ]]; then
 		eautoreconf
