@@ -1,4 +1,4 @@
-# Audio overlay [![Build Status](https://travis-ci.org/gentoo-audio/audio-overlay.svg?branch=master)](https://travis-ci.org/gentoo-audio/audio-overlay) [![CircleCI](https://circleci.com/gh/gentoo-audio/audio-overlay.svg?style=svg)](https://circleci.com/gh/gentoo-audio/audio-overlay)
+# Audio overlay [![CircleCI](https://circleci.com/gh/gentoo-audio/audio-overlay.svg?style=svg)](https://circleci.com/gh/gentoo-audio/audio-overlay)
 
 Gentoo/Funtoo overlay containing pro audio applications
 
@@ -26,7 +26,7 @@ Join us at the `#proaudio-overlay` channel at `irc.freenode.org` or [create an i
 ## Quality control
 - GitHub's [branch protection](https://help.github.com/articles/about-protected-branches/) is enabled for the `master` branch.
 - Changes can only be done using [pull requests](https://help.github.com/articles/about-pull-requests/) and need at least one approval.
-- Pull requests can only be merged if they pass the automated tests, which are run by [Travis CI](https://travis-ci.org/gentoo-audio/audio-overlay) and [CircleCI](https://circleci.com/gh/gentoo-audio/audio-overlay).
+- Pull requests can only be merged if they pass the automated tests, which are run by [CircleCI](https://circleci.com/gh/gentoo-audio/audio-overlay).
 <br>We have a zero-tolerance policy for test failures and warnings, only changes that have no failures and warnings are merged.
 
 ### Automated tests

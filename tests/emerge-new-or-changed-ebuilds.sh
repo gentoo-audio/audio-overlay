@@ -14,7 +14,7 @@ if [[ ! -z "${CIRCLECI}" ]]; then
   git checkout -
   EBUILDS=($(git diff --name-only --diff-filter=d "master..${CIRCLE_BRANCH}" | grep '\.ebuild$')) || true
 else
-  EBUILDS=($(git diff --name-only --diff-filter=d "${TRAVIS_BRANCH:-master}" | grep '\.ebuild$')) || true
+  EBUILDS=($(git diff --name-only --diff-filter=d master | grep '\.ebuild$')) || true
 fi
 
 # Emerge the ebuilds in a clean stage3
