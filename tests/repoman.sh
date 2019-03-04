@@ -16,10 +16,6 @@ docker pull gentoo/stage3-amd64
 # Run the repoman tests in a clean stage3
 docker run --rm -ti \
   -e GITHUB_TOKEN \
-  -e TRAVIS \
-  -e TRAVIS_REPO_SLUG \
-  -e TRAVIS_PULL_REQUEST \
-  -e TRAVIS_SECURE_ENV_VARS \
   -e CIRCLECI \
   -e CIRCLE_PROJECT_USERNAME \
   -e CIRCLE_PROJECT_REPONAME \
