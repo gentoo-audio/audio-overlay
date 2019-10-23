@@ -22,7 +22,6 @@ LICENSE="ISC"
 SLOT="0"
 
 IUSE="osc -python udev"
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="udev? ( virtual/libudev )
 	osc? ( media-libs/liblo )
