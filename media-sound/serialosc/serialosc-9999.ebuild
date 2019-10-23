@@ -23,7 +23,6 @@ LICENSE="ISC"
 SLOT="0"
 
 IUSE="-zeroconf"
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="virtual/libudev
 	media-libs/liblo
