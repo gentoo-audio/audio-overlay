@@ -1,1 +1,1 @@
-bitwig-studio-2.4.3.ebuild
+bitwig-studio-2.5.1.ebuild
