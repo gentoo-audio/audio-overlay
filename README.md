@@ -27,7 +27,7 @@ Join us at the `#proaudio-overlay` channel at `irc.freenode.org` or [create an i
 - GitHub's [branch protection](https://help.github.com/articles/about-protected-branches/) is enabled for the `master` branch.
 - Changes can only be done using [pull requests](https://help.github.com/articles/about-pull-requests/) and need at least one approval.
 - Pull requests can only be merged if they pass the automated tests, which are run by [CircleCI](https://circleci.com/gh/gentoo-audio/audio-overlay).
-<br>We have a zero-tolerance policy for test failures and warnings, only changes that have no failures and warnings are merged.
+<br>Only changes that have no failures and warnings are merged.
 
 ### Automated tests
 All tests that are meant to be executed by the user or by CI can be found in the `./tests` directory.

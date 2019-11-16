@@ -1,6 +1,20 @@
 #!/usr/bin/env bash
-# Run "repoman full" against the entire overlay
-set -ex
+# Determine which ebuilds are new or changed and run repoman on their packages
+set -e
+
+if [ "${DEBUG}" = True ]; then
+  set -x
+fi
+
+SCRIPT_PATH=$(dirname "$0")
+
+PACKAGES=""
+if [[ -n "${CIRCLE_PULL_REQUEST}" ]]; then
+  # Get list of new or changed packages
+  IFS=" " read -ra EBUILDS <<< "$("${SCRIPT_PATH}/get-new-or-changed-ebuilds.sh")"
+  IFS=" " read -ra PACKAGES <<< "$(for EBUILD in "${EBUILDS[@]}"; do dirname "${EBUILD}"; done | sort -u)"
+  echo "Running repoman on the following packages:" "${PACKAGES[@]}"
+fi
 
 # Create volume container named "portage" with today's gentoo tree in it
 # Ensure the portage image is up to date
@@ -26,4 +40,4 @@ docker run --rm -ti \
   -v "${PWD}":/usr/local/portage \
   -w /usr/local/portage \
   gentoo/stage3-amd64 \
-  /usr/local/portage/tests/resources/repoman.sh
+  /usr/local/portage/tests/resources/repoman.sh "${PACKAGES[@]}"
