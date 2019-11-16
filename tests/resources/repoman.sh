@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 # "Lint" using repoman if any ebuilds have basic issues
 # In case of a PR the result is added as a comment to the PR
-set -ex
+set -e
+
+if [ "${DEBUG}" = True ]; then
+  set -x
+fi
 
 # Disable news messages from portage and disable rsync's output
 export FEATURES="-news" PORTAGE_RSYNC_EXTRA_OPTS="-q"
@@ -9,14 +13,29 @@ export FEATURES="-news" PORTAGE_RSYNC_EXTRA_OPTS="-q"
 # Install dependencies
 emerge -q --buildpkg --usepkg dev-vcs/git app-portage/repoman dev-python/pip
 pip install --user https://github.com/simonvanderveldt/travis-github-pr-bot/archive/master.zip
-PATH="~/.local/bin:$PATH"
+PATH="${HOME}/.local/bin:$PATH"
 
-# Run the tests
-if ! repoman_output=$(repoman full -d -q); then
-  echo "$repoman_output"
-  echo "$repoman_output" | travis-bot --description "Repoman QA results:"
-  exit 1
+REPOMAN_OUTPUT=""
+REPOMAN_EXITCODES=0
+
+if [[ -n "${1}" ]]; then
+  IFS=' ' read -ra PACKAGES <<< "${@}"
+  for PACKAGE in "${PACKAGES[@]}"
+  do
+    pushd "${PACKAGE}"
+    REPOMAN_OUTPUT+=$(repoman full -d -q) || REPOMAN_EXITCODES+=${?}
+    popd
+  done
 else
-  echo "$repoman_output"
-  echo "$repoman_output" | travis-bot --description "Repoman QA results:"
+  REPOMAN_OUTPUT+=$(repoman full -d -q) || REPOMAN_EXITCODES+=${?}
+fi
+
+echo "${REPOMAN_OUTPUT}"
+# Post repoman output as comment on PR when running on CI
+if [[ -n "${CIRCLE_PULL_REQUEST}" ]]; then
+  echo "${REPOMAN_OUTPUT}" | travis-bot --description "Repoman QA results:"
+fi
+
+if (( REPOMAN_EXITCODES > 0 )); then
+  exit 1
 fi
