@@ -35,6 +35,7 @@ docker run --rm -ti \
   -e CIRCLE_PROJECT_REPONAME \
   -e CIRCLE_PULL_REQUEST \
   -e CIRCLE_PR_NUMBER \
+  -e DEBUG \
   --volumes-from portage \
   -v "${HOME}/.portage-pkgdir":/var/cache/binpkgs \
   -v "${PWD}":/usr/local/portage \
