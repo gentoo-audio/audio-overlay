@@ -22,7 +22,7 @@ docker run --rm -ti \
   -e CIRCLE_PULL_REQUEST \
   -e CIRCLE_PR_NUMBER \
   --volumes-from portage \
-  -v "${HOME}/.portage-pkgdir":/usr/portage/packages \
+  -v "${HOME}/.portage-pkgdir":/var/cache/binpkgs \
   -v "${PWD}":/usr/local/portage \
   -w /usr/local/portage \
   gentoo/stage3-amd64 \
