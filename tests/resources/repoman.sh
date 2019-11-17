@@ -23,17 +23,17 @@ if [[ -n "${1}" ]]; then
   for PACKAGE in "${PACKAGES[@]}"
   do
     pushd "${PACKAGE}"
-    REPOMAN_OUTPUT+=$(repoman full -d -q) || REPOMAN_EXITCODES+=${?}
+    REPOMAN_OUTPUT+="${PACKAGE}: $(repoman full -d -q)\n" || REPOMAN_EXITCODES+=${?}
     popd
   done
 else
   REPOMAN_OUTPUT+=$(repoman full -d -q) || REPOMAN_EXITCODES+=${?}
 fi
 
-echo "${REPOMAN_OUTPUT}"
+echo -e "${REPOMAN_OUTPUT}"
 # Post repoman output as comment on PR when running on CI
 if [[ -n "${CIRCLE_PULL_REQUEST}" ]]; then
-  echo "${REPOMAN_OUTPUT}" | travis-bot --description "Repoman QA results:"
+  echo -e "${REPOMAN_OUTPUT}" | travis-bot --description "Repoman QA results:"
 fi
 
 if (( REPOMAN_EXITCODES > 0 )); then
