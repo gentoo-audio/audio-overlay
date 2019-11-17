@@ -12,7 +12,7 @@ PACKAGES=""
 if [[ -n "${CIRCLE_PULL_REQUEST}" ]]; then
   # Get list of new or changed packages
   IFS=" " read -ra EBUILDS <<< "$("${SCRIPT_PATH}/get-new-or-changed-ebuilds.sh")"
-  IFS=" " read -ra PACKAGES <<< "$(for EBUILD in "${EBUILDS[@]}"; do dirname "${EBUILD}"; done | sort -u)"
+  mapfile -t PACKAGES < <(for EBUILD in "${EBUILDS[@]}"; do dirname "${EBUILD}"; done | sort -u)
   echo "Running repoman on the following packages:" "${PACKAGES[@]}"
 fi
 
