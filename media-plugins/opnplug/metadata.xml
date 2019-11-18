@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Zoë Sparks</name>
+		<email>zoe@milky.flowers</email>
+	</maintainer>
+	<maintainer type="person">
+		<email>simon.vanderveldt+audio-overlay@gmail.com</email>
+		<name>Simon van der Veldt</name>
+	</maintainer>
+	<use>
+		<flag name="lv2">Enable building of LV2 plugin</flag>
+		<flag name="vst">Enable building of VST plugin</flag>
+		<flag name="standalone">Enable building of standalone application</flag>
+		<flag name="nsm">Enable New Session Manager support</flag>
+	</use>
+</pkgmetadata>

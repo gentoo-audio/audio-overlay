@@ -2,6 +2,7 @@ github_repo = "gentoo-audio/audio-overlay"
 check_interval = 24
 
 [projects]
+adlplug = "https://github.com/jpcima/adlplug"
 artyfx = "https://github.com/openAVproductions/openAV-ArtyFX"
 bitrot = "https://github.com/grejppi/bitrot"
 cadence = "https://github.com/falkTX/Cadence"
