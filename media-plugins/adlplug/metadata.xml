@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Zoë Sparks</name>
+		<email>zoe@milky.flowers</email>
+	</maintainer>
+	<longdescription>
+		This software package provides FM synthesizer plugins based on
+		OPL3 and OPN2 sound chip emulations. The emulations and the
+		drivers are provided by libADLMIDI and libOPNMIDI.
+	</longdescription>
+	<use>
+		<flag name="opl3">Build ADLplug, which emulates the Yamaha
+		YMF262 chip.</flag>
+		<flag name="opn2">Build OPNplug, which emulates the Yamaha
+		YM2612 chip.</flag>
+		<flag name="lv2">Build and install LV2 plugins.</flag>
+		<flag name="vst">Build and install VST2 plugins.</flag>
+		<flag name="jack">Build and install standalone JACK programs.</flag>
+		<flag name="alsa">Build and install standalone ALSA programs.</flag>
+		<flag name="pch">Use precompiled headers.</flag>
+		<flag name="assertions">Build with assertions despite being
+		a release build.</flag>
+	</use>
+</pkgmetadata>

@@ -1,0 +1,15 @@
+--- /CMakeLists.txt
++++ /CMakeLists.txt
+@@ -385,10 +385,8 @@
+     require_symbols(ADLplug_Standalone "main")
+   endif()
+   set_target_properties(ADLplug_Standalone PROPERTIES
+-    OUTPUT_NAME "${ADLplug_NAME}" RUNTIME_OUTPUT_DIRECTORY "standalone")
+-  if(NOT ADLplug_Jack)
+-    install(TARGETS ADLplug_Standalone DESTINATION "${CMAKE_INSTALL_BINDIR}")
+-  endif()
++    OUTPUT_NAME "${ADLplug_NAME}-alsa" RUNTIME_OUTPUT_DIRECTORY "standalone")
++  install(TARGETS ADLplug_Standalone DESTINATION "${CMAKE_INSTALL_BINDIR}")
+   if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+     target_sources(ADLplug_Standalone PRIVATE
+       "resources/application/${ADLplug_NAME}.rc")
