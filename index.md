@@ -1,26 +1,3 @@
-Unable to unshare: EPERM
-Unable to unshare: EPERM
-Unable to unshare: EPERM
-Unable to unshare: EPERM
-Unable to unshare: EPERM
-Unable to unshare: EPERM
-Unable to unshare: EPERM
-Unable to unshare: EPERM
-Unable to unshare: EPERM
-Unable to unshare: EPERM
-Unable to unshare: EPERM
-Unable to unshare: EPERM
-Unable to unshare: EPERM
-Unable to unshare: EPERM
-Unable to unshare: EPERM
-Unable to unshare: EPERM
-Unable to unshare: EPERM
-Unable to unshare: EPERM
-Unable to unshare: EPERM
-Unable to unshare: EPERM
-Unable to unshare: EPERM
-Unable to unshare: EPERM
-Unable to unshare: EPERM
 Gentoo overlay containing pro audio applications.
 
 ## How to use this overlay
