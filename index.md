@@ -90,6 +90,11 @@ Homepage: [github.com/LADI/ladish](https://github.com/LADI/ladish)<br>
 LADI Session Handler - a session management system for JACK applications<br>
 Available versions: `1`, `9999`
 
+#### luppp
+Homepage: [openavproductions.com/luppp](http://openavproductions.com/luppp)<br>
+Live performance looping tool<br>
+Available versions: `1.2.1`, `9999`
+
 #### mididings
 Homepage: [das.nasophon.de/mididings/](http://das.nasophon.de/mididings/)<br>
 A MIDI router and processor based on Python, supporting ALSA and JACK MIDI<br>
