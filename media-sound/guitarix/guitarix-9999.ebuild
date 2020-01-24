@@ -59,7 +59,6 @@ DOCS=( changelog README )
 src_configure() {
 	local mywafconfargs=(
 		--cxxflags-release="-DNDEBUG"
-		--nocache
 		--shared-lib
 		--lib-dev
 		--no-ldconfig
