@@ -26,7 +26,7 @@ SLOT="0"
 
 # Enabling LADSPA is discouraged by the developer
 # See https://linuxmusicians.com/viewtopic.php?p=88153#p88153
-IUSE="+standalone -ladspa +lv2 avahi bluetooth nls"
+IUSE="+standalone -ladspa +lv2 zeroconf bluetooth nls"
 # When enabling LADSPA, standalone is required because the LADSPA build
 # dependencies aren't correctly defined
 REQUIRED_USE="|| ( standalone lv2 ladspa )
@@ -48,7 +48,7 @@ RDEPEND="media-libs/libsndfile
 	)
 	ladspa? ( media-libs/ladspa-sdk )
 	lv2? ( media-libs/lv2 )
-	avahi? ( net-dns/avahi )
+	zeroconf? ( net-dns/avahi )
 	bluetooth? ( net-wireless/bluez )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
@@ -67,7 +67,7 @@ src_configure() {
 		$(usex standalone "" "--no-standalone")
 		$(usex ladspa "--ladspa --new-ladspa" "")
 		$(usex lv2 "" "--no-lv2")
-		$(usex avahi "" "--no-avahi")
+		$(usex zeroconf "" "--no-avahi")
 		$(usex bluetooth "" "--no-bluez")
 		$(usex nls "--enable-nls" "--disable-nls")
 	)
