@@ -35,7 +35,7 @@ RDEPEND="${DEPEND}
 	virtual/opengl
 	virtual/udev
 	x11-libs/gtk+:3
-	x11-libs/cairo[xcb]
+	x11-libs/cairo[X]
 	x11-libs/libX11
 	x11-libs/libXau
 	x11-libs/libXcursor
