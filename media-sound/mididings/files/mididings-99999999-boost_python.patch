@@ -1,5 +1,14 @@
+From a5f15b6b464610aa82f850e214561db646df3197 Mon Sep 17 00:00:00 2001
+From: Simon van der Veldt <simon.vanderveldt@gmail.com>
+Date: Thu, 13 Feb 2020 21:48:32 +0100
+Subject: [PATCH] Fix libboost_python<xy> detection
+
+---
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
 diff --git a/setup.py b/setup.py
-index 6376278..ff1bb8b 100755
+index 6376278..ba73565 100755
 --- a/setup.py
 +++ b/setup.py
 @@ -148,7 +148,7 @@ sources = [
@@ -7,7 +16,10 @@ index 6376278..ff1bb8b 100755
  include_dirs.append('src')
  
 -boost_python_suffixes = ['-py%d%d' % sys.version_info[:2]]
-+boost_python_suffixes = ['-%d.%d' % sys.version_info[:2]]
++boost_python_suffixes = ['%d%d' % sys.version_info[:2]]
  if sys.version_info[0] == 3:
      boost_python_suffixes.append('3')
  libraries.append(boost_lib_name('boost_python', boost_python_suffixes))
+-- 
+2.24.1
+
