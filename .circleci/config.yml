@@ -39,6 +39,17 @@ jobs:
           key: portage-pkgdir-repoman-{{ epoch }}
           paths:
             - ~/.portage-pkgdir
+  repoman new or changed ebuilds:
+    machine: true
+    steps:
+      - checkout
+      - restore_cache:
+          key: portage-pkgdir-repoman
+      - run: ./tests/repoman-new-or-changed-ebuilds.sh
+      - save_cache:
+          key: portage-pkgdir-repoman-{{ epoch }}
+          paths:
+            - ~/.portage-pkgdir
   emerge new or changed ebuilds:
     machine: true
     steps:
@@ -80,19 +91,22 @@ workflows:
                - master
     jobs:
       - check new versions
-      - emerge random ebuild
+      - repoman
+      - emerge random ebuild:
+          requires:
+            - repoman
       - emerge random live ebuild:
           requires:
             - emerge random ebuild
   pullrequest:
     jobs:
-      - repoman:
+      - repoman new or changed ebuilds:
           filters:
             branches:
               ignore: master
       - emerge new or changed ebuilds:
           requires:
-            - repoman
+            - repoman new or changed ebuilds
           filters:
             branches:
               ignore: master
