@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # Determine which ebuilds are new or changed and emerge them in a clean amd64 stage3
-set -ex
+set -e
+
+if [ "${DEBUG}" = True ]; then
+  set -x
+fi
 
 SCRIPT_PATH=$(dirname "$0")
 

@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # Emerge a specific ebuild in a clean amd64 stage3
-set -ex
+set -e
+
+if [ "${DEBUG}" = True ]; then
+  set -x
+fi
 
 if [ "$#" -ne 1 ]; then
   echo "Usage: $0 <package category>/<package name>/<package name and version>.ebuild" >&2
