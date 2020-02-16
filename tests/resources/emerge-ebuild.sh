@@ -4,7 +4,11 @@
 # Sources ebuild specific config from ./packages/<category>/<PN>.conf and
 # ./packages/<category>/<P>.conf if those files exist
 # Depends on qatom from app-portage/portage-utils
-set -ex
+set -e
+
+if [ "${DEBUG}" = True ]; then
+  set -x
+fi
 
 if [ "$#" -ne 1 ]; then
   echo "Usage: $0 <ebuild category>/<ebuild name>/<ebuild filename>.ebuild" >&2
