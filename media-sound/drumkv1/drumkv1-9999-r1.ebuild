@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -36,7 +36,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}"/${PN}-dont-compress-manpages.patch )
+PATCHES=( "${FILESDIR}"/${P}-dont-compress-manpages.patch )
 
 src_prepare() {
 	if [[ ${PV} == *9999 ]]; then
