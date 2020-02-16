@@ -7,8 +7,11 @@ if [ "${DEBUG}" = True ]; then
   set -x
 fi
 
-# Disable news messages from portage and disable rsync's output
-export FEATURES="-news" PORTAGE_RSYNC_EXTRA_OPTS="-q"
+# Enable binpkg-multi-instance mainly for keeping binpkgs built with different USE flags
+# Disable news messages from portage as well as the IPC, network and PID sandbox to get rid of the
+# "Unable to unshare: EPERM" messages without requiring the container to be ran in priviliged mode
+# Also disable rsync's output
+export FEATURES="binpkg-multi-instance -news -ipc-sandbox -network-sandbox -pid-sandbox" PORTAGE_RSYNC_EXTRA_OPTS="-q"
 
 # Install dependencies
 emerge -q --buildpkg --usepkg dev-vcs/git app-portage/repoman dev-python/pip
