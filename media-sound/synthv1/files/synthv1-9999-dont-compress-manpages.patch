@@ -1,0 +1,24 @@
+From 66cc37ed5e9a76dcaa57181290cb7af4fb044340 Mon Sep 17 00:00:00 2001
+From: Simon van der Veldt <simon.vanderveldt@gmail.com>
+Date: Mon, 11 Feb 2019 21:07:40 +0100
+Subject: [PATCH] Makefile: Don't compress man pages
+
+---
+ Makefile.in | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/Makefile.in b/Makefile.in
+index ce3132c..dbc7a8f 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -155,7 +155,6 @@ install_jack:	jack
+ 	@$(MAKE) INSTALL_ROOT=$(DESTDIR) -f $(name_jack).mak install
+ 	@install -d -v -m 0755 $(DESTDIR)$(mandir)/man1
+ 	@install -v -m 0644 $(name)*.1 $(DESTDIR)$(mandir)/man1
+-	@gzip -nvf $(DESTDIR)$(mandir)/man1/$(name)*.1
+ 
+ 
+ uninstall_core:	core
+-- 
+2.24.1
+
