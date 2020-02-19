@@ -11,7 +11,7 @@ EGIT_REPO_URI="https://github.com/DISTRHO/DISTRHO-Ports"
 if [[ ${PV} == *9999 ]]; then
 	KEYWORDS=""
 else
-	EGIT_COMMIT="$(ver_cut 1-2)"
+	EGIT_COMMIT="65c7c68a79e532d01695466f5b94c0e1cc4ae940"
 	KEYWORDS="~amd64"
 fi
 LICENSE="GPL-2"
