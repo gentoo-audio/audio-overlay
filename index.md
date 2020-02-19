@@ -43,9 +43,9 @@ A set of plugins to deteriorate the sound quality<br>
 Available versions: `1.0.6`, `9999`
 
 #### distrho-ports
-Homepage: [distrho.sourceforge.net](http://distrho.sourceforge.net)<br>
+Homepage: [github.com/DISTRHO/DISTRHO-Ports](https://github.com/DISTRHO/DISTRHO-Ports)<br>
 Linux ports of Distrho plugins.<br>
-Available versions: `20170804`, `99999999`
+Available versions: `20200215`, `99999999`
 
 #### fabla
 Homepage: [openavproductions.com/fabla2](http://openavproductions.com/fabla2)<br>
