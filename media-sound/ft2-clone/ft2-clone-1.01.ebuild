@@ -7,7 +7,7 @@ DESCRIPTION="A portable Fasttracker II clone using SDL"
 HOMEPAGE="https://16-bits.org/ft2.php"
 SRC_URI="https://16-bits.org/${PN}-v${PV}-code.zip"
 
-LICENSE=""
+LICENSE="BSD-with-disclosure"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
