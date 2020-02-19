@@ -1,4 +1,4 @@
-# Copyright 2019 Gentoo Authors
+# Copyright 2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -12,7 +12,7 @@ SRC_URI="https://giadamusic.com/data/${P}-src.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="alsa jack pulse vst"
+IUSE="alsa jack pulseaudio vst"
 
 # TODO media-pugins/juce: https://juce.com/
 DEPEND="
@@ -32,8 +32,7 @@ src_prepare() {
 	sed -i 's!FL/Fl.H!fltk/&!g' configure.ac
 	use alsa  || sed -i 's/ -D__LINUX_ALSA__//'  Makefile.am
 	use jack  || sed -i 's/ -D__UNIX_JACK__//'   Makefile.am
-	use pulse || sed -i 's/ -D__LINUX_PULSE__//' Makefile.am
-	use pulse || sed -i 's/ -lpulse-simple -lpulse//' Makefile.am
+	use pulseaudio || sed -i 's/ -D__LINUX_PULSE__//;s/ -lpulse-simple -lpulse//' Makefile.am
 	eautoreconf
 }
 

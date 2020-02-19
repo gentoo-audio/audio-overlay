@@ -1,4 +1,4 @@
-# Copyright 2019 Gentoo Authors
+# Copyright 2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -30,7 +30,7 @@ BDEPEND=""
 
 src_unpack() {
 	git-r3_src_unpack
-	cd ${S}/subprojects
+	cd "${S}"/subprojects
 	git clone https://git.zrythm.org/git/libaudec
 	git clone https://git.zrythm.org/git/zrythm-cyaml libcyaml
 }

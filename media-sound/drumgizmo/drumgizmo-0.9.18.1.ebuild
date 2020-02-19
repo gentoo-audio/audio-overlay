@@ -1,4 +1,4 @@
-# Copyright 2019 Gentoo Authors
+# Copyright 2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -9,7 +9,7 @@ SRC_URI="https://www.drumgizmo.org/releases/${P}/${P}.tar.gz"
 
 LICENSE="LGPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64"
 IUSE="alsa jack lv2 vst cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse3"
 
 DEPEND="

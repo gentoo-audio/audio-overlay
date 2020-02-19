@@ -5,4 +5,7 @@
 	<name>mazes-80</name>
 	<email>mazes-80@github.com</email>
 </maintainer>
+<use>
+	<flag name="vst">Build vst plugin (untested)</flag>
+</use>
 </pkgmetadata>

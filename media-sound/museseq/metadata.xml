@@ -5,4 +5,11 @@
 	<name>mazes-80</name>
 	<email>mazes-80@github.com</email>
 </maintainer>
+<use>
+	<flag name="dssi">Build dssi plugin</flag>
+	<flag name="fluidsynth">Use fluidsynth</flag>
+	<flag name="lv2">Build lv2 plugin</flag>
+	<flag name="realtime">Support realtime via media-libs/rtaudio</flag>
+	<flag name="vst">Build vst plugin (untested)</flag>
+</use>
 </pkgmetadata>
