@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -22,17 +22,13 @@ fi
 LICENSE="GPL-2 LGPL-3"
 SLOT="0"
 
-IUSE="alsa ffmpeg gtk gtk2 libav opengl osc -pulseaudio rdf sf2 sndfile X"
+IUSE="alsa gtk gtk2 libav opengl osc -pulseaudio rdf sf2 sndfile X"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
 	$(python_gen_cond_dep 'dev-python/PyQt5[gui,opengl?,svg,widgets,${PYTHON_MULTI_USEDEP}]')
 	virtual/jack
 	alsa? ( media-libs/alsa-lib )
-	ffmpeg? (
-		libav? ( media-video/libav:0= )
-		!libav? ( media-video/ffmpeg:0= )
-	)
 	gtk? ( x11-libs/gtk+:3 )
 	gtk2? ( x11-libs/gtk+:2 )
 	osc? (
@@ -62,6 +58,7 @@ src_prepare() {
 src_compile() {
 	myemakeargs=(
 		SKIP_STRIPPING=true
+		HAVE_FFMPEG=false
 		HAVE_ZYN_DEPS=false
 		HAVE_ZYN_UI_DEPS=false
 		HAVE_QT4=false
@@ -69,7 +66,6 @@ src_compile() {
 		HAVE_PYQT5=true
 		DEFAULT_QT=5
 		HAVE_ALSA=$(usex alsa true false)
-		HAVE_FFMPEG=$(usex ffmpeg true false)
 		HAVE_FLUIDSYNTH=$(usex sf2 true false)
 		HAVE_GTK2=$(usex gtk2 true false)
 		HAVE_GTK3=$(usex gtk true false)
