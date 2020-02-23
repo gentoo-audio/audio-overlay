@@ -6,24 +6,24 @@ jobs:
     steps:
       - checkout
       - run: ./tests/newversioncheck.sh
-  emerge random ebuild:
+  emerge all ebuilds:
     machine: true
     steps:
       - checkout
       - restore_cache:
           key: portage-pkgdir-emerge
-      - run: ./tests/emerge-random-ebuild.sh
+      - run: ./tests/emerge-all-ebuilds.sh
       - save_cache:
           key: portage-pkgdir-emerge-{{ epoch }}
           paths:
             - ~/.portage-pkgdir
-  emerge random live ebuild:
+  emerge all live ebuilds:
     machine: true
     steps:
       - checkout
       - restore_cache:
           key: portage-pkgdir-emerge
-      - run: ./tests/emerge-random-live-ebuild.sh
+      - run: ./tests/emerge-all-live-ebuilds.sh
       - save_cache:
           key: portage-pkgdir-emerge-{{ epoch }}
           paths:
@@ -92,12 +92,12 @@ workflows:
     jobs:
       - check new versions
       - repoman
-      - emerge random ebuild:
+      - emerge all ebuilds:
           requires:
             - repoman
-      - emerge random live ebuild:
+      - emerge all live ebuilds:
           requires:
-            - emerge random ebuild
+            - emerge all ebuilds
   pullrequest:
     jobs:
       - repoman new or changed ebuilds:
