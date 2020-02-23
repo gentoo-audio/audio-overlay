@@ -6,12 +6,10 @@ if [ "${DEBUG}" = True ]; then
   set -x
 fi
 
-if [ "$#" -ne 1 ]; then
-  echo "Usage: $0 <package category>/<package name>/<package name and version>.ebuild" >&2
+if [ "$#" -eq 0 ]; then
+  echo "Usage: $0 <ebuild category>/<ebuild name>/<ebuild filename>.ebuild [<second ebuild category>/<second ebuild name>/<second ebuild filename>.ebuild]" >&2
   exit 1
 fi
-
-EBUILD="${1}"
 
 # Create volume container named "portage" with today's gentoo tree in it
 # Ensure the portage image is up to date
@@ -32,4 +30,4 @@ docker run --rm -ti \
   -v "${PWD}":/usr/local/portage \
   -w /usr/local/portage \
   gentoo/stage3-amd64 \
-  /usr/local/portage/tests/resources/emerge-ebuild.sh "${EBUILD}"
+  /usr/local/portage/tests/resources/emerge-ebuild.sh "${@}"
