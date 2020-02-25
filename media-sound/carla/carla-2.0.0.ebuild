@@ -43,6 +43,8 @@ RDEPEND="${PYTHON_DEPS}
 	X? ( x11-base/xorg-server )"
 DEPEND=${RDEPEND}
 
+PATCHES=( "${FILESDIR}"/${P}-qt5.13.patch )
+
 src_prepare() {
 	sed -i -e "s|exec \$PYTHON|exec ${PYTHON}|" \
 		data/carla \
