@@ -43,6 +43,8 @@ RDEPEND="${PYTHON_DEPS}
 	X? ( x11-base/xorg-server )"
 DEPEND=${RDEPEND}
 
+PATCHES=( "${FILESDIR}"/${P}-qt5.13.patch )
+
 src_prepare() {
 	sed -i -e "s|exec \$PYTHON|exec ${PYTHON}|" \
 		data/carla \
@@ -74,19 +76,18 @@ src_compile() {
 		HAVE_PULSEAUDIO=$(usex pulseaudio true false)
 		HAVE_SNDFILE=$(usex sndfile true false)
 		HAVE_X11=$(usex X true false)
-		LIBDIR=${EPREFIX}/usr/$(get_libdir)
 	)
 
 	# Print which options are enabled/disabled
-	make features PREFIX="${EPREFIX}/usr" "${myemakeargs[@]}"
+	make features PREFIX="/usr" "${myemakeargs[@]}"
 
-	emake PREFIX="${EPREFIX}/usr" "${myemakeargs[@]}"
+	emake PREFIX="/usr" "${myemakeargs[@]}"
 }
 
 src_install() {
-	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" "${myemakeargs[@]}" install
+	emake DESTDIR="${D}" PREFIX="/usr" "${myemakeargs[@]}" install
 	if ! use osc; then
-		find "${ED}/usr" -iname "carla-control*" | xargs rm
+		find "${D}/usr" -iname "carla-control*" | xargs rm
 	fi
 }
 
