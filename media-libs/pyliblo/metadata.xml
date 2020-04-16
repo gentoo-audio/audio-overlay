@@ -2,14 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>alexander@tsoy.me</email>
-		<name>Alexander Tsoy</name>
+		<name>Simon van der Veldt</name>
+		<email>simon.vanderveldt+audio-overlay@gmail.com</email>
 	</maintainer>
-	<maintainer type="project">
-		<email>proxy-maint@gentoo.org</email>
-		<name>Proxy Maintainers</name>
-	</maintainer>
-	<upstream>
-		<remote-id type="github">dsacre/pyliblo</remote-id>
-	</upstream>
 </pkgmetadata>
