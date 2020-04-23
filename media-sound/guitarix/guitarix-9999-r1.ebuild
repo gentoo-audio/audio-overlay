@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -33,15 +33,16 @@ REQUIRED_USE="|| ( standalone lv2 ladspa )
 	ladspa? ( standalone )"
 
 RDEPEND="media-libs/libsndfile
-	x11-libs/gtk+:2
+	x11-libs/gtk+:3
 	virtual/jack
-	dev-cpp/gtkmm:2.4
+	dev-cpp/gtkmm:3.0
 	dev-libs/boost
 	dev-cpp/eigen:3
 	sci-libs/fftw:3.0
 	>=media-libs/zita-convolver-3
 	media-libs/zita-resampler
 	standalone? (
+		dev-lang/sassc
 		media-libs/lilv
 		media-libs/liblrdf
 		media-fonts/roboto
