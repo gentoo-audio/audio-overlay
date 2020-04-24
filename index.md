@@ -88,7 +88,7 @@ Available versions: `0.9.9`, `0.9.10`, `0.9.11`, `9999-r1`
 #### guitarix
 Homepage: [guitarix.sourceforge.net/](http://guitarix.sourceforge.net/)<br>
 A simple Linux Guitar Amplifier for jack with one input and two outputs<br>
-Available versions: `9999`
+Available versions: `9999-r1`
 
 #### ladish
 Homepage: [github.com/LADI/ladish](https://github.com/LADI/ladish)<br>
