@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{4,5,6,7} )
+PYTHON_COMPAT=( python3_{6,7,8} )
 inherit python-single-r1 xdg-utils
 
 DESCRIPTION="Fully-featured audio plugin host, supports many audio drivers and plugin formats"
@@ -42,8 +42,6 @@ RDEPEND="${PYTHON_DEPS}
 	sndfile? ( media-libs/libsndfile )
 	X? ( x11-base/xorg-server )"
 DEPEND=${RDEPEND}
-
-PATCHES=( "${FILESDIR}"/${P}-qt5.13.patch )
 
 src_prepare() {
 	sed -i -e "s|exec \$PYTHON|exec ${PYTHON}|" \
