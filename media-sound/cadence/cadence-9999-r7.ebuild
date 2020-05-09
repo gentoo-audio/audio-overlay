@@ -3,7 +3,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python3_{4,5,6} )
+PYTHON_COMPAT=( python3_{6,7,8} )
 inherit git-r3 python-single-r1 gnome2-utils
 
 DESCRIPTION="Collection of tools useful for audio production"
