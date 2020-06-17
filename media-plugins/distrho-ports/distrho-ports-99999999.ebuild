@@ -38,6 +38,7 @@ QA_PRESTRIPPED="
 
 src_prepare() {
 	default
+	sed -i "/^LIBDIR/s/lib/$(get_libdir)/" Makefile
 	scripts/premake-update.sh linux
 }
 
@@ -53,10 +54,10 @@ src_compile() {
 src_install() {
 	emake DESTDIR="${D}" PREFIX="/usr" install
 	if use !lv2; then
-		rm -rf "${D}"/usr/lib/lv2
+		rm -rf "${D}"/usr/$(get_libdir)/lv2
 	fi
 	if use !vst; then
-		rm -rf "${D}"/usr/lib/vst
+		rm -rf "${D}"/usr/$(get_libdir)/vst
 	fi
 	rm -rf "${D}"/usr/src
 }
