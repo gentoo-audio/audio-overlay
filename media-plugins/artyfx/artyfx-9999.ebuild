@@ -26,6 +26,11 @@ RDEPEND="media-libs/lv2
 	X? ( x11-libs/cairo[X] )"
 DEPEND="${RDEPEND}"
 
+src_prepare() {
+	sed -i -e "s:lib/lv2:$(get_libdir)/lv2:" CMakeLists.txt || die
+	cmake-utils_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 	-DRELEASE_BUILD=ON
