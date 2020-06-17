@@ -7,7 +7,7 @@ inherit meson git-r3 gnome2-utils xdg
 
 DESCRIPTION="Digital audio workstation designed to be featureful and easy to use"
 HOMEPAGE="https://www.zrythm.org/"
-EGIT_REPO_URI="https://gitlab.com/zrythm/zrythm"
+EGIT_REPO_URI="https://git.zrythm.org/git/zrythm"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -18,7 +18,6 @@ DEPEND="
 	mp3? ( media-video/ffmpeg[mp3] )
 	>=media-libs/lilv-0.24.6
 	>=media-libs/suil-0.10.4[qt5]
-	dev-libs/libyaml
 	media-fonts/cantarell
 	media-libs/libsndfile
 	media-libs/lv2
