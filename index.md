@@ -27,7 +27,7 @@ Available versions: `1.4.1`, `1.4.2`, `9999`
 #### pyliblo
 Homepage: [das.nasophon.de/pyliblo](http://das.nasophon.de/pyliblo)<br>
 A Python wrapper for the liblo OSC library<br>
-Available versions: `0.10.0-r1`
+Available versions: `0.10.0-r2`
 
 #### zita-resampler
 Homepage: [kokkinizita.linuxaudio.org/linuxaudio/](http://kokkinizita.linuxaudio.org/linuxaudio/)<br>
@@ -73,12 +73,12 @@ Available versions: `1.3.16`, `2.5.1`, `3.0.3`, `3.1.1`, `3.1.2`
 #### cadence
 Homepage: [kxstudio.linuxaudio.org/Applications:Cadence](http://kxstudio.linuxaudio.org/Applications:Cadence)<br>
 Collection of tools useful for audio production<br>
-Available versions: `9999-r6`
+Available versions: `9999-r7`
 
 #### carla
 Homepage: [kxstudio.linuxaudio.org/Applications:Carla](http://kxstudio.linuxaudio.org/Applications:Carla)<br>
 Fully-featured audio plugin host, supports many audio drivers and plugin formats<br>
-Available versions: `2.0.0`, `9999`
+Available versions: `2.0.0-r1`, `9999-r1`
 
 #### drumkv1
 Homepage: [drumkv1.sourceforge.net/](http://drumkv1.sourceforge.net/)<br>
@@ -88,7 +88,7 @@ Available versions: `0.9.9`, `0.9.10`, `0.9.11`, `9999-r1`
 #### guitarix
 Homepage: [guitarix.sourceforge.net/](http://guitarix.sourceforge.net/)<br>
 A simple Linux Guitar Amplifier for jack with one input and two outputs<br>
-Available versions: `9999-r1`
+Available versions: `9999-r2`
 
 #### ladish
 Homepage: [github.com/LADI/ladish](https://github.com/LADI/ladish)<br>
@@ -99,11 +99,6 @@ Available versions: `1`, `9999`
 Homepage: [openavproductions.com/luppp](http://openavproductions.com/luppp)<br>
 Live performance looping tool<br>
 Available versions: `1.2.1`, `9999`
-
-#### mididings
-Homepage: [das.nasophon.de/mididings/](http://das.nasophon.de/mididings/)<br>
-A MIDI router and processor based on Python, supporting ALSA and JACK MIDI<br>
-Available versions: `20120419`, `99999999`
 
 #### padthv1
 Homepage: [padthv1.sourceforge.net](http://padthv1.sourceforge.net)<br>
