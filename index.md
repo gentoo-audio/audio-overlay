@@ -83,7 +83,7 @@ Available versions: `2.0.0-r1`, `9999-r1`
 #### drumkv1
 Homepage: [drumkv1.sourceforge.net/](http://drumkv1.sourceforge.net/)<br>
 An old-school all-digital drum-kit sampler synthesizer with stereo fx<br>
-Available versions: `0.9.9`, `0.9.10`, `0.9.11`, `9999-r1`
+Available versions: `0.9.13`, `0.9.14`, `9999-r1`
 
 #### guitarix
 Homepage: [guitarix.sourceforge.net/](http://guitarix.sourceforge.net/)<br>
@@ -108,7 +108,7 @@ Available versions: `1.3.1`, `1.3.2`, `9999`
 #### padthv1
 Homepage: [padthv1.sourceforge.net](http://padthv1.sourceforge.net)<br>
 Old-school polyphonic additive synthesizer<br>
-Available versions: `0.9.4`, `0.9.10`, `0.9.11`, `9999-r1`
+Available versions: `0.9.13`, `0.9.14`, `9999-r1`
 
 #### pure-data
 Homepage: [msp.ucsd.edu/software.html](http://msp.ucsd.edu/software.html)<br>
@@ -118,7 +118,7 @@ Available versions: `0.47_p1`
 #### samplv1
 Homepage: [samplv1.sourceforge.io](http://samplv1.sourceforge.io)<br>
 Old-school polyphonic sampler<br>
-Available versions: `0.9.9`, `0.9.10`, `0.9.11`, `9999-r1`
+Available versions: `0.9.13`, `0.9.14`, `9999-r1`
 
 #### sc3-plugins
 Homepage: [github.com/supercollider/sc3-plugins](https://github.com/supercollider/sc3-plugins)<br>
@@ -143,7 +143,7 @@ Available versions: `0.8.5`, `0.8.8`, `9999`
 #### synthv1
 Homepage: [synthv1.sourceforge.net](http://synthv1.sourceforge.net)<br>
 Old-school all-digital 4-oscillator subtractive polyphonic synthesizer<br>
-Available versions: `0.9.9`, `0.9.10`, `0.9.11`, `9999-r1`
+Available versions: `0.9.13`, `0.9.14`, `9999-r1`
 
 
 ### x11-libs
