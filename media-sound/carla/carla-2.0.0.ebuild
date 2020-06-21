@@ -23,12 +23,13 @@ fi
 LICENSE="GPL-2 LGPL-3"
 SLOT="0"
 
-IUSE="alsa gtk gtk2 libav opengl osc -pulseaudio rdf sf2 sndfile X"
+IUSE="-32bit alsa gtk gtk2 libav opengl osc -pulseaudio rdf sf2 sndfile X"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
 	$(python_gen_cond_dep 'dev-python/PyQt5[gui,opengl?,svg,widgets,${PYTHON_MULTI_USEDEP}]')
 	virtual/jack
+	32bit? ( sys-devel/gcc[multilib] )
 	alsa? ( media-libs/alsa-lib )
 	gtk? ( x11-libs/gtk+:3 )
 	gtk2? ( x11-libs/gtk+:2 )
@@ -83,6 +84,10 @@ src_compile() {
 	make features PREFIX="${EPREFIX}/usr" "${myemakeargs[@]}"
 
 	emake PREFIX="${EPREFIX}/usr" "${myemakeargs[@]}"
+
+	if use 32bit; then
+		emake PREFIX="${EPREFIX}/usr" LIBDIR=${EPREFIX}/usr/lib posix32
+	fi
 }
 
 src_install() {

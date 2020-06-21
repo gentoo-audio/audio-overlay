@@ -6,6 +6,7 @@
 		<name>Simon van der Veldt</name>
 	</maintainer>
 	<use>
+		<flag name="32bit">Build bridge to support native 32-bit plugins</flag>
 		<flag name="gtk2">Use gtk-2 instead of gtk-3</flag>
 		<flag name="rdf">Enable LADSPA-RDF support</flag>
 		<flag name="sf2">Enable builtin SF2 sample support using <pkg>media-sound/fluidsynth</pkg></flag>
