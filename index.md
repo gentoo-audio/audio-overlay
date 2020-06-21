@@ -113,7 +113,7 @@ Available versions: `0.9.13`, `0.9.14`, `9999-r1`
 #### pure-data
 Homepage: [msp.ucsd.edu/software.html](http://msp.ucsd.edu/software.html)<br>
 Visual programming language for multimedia<br>
-Available versions: `0.47_p1`
+Available versions: `0.47_p1`, `0.50_p2`, `0.51_p0`
 
 #### samplv1
 Homepage: [samplv1.sourceforge.io](http://samplv1.sourceforge.io)<br>
