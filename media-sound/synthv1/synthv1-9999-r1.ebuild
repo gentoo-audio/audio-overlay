@@ -36,7 +36,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}"/${P}-dont-compress-manpages.patch )
+PATCHES=( "${FILESDIR}"/${PN}-0.9.13-dont-compress-manpages.patch )
 
 src_prepare() {
 	if [[ ${PV} == *9999 ]]; then
