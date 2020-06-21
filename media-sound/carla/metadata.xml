@@ -10,5 +10,7 @@
 		<flag name="gtk2">Use gtk-2 instead of gtk-3</flag>
 		<flag name="rdf">Enable LADSPA-RDF support</flag>
 		<flag name="sf2">Enable builtin SF2 sample support using <pkg>media-sound/fluidsynth</pkg></flag>
+		<flag name="win64">Build bridge to support 64-bit Windows plugins</flag>
+		<flag name="win32">Build bridge to support 32-bit Windows plugins</flag>
 	</use>
 </pkgmetadata>

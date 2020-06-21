@@ -23,7 +23,7 @@ fi
 LICENSE="GPL-2 LGPL-3"
 SLOT="0"
 
-IUSE="-32bit alsa gtk gtk2 libav opengl osc -pulseaudio rdf sf2 sndfile X"
+IUSE="-32bit alsa gtk gtk2 libav opengl osc -pulseaudio rdf sf2 sndfile -win64 -win32 X"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
@@ -41,6 +41,18 @@ RDEPEND="${PYTHON_DEPS}
 	rdf? ( dev-python/rdflib )
 	sf2? ( media-sound/fluidsynth )
 	sndfile? ( media-libs/libsndfile )
+	win64? (
+		virtual/wine
+		cross-x86_64-w64-mingw32/binutils
+		cross-x86_64-w64-mingw32/gcc
+		cross-x86_64-w64-mingw32/mingw64-runtime[libraries,idl,tools]
+	)
+	win32? (
+		virtual/wine[abi_x86_32]
+		cross-i686-w64-mingw32/binutils
+		cross-i686-w64-mingw32/gcc
+		cross-i686-w64-mingw32/mingw64-runtime[libraries,idl,tools]
+	)
 	X? ( x11-base/xorg-server )"
 DEPEND=${RDEPEND}
 
@@ -88,12 +100,22 @@ src_compile() {
 	if use 32bit; then
 		emake PREFIX="${EPREFIX}/usr" LIBDIR=${EPREFIX}/usr/lib posix32
 	fi
+
+	if use win64; then
+		emake PREFIX="${EPREFIX}/usr" win64 CC=x86_64-w64-mingw32-gcc CXX=x86_64-w64-mingw32-g++ AR=x86_64-w64-mingw32-ar RANLIB=x86_64-w64-mingw32-ranlib
+		emake PREFIX="${EPREFIX}/usr" wine64
+	fi
+
+	if use win32; then
+		emake PREFIX="${EPREFIX}/usr" win32 CC=i686-w64-mingw32-gcc CXX=i686-w64-mingw32-g++ RANLIB=i686-w64-mingw32-ranlib AR=i686-w64-mingw32-ar
+		emake PREFIX="${EPREFIX}/usr" wine32
+	fi
 }
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" "${myemakeargs[@]}" install
 	if ! use osc; then
-		find "${D}/usr" -iname "carla-control*" | xargs rm
+		find "${ED}/usr" -iname "carla-control*" | xargs rm
 	fi
 }
 
