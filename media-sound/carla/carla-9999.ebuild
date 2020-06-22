@@ -74,19 +74,19 @@ src_compile() {
 		HAVE_PULSEAUDIO=$(usex pulseaudio true false)
 		HAVE_SNDFILE=$(usex sndfile true false)
 		HAVE_X11=$(usex X true false)
-		LIBDIR=/usr/$(get_libdir)
+		LIBDIR="${EPREFIX}/usr/$(get_libdir)"
 	)
 
 	# Print which options are enabled/disabled
-	make features PREFIX="/usr" "${myemakeargs[@]}"
+	make features PREFIX="${EPREFIX}/usr" "${myemakeargs[@]}"
 
-	emake PREFIX="/usr" "${myemakeargs[@]}"
+	emake PREFIX="${EPREFIX}/usr" "${myemakeargs[@]}"
 }
 
 src_install() {
-	emake DESTDIR="${D}" PREFIX="/usr" "${myemakeargs[@]}" install
+	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" "${myemakeargs[@]}" install
 	if ! use osc; then
-		find "${D}/usr" -iname "carla-control*" | xargs rm
+		find "${ED}/usr" -iname "carla-control*" | xargs rm
 	fi
 }
 
