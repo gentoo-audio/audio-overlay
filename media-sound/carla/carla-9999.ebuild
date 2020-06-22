@@ -74,6 +74,7 @@ src_compile() {
 		HAVE_PULSEAUDIO=$(usex pulseaudio true false)
 		HAVE_SNDFILE=$(usex sndfile true false)
 		HAVE_X11=$(usex X true false)
+		LIBDIR=/usr/$(get_libdir)
 	)
 
 	# Print which options are enabled/disabled
