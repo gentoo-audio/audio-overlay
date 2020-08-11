@@ -3,7 +3,9 @@
 
 EAPI=7
 
-inherit bash-completion-r1
+USE_RUBY="ruby25 ruby26 ruby27"
+
+inherit bash-completion-r1 ruby-single
 
 DESCRIPTION="Zyn-Fusion User Interface"
 HOMEPAGE="https://github.com/mruby-zest/mruby-zest-build"
@@ -49,7 +51,7 @@ DEPEND="dev-libs/libuv
 	x11-libs/libX11
 	x11-libs/libxcb"
 RDEPEND="${DEPEND}"
-BDEPEND=""
+BDEPEND="${RUBY_DEPS}"
 
 S="${WORKDIR}/mruby-zest-build-$PV"
 
