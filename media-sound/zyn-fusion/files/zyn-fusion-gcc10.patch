@@ -1,0 +1,11 @@
+--- mruby-zest-build-3.0.5/src/mruby-widget-lib/src/gem.c.old	2020-08-11 21:26:06.146444612 +0900
++++ mruby-zest-build-3.0.5/src/mruby-widget-lib/src/gem.c	2020-08-11 21:27:51.839394549 +0900
+@@ -290,7 +290,7 @@
+     return self;
+ }
+ 
+-const struct mrb_data_type mrb_nvg_context_type;
++extern const struct mrb_data_type mrb_nvg_context_type;
+ typedef void NVGcontext;
+ int nvglCreateImageFromHandleGL2(NVGcontext* ctx, GLuint textureId, int w, int h, int imageFlags);
+ 
