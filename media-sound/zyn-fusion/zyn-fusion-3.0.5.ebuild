@@ -4,8 +4,9 @@
 EAPI=7
 
 USE_RUBY="ruby25 ruby26 ruby27"
+PYTHON_COMPAT=( python{2_7,3_6,3_7,3_8,3_9} )
 
-inherit bash-completion-r1 ruby-single
+inherit bash-completion-r1 ruby-single python-any-r1
 
 DESCRIPTION="Zyn-Fusion User Interface"
 HOMEPAGE="https://github.com/mruby-zest/mruby-zest-build"
@@ -49,9 +50,11 @@ IUSE=""
 
 DEPEND="dev-libs/libuv
 	x11-libs/libX11
-	x11-libs/libxcb"
+	x11-libs/libxcb
+	virtual/opengl"
 RDEPEND="${DEPEND}"
-BDEPEND="${RUBY_DEPS}"
+BDEPEND="${RUBY_DEPS}
+${PYTHON_DEPS}"
 
 S="${WORKDIR}/mruby-zest-build-$PV"
 
@@ -79,8 +82,16 @@ src_prepare() {
 	sed -i -e 's/\bmake\b/$(MAKE)/' Makefile # fix jobserver
 	sed -i -e "s/\brake\b/rake ${MAKEOPTS}/" Makefile # make rake use MAKEOPTS too
 	sed -i -e "s/-shared/-shared -Wl,-soname,libzest.so/" Makefile # give it a soname
+	sed -i -e "s/python2/${EPYTHON}/" Makefile # say no to python2
 
 	default_src_prepare
+
+	# bundled waf is broken in Python3.7, and this is a version with
+	# autowaf, so it isn't trivial to just replace with upstream.
+	# Hack around it instead.
+	${EPYTHON} deps/pugl/waf --version # This will unpack waf
+	# Now fix it
+	sed -i -e '/StopIteration/d' deps/pugl/.waf*/waflib/Node.py
 }
 
 src_install() {
