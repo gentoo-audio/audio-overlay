@@ -63,8 +63,6 @@ PATCHES=(
 "${FILESDIR}/zyn-fusion-qml-path.patch"
 )
 
-# TODO Use gentoo custom "FLAGS" (makefile and rake file)
-
 src_prepare() {
 	# Unbundle libuv: makefile and rake file
 	sed -i -e "s%./deps/\$(UV_DIR)/.libs/libuv.a%`pkg-config --libs libuv`%" \
@@ -79,10 +77,15 @@ src_prepare() {
 		mv "../${3/*\//}-$1" "$2"
 	done
 
-	sed -i -e 's/\bmake\b/$(MAKE)/' Makefile # fix jobserver
-	sed -i -e "s/\brake\b/rake ${MAKEOPTS}/" Makefile # make rake use MAKEOPTS too
-	sed -i -e "s/-shared/-shared -Wl,-soname,libzest.so/" Makefile # give it a soname
-	sed -i -e "s/python2/${EPYTHON}/" Makefile # say no to python2
+	# fix jobserver, make rake use MAKEOPTS too, give it a soname,
+	# say no to python2, use LDFLAGS/CFLAGS
+	sed -i -e 's/\bmake\b/$(MAKE)/' \
+		-e "s/\brake\b/rake ${MAKEOPTS}/" \
+		-e 's/-shared/$(LDFLAGS) -shared -Wl,-soname,libzest.so/' \
+		-e "s/python2/${EPYTHON}/" \
+		-e "s/--debug//" \
+		-e 's/CFLAGS="/CFLAGS="$(CFLAGS) /' \
+		-e 's/$(CC)/$(CC) $(CFLAGS)/' Makefile
 
 	default_src_prepare
 
