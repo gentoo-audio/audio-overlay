@@ -23,7 +23,7 @@ fi
 LICENSE="GPL-2 LGPL-3"
 SLOT="0"
 
-IUSE="alsa gtk gtk2 libav opengl osc -pulseaudio rdf sf2 sndfile X"
+IUSE="alsa gtk gtk2 opengl osc -pulseaudio rdf sf2 sndfile X"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
