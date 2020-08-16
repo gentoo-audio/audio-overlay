@@ -1,9 +1,9 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-inherit cmake-utils git-r3
+inherit cmake git-r3
 
 DESCRIPTION="LV2 drum sampler plugin"
 HOMEPAGE="http://openavproductions.com/fabla2"
@@ -26,5 +26,5 @@ src_configure() {
 	local mycmakeargs=(
 	-DBUILD_GUI="$(usex X ON OFF)"
 	)
-	cmake-utils_src_configure
+	cmake_src_configure
 }
