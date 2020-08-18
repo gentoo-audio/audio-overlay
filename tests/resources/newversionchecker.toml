@@ -3,6 +3,7 @@ check_interval = 24
 
 [projects]
 artyfx = "https://github.com/openAVproductions/openAV-ArtyFX"
+bitrot = "https://github.com/grejppi/bitrot"
 cadence = "https://github.com/falkTX/Cadence"
 carla = "https://github.com/falkTX/Carla"
 deteriorate-lv2 = "https://github.com/blablack/deteriorate-lv2"
