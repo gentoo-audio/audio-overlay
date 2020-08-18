@@ -26,3 +26,5 @@ RDEPEND="media-libs/lv2
 	dev-libs/boost
 	>=x11-libs/ntk-1.3.1000"
 DEPEND="${RDEPEND}"
+
+PATCHES="${FILESDIR}/${PN}-gcc-9-remove-leading-underscore.patch"
