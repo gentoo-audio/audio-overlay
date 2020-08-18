@@ -1,0 +1,34 @@
+From 872c11e1f289b43a50a7aa1eed550fac59a8957c Mon Sep 17 00:00:00 2001
+From: Simon van der Veldt <simon.vanderveldt@gmail.com>
+Date: Tue, 18 Aug 2020 17:43:03 +0200
+Subject: [PATCH] Remove leading underscore to fix compilation with gcc-9.3.0
+
+---
+ gui/sorcer_ui.cxx | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/gui/sorcer_ui.cxx b/gui/sorcer_ui.cxx
+index 60edbe4..f0afd06 100644
+--- a/gui/sorcer_ui.cxx
++++ b/gui/sorcer_ui.cxx
+@@ -37,14 +37,14 @@ using namespace std;
+ 
+ typedef struct {
+   SorcerUI* widget;
+-  
++
+   float sidechainAmp;
+-  
++
+   LV2UI_Write_Function write_function;
+   LV2UI_Controller controller;
+ } SorcerGUI;
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                 const char * plugin_uri,
+                 const char * bundle_path,
+                 LV2UI_Write_Function write_function,
+-- 
+2.26.2
+
