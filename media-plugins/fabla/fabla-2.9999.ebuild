@@ -20,6 +20,8 @@ RDEPEND="media-libs/lv2
 	X? ( x11-libs/cairo[X] )"
 DEPEND="${RDEPEND}"
 
+PATCHES="${FILESDIR}/${PN}-2-gcc-9-remove-leading-underscore.patch"
+
 src_configure() {
 	local mycmakeargs=(
 	-DBUILD_GUI="$(usex X ON OFF)"

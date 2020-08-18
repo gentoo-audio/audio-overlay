@@ -26,3 +26,5 @@ RDEPEND="media-libs/lv2
 	>=x11-libs/ntk-1.3.1000
 	media-libs/mesa"
 DEPEND="${RDEPEND}"
+
+PATCHES="${FILESDIR}/${PN}-1-gcc-9-remove-leading-underscore.patch"
