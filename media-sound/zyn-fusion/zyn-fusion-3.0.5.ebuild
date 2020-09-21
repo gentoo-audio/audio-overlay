@@ -5,6 +5,7 @@ EAPI=7
 
 USE_RUBY="ruby25 ruby26 ruby27"
 PYTHON_COMPAT=( python{2_7,3_6,3_7,3_8,3_9} )
+PYTHON_REQ_USE='threads(+)'
 
 inherit bash-completion-r1 ruby-single python-any-r1
 
