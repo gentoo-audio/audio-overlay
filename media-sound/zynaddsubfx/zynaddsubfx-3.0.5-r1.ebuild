@@ -12,7 +12,7 @@ SRC_URI="mirror://sourceforge/zynaddsubfx/${P}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="alsa doc dssi +fltk jack lash portaudio zest"
+IUSE="alsa doc dssi +fltk jack lash portaudio fusion"
 
 REQUIRED_USE="|| ( alsa jack portaudio )"
 
@@ -37,7 +37,7 @@ DEPEND="
 	portaudio? ( media-libs/portaudio )
 "
 RDEPEND="${DEPEND}
-	zest? ( media-sound/zyn-fusion )
+	fusion? ( media-sound/zyn-fusion )
 "
 
 PATCHES=( "${FILESDIR}"/${P}-docs.patch )
@@ -73,7 +73,7 @@ src_configure() {
 		$(cmake_use_find_package doc Doxygen)
 		$(cmake_use_find_package fltk FLTK)
 	)
-	if use zest ; then
+	if use fusion ; then
 		mycmakeargs+=( -DGuiModule=zest )
 	elif use fltk ; then
 		mycmakeargs+=( -DGuiModule=fltk )
