@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>marcan@marcan.st</email>
+		<name>Hector Martin</name>
+	</maintainer>
+	<use>
+		<flag name="standalone">Enable building of standalone application</flag>
+	</use>
+</pkgmetadata>
