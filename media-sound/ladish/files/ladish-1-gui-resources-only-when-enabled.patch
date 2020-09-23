@@ -1,0 +1,55 @@
+From 1df687a4069a8f55ed5cc4001d9c3ad2dff59d1b Mon Sep 17 00:00:00 2001
+From: Simon van der Veldt <simon.vanderveldt@gmail.com>
+Date: Wed, 23 Sep 2020 21:02:00 +0200
+Subject: [PATCH] wscript: Only install gladish resources when GUI is enabled
+
+---
+ wscript | 28 ++++++++++++++--------------
+ 1 file changed, 14 insertions(+), 14 deletions(-)
+
+diff --git a/wscript b/wscript
+index 296a8522..8f1d7499 100644
+--- a/wscript
++++ b/wscript
+@@ -592,24 +592,24 @@ def build(bld):
+ 
+         # GtkBuilder UI definitions (XML)
+         bld.install_files('${DATA_DIR}', 'gui/gladish.ui')
+-    
+-    bld.install_files('${PREFIX}/bin', 'ladish_control', chmod=0755)
+ 
+-    # 'Desktop' file (menu entry, icon, etc)
+-    bld.install_files('${PREFIX}/share/applications/', 'gui/gladish.desktop', chmod=0644)
++        # 'Desktop' file (menu entry, icon, etc)
++        bld.install_files('${PREFIX}/share/applications/', 'gui/gladish.desktop', chmod=0644)
++
++        # Icons
++        icon_sizes = ['16x16', '22x22', '24x24', '32x32', '48x48', '256x256']
++        for icon_size in icon_sizes:
++            bld.path.ant_glob('art/' + icon_size + '/apps/*.png')
++            bld.install_files('${PREFIX}/share/icons/hicolor/' + icon_size + '/apps/', 'art/' + icon_size + '/apps/gladish.png')
+ 
+-    # Icons
+-    icon_sizes = ['16x16', '22x22', '24x24', '32x32', '48x48', '256x256']
+-    for icon_size in icon_sizes:
+-        bld.path.ant_glob('art/' + icon_size + '/apps/*.png')
+-        bld.install_files('${PREFIX}/share/icons/hicolor/' + icon_size + '/apps/', 'art/' + icon_size + '/apps/gladish.png')
++        status_images = []
++        for status in ["down", "unloaded", "started", "stopped", "warning", "error"]:
++            status_images.append("art/status_" + status + ".png")
+ 
+-    status_images = []
+-    for status in ["down", "unloaded", "started", "stopped", "warning", "error"]:
+-        status_images.append("art/status_" + status + ".png")
++        bld.install_files('${DATA_DIR}', status_images)
++        bld.install_files('${DATA_DIR}', "art/ladish-logo-128x128.png")
+ 
+-    bld.install_files('${DATA_DIR}', status_images)
+-    bld.install_files('${DATA_DIR}', "art/ladish-logo-128x128.png")
++    bld.install_files('${PREFIX}/bin', 'ladish_control', chmod=0755)
+     bld.install_files('${DATA_DIR}', ["AUTHORS", "README", "NEWS"])
+     bld.install_as('${DATA_DIR}/COPYING', "gpl2.txt")
+ 
+-- 
+2.26.2
+
