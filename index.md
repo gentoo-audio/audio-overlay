@@ -57,6 +57,11 @@ Homepage: [github.com/DISTRHO/DISTRHO-Ports](https://github.com/DISTRHO/DISTRHO-
 Linux ports of Distrho plugins.<br>
 Available versions: `20200215`, `99999999`
 
+#### dragonfly-reverb
+Homepage: [github.com/michaelwillis/dragonfly-reverb](https://github.com/michaelwillis/dragonfly-reverb)<br>
+A set of free reverb effects<br>
+Available versions: `3.2.1`, `9999`
+
 #### fabla
 Homepage: [openavproductions.com/fabla2](http://openavproductions.com/fabla2)<br>
 LV2 drum sampler plugin<br>
