@@ -103,7 +103,7 @@ Available versions: `9999-r2`
 #### ladish
 Homepage: [github.com/LADI/ladish](https://github.com/LADI/ladish)<br>
 LADI Session Handler - a session management system for JACK applications<br>
-Available versions: `1`, `9999`
+Available versions: `1-r1`, `9999`
 
 #### luppp
 Homepage: [openavproductions.com/luppp](http://openavproductions.com/luppp)<br>
