@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit meson flag-o-matic
+inherit meson flag-o-matic xdg-utils
 
 DESCRIPTION="A tool to assist music production by grouping standalone programs into sessions"
 HOMEPAGE="https://github.com/linuxaudio/new-session-manager"
@@ -18,6 +18,7 @@ else
 fi
 LICENSE="GPL-3"
 SLOT="0"
+RESTRICT="mirror"
 
 IUSE="gui jack"
 
@@ -27,6 +28,12 @@ RDEPEND="
 	jack? ( virtual/jack )"
 DEPEND=${RDEPEND}
 
+src_prepare() {
+  sed -i -e "s|doc/new-session-manager|doc/${PF}|" meson.build || die "sed failed"
+
+  default
+}
+
 src_configure() {
 	if use gui; then
 		append-cppflags -I"$(fltk-config --includedir)"
@@ -34,9 +41,19 @@ src_configure() {
 	fi
 
 	local emesonargs=(
-		$(meson_use gui new-session-manager)
+		$(meson_use gui nsm-legacy-gui)
 		$(meson_use gui nsm-proxy)
 		$(meson_use jack jackpatch)
 	)
 	meson_src_configure
+}
+
+pkg_postinst() {
+	xdg_desktop_database_update
+	xdg_icon_cache_update
+}
+
+pkg_postrm() {
+	xdg_desktop_database_update
+	xdg_icon_cache_update
 }
