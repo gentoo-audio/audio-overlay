@@ -29,9 +29,9 @@ RDEPEND="
 DEPEND=${RDEPEND}
 
 src_prepare() {
-  sed -i -e "s|doc/new-session-manager|doc/${PF}|" meson.build || die "sed failed"
+	sed -i -e "s|doc/new-session-manager|doc/${PF}|" meson.build || die "sed failed"
 
-  default
+	default
 }
 
 src_configure() {
