@@ -13,6 +13,9 @@ fi
 # Also disable rsync's output
 export FEATURES="binpkg-multi-instance -news -ipc-sandbox -network-sandbox -pid-sandbox" PORTAGE_RSYNC_EXTRA_OPTS="-q"
 
+# Ensure we use dev-lang/rust-bin
+echo "dev-lang/rust" > /etc/portage/package.mask
+
 # Install dependencies
 emerge -q --buildpkg --usepkg dev-vcs/git app-portage/repoman dev-python/pip
 pip install --user https://github.com/simonvanderveldt/travis-github-pr-bot/archive/master.zip
