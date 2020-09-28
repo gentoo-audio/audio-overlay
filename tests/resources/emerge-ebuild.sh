@@ -22,6 +22,9 @@ fi
 export FEATURES="binpkg-multi-instance -news -ipc-sandbox -network-sandbox -pid-sandbox"
 export PORTAGE_RSYNC_EXTRA_OPTS="-q"
 
+# Ensure we use dev-lang/rust-bin
+echo "dev-lang/rust" > /etc/portage/package.mask
+
 # Show emerge info for troubleshooting purposes
 emerge --info
 
