@@ -123,7 +123,7 @@ Available versions: `1.2.1`, `9999`
 #### new-session-manager
 Homepage: [github.com/linuxaudio/new-session-manager](https://github.com/linuxaudio/new-session-manager)<br>
 A tool to assist music production by grouping standalone programs into sessions<br>
-Available versions: `1.3.1`, `1.3.2`, `9999`
+Available versions: `1.3.2`, `1.4.0`, `9999`
 
 #### padthv1
 Homepage: [padthv1.sourceforge.net](http://padthv1.sourceforge.net)<br>
