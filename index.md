@@ -19,6 +19,11 @@ Join us at the `#proaudio-overlay` channel at `irc.freenode.org` or [create an i
 
 ### media-libs
 
+#### libltc
+Homepage: [github.com/x42/libltc.git](https://github.com/x42/libltc.git)<br>
+Linear/Logitudinal Time Code (LTC) Library<br>
+Available versions: `1.3.1`, `9999`
+
 #### libmonome
 Homepage: [github.com/monome/libmonome](https://github.com/monome/libmonome)<br>
 Library for easy interaction with monome devices<br>
@@ -71,6 +76,11 @@ Available versions: `1.3.2`, `1.9999`, `2.9999`
 Homepage: [openavproductions.com/sorcer](http://openavproductions.com/sorcer)<br>
 Polyphonic wavetable synth LV2 plugin<br>
 Available versions: `1.1.3`, `9999`
+
+#### x42-plugins
+Homepage: [github.com/x42/x42-plugins](https://github.com/x42/x42-plugins)<br>
+Collection of LV2 plugins<br>
+Available versions: `20200714`
 
 
 ### media-sound
