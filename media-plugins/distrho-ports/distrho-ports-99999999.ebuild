@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit git-r3
+inherit git-r3 meson
 
 DESCRIPTION="Linux ports of Distrho plugins."
 HOMEPAGE="https://github.com/DISTRHO/DISTRHO-Ports"
@@ -22,41 +22,29 @@ REQUIRED_USE="|| ( lv2 vst )"
 
 RDEPEND="media-libs/alsa-lib
 	media-libs/freetype
-	media-libs/ladspa-sdk
 	virtual/opengl
 	x11-libs/libX11
 	x11-libs/libXext
 	x11-libs/libXcursor
 	x11-libs/libXrender"
-DEPEND="${RDEPEND}
-	dev-util/premake:3"
-
-QA_PRESTRIPPED="
-	/usr/lib/lv2/.*
-	/usr/lib/vst/.*
-"
+DEPEND="${RDEPEND}"
 
 src_prepare() {
+	# Remove stripping of binaries
+	sed -i -e "/'-Wl,--strip-all',/d" meson.build || die "sed failed"
+
+	# Remove hardcoded O3 CFLAG
+	sed -i -e "s/'-O3', //" meson.build || die "sed failed"
+
 	default
-	scripts/premake-update.sh linux
 }
 
-src_compile() {
-	if use lv2; then
-		emake lv2
-	fi
-	if use vst; then
-		emake vst
-	fi
-}
-
-src_install() {
-	emake DESTDIR="${D}" PREFIX="/usr" install
-	if use !lv2; then
-		rm -rf "${D}"/usr/lib/lv2
-	fi
-	if use !vst; then
-		rm -rf "${D}"/usr/lib/vst
-	fi
-	rm -rf "${D}"/usr/src
+src_configure() {
+	local emesonargs=(
+		-Doptimizations=false
+		$(meson_use vst build-vst2)
+		$(meson_use vst build-vst3)
+		$(meson_use lv2 build-lv2)
+	)
+	meson_src_configure
 }
