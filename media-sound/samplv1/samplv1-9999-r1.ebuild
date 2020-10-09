@@ -36,12 +36,14 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}"/${PN}-0.9.13-dont-compress-manpages.patch )
-
 src_prepare() {
 	if [[ ${PV} == *9999 ]]; then
 		eautoreconf
 	fi
+
+	# Remove compression of manpages
+	sed -i -e "/@gzip.*man1/d" Makefile.in || die "sed failed"
+
 	default
 }
 
