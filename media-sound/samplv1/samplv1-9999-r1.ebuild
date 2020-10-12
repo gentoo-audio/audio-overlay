@@ -44,15 +44,18 @@ src_prepare() {
 	# Remove compression of manpages
 	sed -i -e "/@gzip.*man1/d" Makefile.in || die "sed failed"
 
-	default
-}
-
-src_configure() {
 	# Disable stripping
 	echo "QMAKE_STRIP=" >> src/src_core.pri.in
 	echo "QMAKE_STRIP=" >> src/src_jack.pri.in
 	echo "QMAKE_STRIP=" >> src/src_ui.pri.in
+	echo "QMAKE_STRIP=" >> src/src_lv2.pri.in
+	sed -i -e '/strip $(TARGET)/d' src/src_jack.pro || die "sed failed"
+	sed -i -e '/strip $(TARGET)/d' src/src_lv2.pro || die "sed failed"
 
+	default
+}
+
+src_configure() {
 	local -a myeconfargs=(
 		$(use_enable debug)
 		$(use_enable standalone jack)
