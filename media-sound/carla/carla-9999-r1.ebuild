@@ -58,6 +58,7 @@ src_prepare() {
 
 src_compile() {
 	myemakeargs=(
+		LIBDIR="/usr/$(get_libdir)"
 		SKIP_STRIPPING=true
 		HAVE_FFMPEG=false
 		HAVE_ZYN_DEPS=false
