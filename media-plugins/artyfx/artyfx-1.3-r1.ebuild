@@ -28,6 +28,13 @@ DEPEND="${RDEPEND}"
 
 PATCHES="${FILESDIR}/${P}-lv2-compilation-fixes.patch"
 
+src_prepare() {
+	# Fix hardcoded libdir
+	sed -i -e "s|lib/lv2|$(get_libdir)/lv2|" CMakeLists.txt || die "sed failed"
+
+	cmake_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 	-DRELEASE_BUILD=ON
