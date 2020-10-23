@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -17,3 +17,10 @@ LICENSE="Apache-2.0"
 SLOT="0"
 
 DEPEND="${PYTHON_DEPS}"
+
+src_prepare() {
+	# Fix hardcoded libdir
+	sed -i -e "s|\${{PREFIX}}/lib/|\${{PREFIX}}/$(get_libdir)/|" plugins/wscript || die "sed failed"
+
+	default
+}
