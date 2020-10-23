@@ -53,7 +53,7 @@ A set of LV2 and LADSPA plugins for glitch effects<br>
 Available versions: `9999`
 
 #### deteriorate-lv2
-Homepage: [objectivewave.wordpress.com/deteriorate-lv2](https://objectivewave.wordpress.com/deteriorate-lv2)<br>
+Homepage: [github.com/blablack/deteriorate-lv2](https://github.com/blablack/deteriorate-lv2)<br>
 A set of plugins to deteriorate the sound quality<br>
 Available versions: `1.0.6`, `1.0.7`, `9999`
 
