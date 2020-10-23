@@ -28,3 +28,10 @@ RDEPEND="media-libs/lv2
 DEPEND="${RDEPEND}"
 
 PATCHES="${FILESDIR}/${PN}-gcc-9-remove-leading-underscore.patch"
+
+src_prepare() {
+	# Fix hardcoded libdir
+	sed -i -e "s|lib/lv2|$(get_libdir)/lv2|" CMakeLists.txt || die "sed failed"
+
+	cmake_src_prepare
+}
