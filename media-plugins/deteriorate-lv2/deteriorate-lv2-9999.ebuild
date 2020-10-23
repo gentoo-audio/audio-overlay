@@ -10,7 +10,7 @@ PYTHON_REQ_USE='threads(+)'
 inherit python-any-r1 waf-utils
 
 DESCRIPTION="A set of plugins to deteriorate the sound quality"
-HOMEPAGE="https://objectivewave.wordpress.com/deteriorate-lv2"
+HOMEPAGE="https://github.com/blablack/deteriorate-lv2"
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/blablack/deteriorate-lv2.git"
