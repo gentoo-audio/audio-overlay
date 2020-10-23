@@ -15,6 +15,7 @@ else
 	SRC_URI="https://github.com/openAVproductions/openAV-Fabla/archive/release-${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 	S="${WORKDIR}/openAV-Fabla-release-${PV}"
+	RESTRICT="mirror"
 fi
 LICENSE="GPL-2"
 SLOT="1"
@@ -28,3 +29,10 @@ RDEPEND="media-libs/lv2
 DEPEND="${RDEPEND}"
 
 PATCHES="${FILESDIR}/${PN}-1-gcc-9-remove-leading-underscore.patch"
+
+src_prepare() {
+	# Fix hardcoded libdir
+	sed -i -e "s|lib/lv2|$(get_libdir)/lv2|" CMakeLists.txt || die "sed failed"
+
+	cmake_src_prepare
+}

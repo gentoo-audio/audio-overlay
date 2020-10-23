@@ -22,6 +22,13 @@ DEPEND="${RDEPEND}"
 
 PATCHES="${FILESDIR}/${PN}-2-gcc-9-remove-leading-underscore.patch"
 
+src_prepare() {
+	# Fix hardcoded libdir
+	sed -i -e "s|lib/lv2|$(get_libdir)/lv2|" CMakeLists.txt || die "sed failed"
+
+	cmake_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 	-DBUILD_GUI="$(usex X ON OFF)"
