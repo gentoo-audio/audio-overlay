@@ -143,7 +143,7 @@ Available versions: `0.9.16`, `0.9.17`, `9999-r1`
 #### sc3-plugins
 Homepage: [github.com/supercollider/sc3-plugins](https://github.com/supercollider/sc3-plugins)<br>
 Third party plugins for SuperCollider<br>
-Available versions: `3.10.0`, `9999`
+Available versions: `3.10.0`, `3.11.0`, `9999`
 
 #### sequencer64
 Homepage: [github.com/ahlstromcj/sequencer64](https://github.com/ahlstromcj/sequencer64)<br>
