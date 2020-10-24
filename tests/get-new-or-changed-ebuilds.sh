@@ -12,6 +12,8 @@ if [ "${DEBUG}" = True ]; then
   set -x
 fi
 
+# This uses master... to only include the changes introduced in the current branch and exclude new changes in master
+# because we only want to test ebuild changes introduced in the the current branch
 if [[ -n "${CIRCLECI}" ]]; then
   # For some reason CircleCI does some crazy stuff with git/master which breaks the normal git workflow :|
   # See https://discuss.circleci.com/t/checkout-script-adds-commits-to-master-from-circle-branch/14194
@@ -19,9 +21,9 @@ if [[ -n "${CIRCLECI}" ]]; then
   git checkout master > /dev/null 2>&1
   git reset --hard origin/master > /dev/null 2>&1
   git checkout - > /dev/null 2>&1
-  DIFF_REFS="master..${CIRCLE_BRANCH}"
+  DIFF_REFS="master...${CIRCLE_BRANCH}"
 else
-  DIFF_REFS="master"
+  DIFF_REFS="master..."
 fi
 
 # Get ebuild files that are changed
