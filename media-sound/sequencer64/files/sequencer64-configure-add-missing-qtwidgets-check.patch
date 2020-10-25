@@ -1,0 +1,24 @@
+From 6cea064588c3d6cf28fbdf3c988d8dac0888f3ff Mon Sep 17 00:00:00 2001
+From: Simon van der Veldt <simon.vanderveldt@gmail.com>
+Date: Sun, 25 Oct 2020 14:54:25 +0100
+Subject: [PATCH] configure: Add missing QtWidgets check
+
+---
+ m4/ax_have_qt.m4 | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/m4/ax_have_qt.m4 b/m4/ax_have_qt.m4
+index c8cf8098..5a42d597 100644
+--- a/m4/ax_have_qt.m4
++++ b/m4/ax_have_qt.m4
+@@ -102,6 +102,7 @@ qtHaveModule(testlib):           QT += testlib
+ qtHaveModule(uitools):           QT += uitools
+ qtHaveModule(webkit):            QT += webkit
+ qtHaveModule(webkitwidgets):     QT += webkitwidgets
++qtHaveModule(widgets):           QT += widgets
+ qtHaveModule(xml):               QT += xml
+ qtHaveModule(xmlpatterns):       QT += xmlpatterns
+ percent.target = %
+-- 
+2.26.2
+
