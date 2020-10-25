@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -17,16 +17,22 @@ else
 fi
 LICENSE="GPL-2"
 SLOT="0"
+RESTRICT="mirror"
 
-IUSE="jack lash"
+IUSE="cli jack lash qt5"
 
-RDEPEND="dev-cpp/gtkmm:2.4
+RDEPEND="
 	>=dev-libs/libsigc++-2.2:2
 	media-libs/libpng:=
 	media-libs/alsa-lib
 	jack? ( virtual/jack )
-	lash? ( || ( media-sound/lash media-sound/ladish[lash] ) )"
-
+	lash? ( || ( media-sound/lash media-sound/ladish[lash] ) )
+	qt5? (
+		dev-qt/qtcore:5
+		dev-qt/qtgui:5
+		dev-qt/qtwidgets:5
+	)
+	!qt5? ( dev-cpp/gtkmm:2.4 )"
 DEPEND="${RDEPEND}"
 
 src_prepare()
@@ -38,9 +44,13 @@ src_prepare()
 src_configure()
 {
 	local -a myeconfargs=(
+		--disable-portmidi
+		--enable-rtmidi
+		$(use_enable cli)
 		$(use_enable jack)
 		$(use_enable jack jack-session)
 		$(use_enable lash)
+		$(use_enable qt5 qt)
 	)
 	econf "${myeconfargs[@]}"
 }

@@ -5,4 +5,7 @@
 		<email>simon.vanderveldt+gentoo-overlay@gmail.com</email>
 		<name>Simon van der Veldt</name>
 	</maintainer>
+	<use>
+		<flag name="cli">Enable CLI</flag>
+	</use>
 </pkgmetadata>
