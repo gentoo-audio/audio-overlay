@@ -31,7 +31,7 @@ RDEPEND="${DEPEND}
 	media-libs/libpng:0/16
 	media-libs/mesa
 	sys-libs/zlib
-	virtual/ffmpeg
+	media-video/ffmpeg
 	virtual/opengl
 	virtual/udev
 	x11-libs/cairo[X]
