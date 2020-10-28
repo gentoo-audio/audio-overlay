@@ -75,7 +75,7 @@ Available versions: `1.3.2-r1`, `1.9999`, `2.9999`
 #### sorcer
 Homepage: [openavproductions.com/sorcer](http://openavproductions.com/sorcer)<br>
 Polyphonic wavetable synth LV2 plugin<br>
-Available versions: `1.1.3`, `9999`
+Available versions: `1.1.3-r1`, `9999`
 
 #### x42-plugins
 Homepage: [github.com/x42/x42-plugins](https://github.com/x42/x42-plugins)<br>
