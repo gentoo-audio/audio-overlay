@@ -80,7 +80,7 @@ Available versions: `1.1.3-r1`, `9999`
 #### x42-plugins
 Homepage: [github.com/x42/x42-plugins](https://github.com/x42/x42-plugins)<br>
 Collection of LV2 plugins<br>
-Available versions: `20200714`
+Available versions: `20200714-r1`
 
 
 ### media-sound
