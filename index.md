@@ -148,7 +148,7 @@ Available versions: `3.10.0`, `3.11.0`, `9999`
 #### sequencer64
 Homepage: [github.com/ahlstromcj/sequencer64](https://github.com/ahlstromcj/sequencer64)<br>
 Reboot of seq24, a minimal loop based midi sequencer<br>
-Available versions: `0.94.1`, `0.94.2`, `9999`
+Available versions: `0.96.7`, `0.96.8`, `9999`
 
 #### serialosc
 Homepage: [github.com/monome/serialosc](https://github.com/monome/serialosc)<br>
