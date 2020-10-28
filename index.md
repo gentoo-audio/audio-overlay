@@ -45,7 +45,7 @@ Available versions: `1.6.0`
 #### artyfx
 Homepage: [openavproductions.com/artyfx](http://openavproductions.com/artyfx)<br>
 Plugin bundle of artistic real-time audio effects<br>
-Available versions: `1.3`, `9999`
+Available versions: `1.3-r1`, `9999`
 
 #### bitrot
 Homepage: [github.com/grejppi/bitrot](https://github.com/grejppi/bitrot)<br>
