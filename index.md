@@ -59,8 +59,8 @@ Available versions: `1.0.6`, `1.0.7`, `9999`
 
 #### distrho-ports
 Homepage: [github.com/DISTRHO/DISTRHO-Ports](https://github.com/DISTRHO/DISTRHO-Ports)<br>
-Linux ports of Distrho plugins.<br>
-Available versions: `20200215`, `99999999`
+Linux ports of Distrho plugins<br>
+Available versions: `20200215`, `20200714`, `99999999`
 
 #### dragonfly-reverb
 Homepage: [github.com/michaelwillis/dragonfly-reverb](https://github.com/michaelwillis/dragonfly-reverb)<br>
