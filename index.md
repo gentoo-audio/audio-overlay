@@ -70,7 +70,7 @@ Available versions: `3.2.1`, `9999`
 #### fabla
 Homepage: [openavproductions.com/fabla2](http://openavproductions.com/fabla2)<br>
 LV2 drum sampler plugin<br>
-Available versions: `1.3.2`, `1.9999`, `2.9999`
+Available versions: `1.3.2-r1`, `1.9999`, `2.9999`
 
 #### sorcer
 Homepage: [openavproductions.com/sorcer](http://openavproductions.com/sorcer)<br>
