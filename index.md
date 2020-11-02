@@ -105,11 +105,6 @@ Homepage: [drumkv1.sourceforge.net/](http://drumkv1.sourceforge.net/)<br>
 An old-school all-digital drum-kit sampler synthesizer with stereo fx<br>
 Available versions: `0.9.17`, `0.9.18`, `9999-r1`
 
-#### guitarix
-Homepage: [guitarix.sourceforge.net/](http://guitarix.sourceforge.net/)<br>
-A simple Linux Guitar Amplifier for jack with one input and two outputs<br>
-Available versions: `9999-r2`
-
 #### ladish
 Homepage: [github.com/LADI/ladish](https://github.com/LADI/ladish)<br>
 LADI Session Handler - a session management system for JACK applications<br>
