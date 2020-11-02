@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="6"
+
 inherit toolchain-funcs multilib
 
 DESCRIPTION="MIDI controlled DSP tonewheel organ"
@@ -33,6 +34,13 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 DOCS=(ChangeLog README.md)
+
+src_prepare() {
+	# Fix hardcoded libdir
+	sed -i -e "s|lib/lv2|$(get_libdir)/lv2|" common.mak || die "sed failed"
+
+	default
+}
 
 src_compile() {
 	tc-export CC CXX
