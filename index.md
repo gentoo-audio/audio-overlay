@@ -27,7 +27,7 @@ Available versions: `1.3.1`, `9999`
 #### libmonome
 Homepage: [github.com/monome/libmonome](https://github.com/monome/libmonome)<br>
 Library for easy interaction with monome devices<br>
-Available versions: `1.4.1`, `1.4.2`, `9999`
+Available versions: `1.4.3`, `9999`
 
 #### pyliblo
 Homepage: [das.nasophon.de/pyliblo](http://das.nasophon.de/pyliblo)<br>
