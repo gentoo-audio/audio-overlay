@@ -29,4 +29,5 @@ RDEPEND="dev-cpp/gtkmm:2.4
 	media-libs/lv2
 	media-libs/lvtk[gtk2]"
 
-DEPEND="${RDEPEND}"
+DEPEND="${PYTHON_DEPS}
+	${RDEPEND}"
