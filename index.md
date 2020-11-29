@@ -153,7 +153,7 @@ Available versions: `1.4.1`, `9999`
 #### setbfree
 Homepage: [setbfree.org](http://setbfree.org)<br>
 MIDI controlled DSP tonewheel organ<br>
-Available versions: `0.8.5`, `0.8.8`, `9999`
+Available versions: `0.8.10`, `0.8.11`, `9999`
 
 #### synthv1
 Homepage: [synthv1.sourceforge.net](http://synthv1.sourceforge.net)<br>
