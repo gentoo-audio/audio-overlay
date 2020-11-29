@@ -85,6 +85,13 @@ do
   # Store QA elogs for the ebuild we're testing
   PORTAGE_ELOG_SYSTEM="save_summary:qa echo" emerge -v "=${PKG_CATEGORY}/${PKG_FULL_NAME}"
 
+  if [[ -f /var/log/portage/elog/summary.log ]]; then
+    cat /var/log/portage/elog/summary.log >> /tmp/qa.log
+  else
+    echo "${EBUILD}: No QA issues found" >> /tmp/qa.log
+  fi
+  rm -f /var/log/portage/elog/summary.log
+
   # Unmerge ebuild in case we're emerging multiple ebuilds to prevent blocking other ebuilds
   if (( ${#EBUILD_PATHS[@]} > 1 )); then
     emerge -c "=${PKG_CATEGORY}/${PKG_FULL_NAME}"
@@ -93,13 +100,11 @@ done
 
 # Post QA result as comment on PR when running on CI
 if [[ -n "${CIRCLE_PULL_REQUEST}" ]]; then
-  if [[ -f /var/log/portage/elog/summary.log ]]; then
-    # Install dependencies
-    emerge -q --buildpkg --usepkg dev-vcs/git dev-python/pip
-    pip install --user https://github.com/simonvanderveldt/travis-github-pr-bot/archive/master.zip
-    PATH="${HOME}/.local/bin:$PATH"
-    cat /var/log/portage/elog/summary.log | travis-bot --description "Portage QA result:"
-  else
-    echo "No QA issues found" | travis-bot --description "Portage QA result:"
-  fi
+  # Install dependencies
+  emerge -q --buildpkg --usepkg dev-vcs/git dev-python/pip
+  pip install --user https://github.com/simonvanderveldt/travis-github-pr-bot/archive/master.zip
+  PATH="${HOME}/.local/bin:$PATH"
+  cat /tmp/qa.log | travis-bot --description "Portage QA results:"
+else
+  cat /tmp/qa.log
 fi

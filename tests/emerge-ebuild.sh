@@ -24,6 +24,13 @@ docker pull gentoo/stage3-amd64
 
 # Emerge the ebuild in a clean stage3
 docker run --rm -ti \
+	-e GITHUB_TOKEN \
+	-e CIRCLECI \
+	-e CIRCLE_PROJECT_USERNAME \
+	-e CIRCLE_PROJECT_REPONAME \
+	-e CIRCLE_PULL_REQUEST \
+	-e CIRCLE_PR_NUMBER \
+	-e DEBUG \
   --cap-add=SYS_PTRACE \
   --volumes-from portage \
   -v "${HOME}/.portage-pkgdir":/var/cache/binpkgs \
