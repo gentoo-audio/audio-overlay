@@ -10,7 +10,9 @@ SCRIPT_PATH=$(dirname "$0")
 
 IFS=" " read -ra EBUILDS <<< "$("${SCRIPT_PATH}/get-new-or-changed-ebuilds.sh")"
 
-echo "Detected changes to the following ebuilds: ${EBUILDS[@]}"
-
-# Emerge the ebuilds in a clean stage3
-"${SCRIPT_PATH}/emerge-ebuild.sh" "${EBUILDS[@]}"
+if [ ${#EBUILDS[@]} -eq 0 ]; then
+  echo "No changed ebuilds found, skipping emerge tests"
+else
+  echo "Emerging the following ebuilds:" "${EBUILDS[@]}"
+  "${SCRIPT_PATH}/emerge-ebuild.sh" "${EBUILDS[@]}"
+fi
