@@ -21,7 +21,7 @@ LICENSE="GPL-2"
 SLOT="0"
 RESTRICT="mirror"
 
-IUSE="debug"
+IUSE="debug ladspa supernova"
 
 RDEPEND="
 	media-sound/supercollider
@@ -32,10 +32,11 @@ DEPEND="${RDEPEND}
 src_configure() {
 	local mycmakeargs=(
 		-DSC_PATH=/usr/include/SuperCollider
-		-DSUPERNOVA=ON
+		-DLADSPA="$(usex ladspa ON OFF)"
+		-DSUPERNOVA="$(usex supernova ON OFF)"
 	)
 
-	append-flags $(usex debug '' -DNDEBUG)
+	append-cppflags $(usex debug '' -DNDEBUG)
 
 	cmake_src_configure
 }
