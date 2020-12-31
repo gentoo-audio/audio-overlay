@@ -5,4 +5,7 @@
 		<email>simon.vanderveldt+audio-overlay@gmail.com</email>
 		<name>Simon van der Veldt</name>
 	</maintainer>
+	<use>
+		<flag name="supernova">Enable building the supernova server</flag>
+	</use>
 </pkgmetadata>
