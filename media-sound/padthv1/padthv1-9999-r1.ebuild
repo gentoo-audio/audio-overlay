@@ -1,19 +1,22 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-inherit xdg-utils
+inherit autotools xdg-utils
 
 DESCRIPTION="Old-school polyphonic additive synthesizer"
 HOMEPAGE="http://padthv1.sourceforge.net"
 if [[ ${PV} == *9999 ]]; then
-	inherit git-r3 autotools
+	inherit git-r3
 	EGIT_REPO_URI="https://github.com/rncbc/${PN}.git"
 	KEYWORDS=""
 else
-	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
+	MY_PV=$(ver_rs 1- _)
+	SRC_URI="https://github.com/rncbc/${PN}/archive/${PN}_${MY_PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
+	RESTRICT="mirror"
+	S="${WORKDIR}/${PN}-${PN}_${MY_PV}"
 fi
 LICENSE="GPL-2+"
 SLOT="0"
@@ -37,9 +40,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 src_prepare() {
-	if [[ ${PV} == *9999 ]]; then
-		eautoreconf
-	fi
+	eautoreconf
 
 	# Remove compression of manpages
 	sed -i -e "/@gzip.*man1/d" Makefile.in || die "sed failed"
