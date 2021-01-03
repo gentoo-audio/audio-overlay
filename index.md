@@ -72,6 +72,11 @@ Homepage: [openavproductions.com/fabla2](http://openavproductions.com/fabla2)<br
 LV2 drum sampler plugin<br>
 Available versions: `1.3.2-r1`, `1.9999`, `2.9999`
 
+#### mverb
+Homepage: [distrho.sourceforge.io/ports.php](https://distrho.sourceforge.io/ports.php)<br>
+Studio quality, open-source reverb<br>
+Available versions: `9999`
+
 #### nekobi
 Homepage: [distrho.sourceforge.io/plugins.php](https://distrho.sourceforge.io/plugins.php)<br>
 Simple single-oscillator synth based on the Roland TB-303<br>
