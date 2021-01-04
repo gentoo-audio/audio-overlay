@@ -65,7 +65,7 @@ Available versions: `20200714`, `20201227`, `99999999`
 #### dragonfly-reverb
 Homepage: [github.com/michaelwillis/dragonfly-reverb](https://github.com/michaelwillis/dragonfly-reverb)<br>
 A set of free reverb effects<br>
-Available versions: `3.2.1`, `9999`
+Available versions: `3.2.1`, `3.2.3`, `9999`
 
 #### fabla
 Homepage: [openavproductions.com/fabla2](http://openavproductions.com/fabla2)<br>
