@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="6"
@@ -29,7 +29,9 @@ RDEPEND="virtual/jack
 	media-libs/lv2
 	convolution? ( media-libs/libsndfile:=
 		>=media-libs/zita-convolver-3.1.0:= )
-	media-fonts/dejavu"
+	media-fonts/dejavu
+	media-libs/ftgl
+	x11-libs/libX11"
 DEPEND="${RDEPEND}
 	sys-apps/help2man
 	virtual/pkgconfig"
