@@ -98,7 +98,7 @@ Available versions: `20200714-r1`
 #### bitwig-studio
 Homepage: [bitwig.com](http://bitwig.com)<br>
 Multi-platform music-creation system for production, performance and DJing<br>
-Available versions: `1.3.16`, `2.5.1`, `3.0.3`, `3.1.2`, `3.2.8`, `3.3`
+Available versions: `1.3.16`, `2.5.1`, `3.0.3`, `3.1.2`, `3.2.8`, `3.3`, `3.3.1`
 
 #### cadence
 Homepage: [kxstudio.linuxaudio.org/Applications:Cadence](http://kxstudio.linuxaudio.org/Applications:Cadence)<br>
