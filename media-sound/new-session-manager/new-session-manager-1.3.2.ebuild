@@ -1,1 +1,0 @@
-new-session-manager-9999.ebuild
