@@ -181,8 +181,8 @@ Available versions: `0.9.18`, `0.9.19`, `9999-r1`
 ### x11-libs
 
 #### ntk
-Homepage: [non.tuxfamily.org/wiki/NTK](http://non.tuxfamily.org/wiki/NTK)<br>
+Homepage: [non.tuxfamily.org/wiki/NTK](https://non.tuxfamily.org/wiki/NTK)<br>
 FLTK fork, improved rendering via Cairo, streamlined and enhanced widget set<br>
-Available versions: `1.3.1000`, `9999`
+Available versions: `1.3.1000`, `1.3.1001`, `9999`
 
 
