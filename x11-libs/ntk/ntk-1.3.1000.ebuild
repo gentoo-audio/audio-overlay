@@ -13,12 +13,11 @@ DESCRIPTION="FLTK fork, improved rendering via Cairo, streamlined and enhanced w
 HOMEPAGE="http://non.tuxfamily.org/wiki/NTK"
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://git.tuxfamily.org/non/fltk.git/"
+	EGIT_REPO_URI="https://github.com/gentoo-audio/ntk.git"
 	KEYWORDS=""
 else
-	SRC_URI="https://git.tuxfamily.org/non/fltk.git/snapshot/fltk-${PV}.tar.gz"
+	SRC_URI="https://github.com/gentoo-audio/ntk/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
-	S="${WORKDIR}/fltk-${PV}"
 fi
 LICENSE="FLTK"
 SLOT="0"
