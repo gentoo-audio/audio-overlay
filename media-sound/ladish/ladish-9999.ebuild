@@ -3,16 +3,16 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_6 python3_7 python3_8 )
+PYTHON_COMPAT=( python{3_6,3_7,3_8,3_9} )
 PYTHON_REQ_USE='threads(+)'
 
-inherit flag-o-matic python-single-r1 waf-utils
+inherit meson python-single-r1
 
 DESCRIPTION="LADI Session Handler - a session management system for JACK applications"
 HOMEPAGE="https://ladish.org"
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://git.nedk.org/lad/ladish.git"
+	EGIT_REPO_URI="https://git.nedk.org/lad/${PN}.git"
 	KEYWORDS=""
 	EGIT_SUBMODULES=()
 else
@@ -25,44 +25,26 @@ LICENSE="GPL-2"
 SLOT="0"
 RESTRICT="mirror"
 
-IUSE="debug doc lash"
+IUSE="lash gladish"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
+BUILD_DIR="${WORKDIR}/${P}/build"
 
 RDEPEND="media-libs/alsa-lib
 	media-sound/jack2[dbus]
 	sys-apps/dbus
-	dev-libs/expat
+	${PYTHON_DEPS}
 	lash? ( !media-sound/lash )
-	${PYTHON_DEPS}"
+	gladish? ( dev-libs/dbus-glib dev-cpp/gtkmm:2.4 dev-cpp/libgnomecanvasmm )"
 DEPEND="${RDEPEND}
-	doc? ( app-doc/doxygen )
 	virtual/pkgconfig"
 
 DOCS=( AUTHORS README NEWS )
 
-PATCHES=(
-	"${FILESDIR}/${P}-disable-gladish.patch"
-)
-
-src_prepare()
-{
-	sed -i -e "s/RELEASE = False/RELEASE = True/" wscript
-	append-cxxflags '-std=c++11'
-	default
-}
-
 src_configure() {
-	local -a mywafconfargs=(
-		--distnodeps
-		$(usex debug --debug '')
-		$(usex doc --doxygen '')
-		$(usex lash '--enable-liblash' '')
+	local emesonargs=(
+		$(meson_feature lash)
+		$(meson_feature gladish)
 	)
-	waf-utils_src_configure "${mywafconfargs[@]}"
-}
-
-src_install() {
-	use doc && HTML_DOCS="${S}/build/default/html/*"
-	waf-utils_src_install
-	python_fix_shebang "${ED}"
+	meson_src_configure
 }
