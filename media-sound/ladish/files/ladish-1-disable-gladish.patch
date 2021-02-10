@@ -1,0 +1,47 @@
+From edbef85f6334e8dcffcaf3492e95bca8c4fe0f51 Mon Sep 17 00:00:00 2001
+From: Simon van der Veldt <simon.vanderveldt@gmail.com>
+Date: Sun, 28 Feb 2021 12:07:37 +0100
+Subject: [PATCH] Disable gladish
+
+---
+ wscript | 17 +----------------
+ 1 file changed, 1 insertion(+), 16 deletions(-)
+
+diff --git a/wscript b/wscript
+index 5dedddf1..ff5a804c 100644
+--- a/wscript
++++ b/wscript
+@@ -148,7 +148,7 @@ def configure(conf):
+ 
+     conf.env['LIB_EXPAT'] = ['expat']
+ 
+-    build_gui = True
++    build_gui = False
+ 
+     if build_gui and not conf.check_cfg(
+         package = 'glib-2.0',
+@@ -594,21 +594,6 @@ def build(bld):
+ 
+     bld.install_files('${PREFIX}/bin', 'ladish_control', chmod=0o0755)
+ 
+-    # 'Desktop' file (menu entry, icon, etc)
+-    bld.install_files('${PREFIX}/share/applications/', 'gui/gladish.desktop', chmod=0o0644)
+-
+-    # Icons
+-    icon_sizes = ['16x16', '22x22', '24x24', '32x32', '48x48', '256x256']
+-    for icon_size in icon_sizes:
+-        bld.path.ant_glob('art/' + icon_size + '/apps/*.png')
+-        bld.install_files('${PREFIX}/share/icons/hicolor/' + icon_size + '/apps/', 'art/' + icon_size + '/apps/gladish.png')
+-
+-    status_images = []
+-    for status in ["down", "unloaded", "started", "stopped", "warning", "error"]:
+-        status_images.append("art/status_" + status + ".png")
+-
+-    bld.install_files('${DATA_DIR}', status_images)
+-    bld.install_files('${DATA_DIR}', "art/ladish-logo-128x128.png")
+     bld.install_files('${DATA_DIR}', ["AUTHORS", "README", "NEWS"])
+     bld.install_as('${DATA_DIR}/COPYING', "gpl2.txt")
+ 
+-- 
+2.26.2
+

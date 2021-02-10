@@ -1,0 +1,160 @@
+From 2a2c3a50dec5a39742e74804a9caba8fd9cf3c8a Mon Sep 17 00:00:00 2001
+From: Simon van der Veldt <simon.vanderveldt@gmail.com>
+Date: Sun, 28 Feb 2021 11:59:02 +0100
+Subject: [PATCH] Fix Python 3 compatibility
+
+Uses parts of the patch from the openSUSE package https://build.opensuse.org/package/show/multimedia:apps/ladish
+---
+ ladish_control |  2 +-
+ wscript        | 49 ++++++++++++++++++++++++-------------------------
+ 2 files changed, 25 insertions(+), 26 deletions(-)
+
+diff --git a/ladish_control b/ladish_control
+index 4303f70b..3f5f8a96 100755
+--- a/ladish_control
++++ b/ladish_control
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/python3
+ #
+ # LADI Session Handler (ladish)
+ #
+diff --git a/wscript b/wscript
+index 296a8522..5dedddf1 100644
+--- a/wscript
++++ b/wscript
+@@ -1,13 +1,8 @@
+ #! /usr/bin/env python
+ # encoding: utf-8
+ 
+-import os
+-import Options
+-import Utils
+-import shutil
+-import re
+-import waflib
+-from waflib.Scripting import Dist
++from __future__ import with_statement
++
+ 
+ parallel_debug = False
+ 
+@@ -20,19 +15,23 @@ RELEASE = True
+ top = '.'
+ out = 'build'
+ 
+-from Logs import pprint
++import os, sys, re, io, optparse, shutil, tokenize
++from hashlib import md5
++
++from waflib import Errors, Utils, Options, Logs, Scripting
++from waflib import Configure
+ 
+ def display_msg(conf, msg="", status = None, color = None):
+     if status:
+         conf.msg(msg, status, color)
+     else:
+-        pprint('NORMAL', msg)
++        Logs.pprint('NORMAL', msg)
+ 
+ def display_raw_text(conf, text, color = 'NORMAL'):
+-    pprint(color, text, sep = '')
++    Logs.pprint(color, text, sep = '')
+ 
+ def display_line(conf, text, color = 'NORMAL'):
+-    pprint(color, text, sep = os.linesep)
++    Logs.pprint(color, text, sep = os.linesep)
+ 
+ def yesno(bool):
+     if bool:
+@@ -216,10 +215,10 @@ def configure(conf):
+                     #print "optimize force enable is required"
+                     if not check_gcc_optimizations_enabled(conf.env['CFLAGS']):
+                         if Options.options.debug:
+-                            print "C optimization must be forced in order to enable -Wuninitialized"
+-                            print "However this will not be made because debug compilation is enabled"
++                            print ("C optimization must be forced in order to enable -Wuninitialized")
++                            print ("However this will not be made because debug compilation is enabled")
+                         else:
+-                            print "C optimization forced in order to enable -Wuninitialized"
++                            print ("C optimization forced in order to enable -Wuninitialized")
+                             conf.env.append_unique('CFLAGS', "-O")
+         except:
+             pass
+@@ -249,7 +248,7 @@ def configure(conf):
+     version_msg = APPNAME + "-" + VERSION
+ 
+     if os.access('version.h', os.R_OK):
+-        data = file('version.h').read()
++        data = open('version.h').read()
+         m = re.match(r'^#define GIT_VERSION "([^"]*)"$', data)
+         if m != None:
+             version_msg += " exported from " + m.group(1)
+@@ -295,11 +294,11 @@ def git_ver(self):
+     if os.access('./version.h', os.R_OK):
+         header = os.path.join(os.getcwd(), out, "version.h")
+         shutil.copy('./version.h', header)
+-        data = file(header).read()
++        data = open(header).read()
+         m = re.match(r'^#define GIT_VERSION "([^"]*)"$', data)
+         if m != None:
+             self.ver = m.group(1)
+-            pprint('BLUE', "tarball from git revision " + self.ver)
++            Logs.pprint('BLUE', "tarball from git revision " + self.ver)
+         else:
+             self.ver = "tarball"
+         return
+@@ -309,7 +308,7 @@ def git_ver(self):
+         if bld.cmd_and_log("LANG= git diff-index --name-only HEAD", quiet=waflib.Context.BOTH).splitlines():
+             self.ver += "-dirty"
+ 
+-        pprint('BLUE', "git revision " + self.ver)
++        Logs.pprint('BLUE', "git revision " + self.ver)
+     else:
+         self.ver = "unknown"
+ 
+@@ -592,11 +591,11 @@ def build(bld):
+ 
+         # GtkBuilder UI definitions (XML)
+         bld.install_files('${DATA_DIR}', 'gui/gladish.ui')
+-    
+-    bld.install_files('${PREFIX}/bin', 'ladish_control', chmod=0755)
++
++    bld.install_files('${PREFIX}/bin', 'ladish_control', chmod=0o0755)
+ 
+     # 'Desktop' file (menu entry, icon, etc)
+-    bld.install_files('${PREFIX}/share/applications/', 'gui/gladish.desktop', chmod=0644)
++    bld.install_files('${PREFIX}/share/applications/', 'gui/gladish.desktop', chmod=0o0644)
+ 
+     # Icons
+     icon_sizes = ['16x16', '22x22', '24x24', '32x32', '48x48', '256x256']
+@@ -617,14 +616,14 @@ def build(bld):
+         html_docs_source_dir = "build/default/html"
+         if bld.cmd == 'clean':
+             if os.access(html_docs_source_dir, os.R_OK):
+-                pprint('CYAN', "Removing doxygen generated documentation...")
++                Logs.pprint('CYAN', "Removing doxygen generated documentation...")
+                 shutil.rmtree(html_docs_source_dir)
+-                pprint('CYAN', "Removing doxygen generated documentation done.")
++                Logs.pprint('CYAN', "Removing doxygen generated documentation done.")
+         elif bld.cmd == 'build':
+             if not os.access(html_docs_source_dir, os.R_OK):
+                 os.popen("doxygen").read()
+             else:
+-                pprint('CYAN', "doxygen documentation already built.")
++                Logs.pprint('CYAN', "doxygen documentation already built.")
+ 
+     bld(features='intltool_po', appname=APPNAME, podir='po', install_path="${LOCALE_DIR}")
+ 
+@@ -657,7 +656,7 @@ def etags(ctx):
+     os.system(cmd)
+     os.system("stat -c '%y' TAGS")
+ 
+-class ladish_dist(waflib.Scripting.Dist):
++class ladish_dist(Scripting.Dist):
+     cmd = 'dist'
+     fun = 'dist'
+ 
+-- 
+2.26.2
+
