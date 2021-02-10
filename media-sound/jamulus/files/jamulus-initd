@@ -1,0 +1,29 @@
+#!/sbin/openrc-run
+# Copyright 2021 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+name="Jamulus server"
+description="Internet jam session server"
+command=/usr/bin/Jamulus
+command_args="-s -n -p ${PORT} -e ${CENTRAL_SERVER} -o ${SERVER_INFO} -l ${LOG_FILE} -u ${MAX_CHANNELS}"
+pid_file="/run/jamulus.pid"
+
+depend() {
+	use net
+}
+
+start() {
+	if ${MULTITHREADING:-true}; then
+		command_args="${command_args} -T"
+	fi
+
+	ebegin "Starting ${name}"
+	start-stop-daemon \
+		-x ${command} \
+		-p ${pid_file} \
+		-b \
+		-m \
+		-- ${command_args}
+	eend $?
+}
+
