@@ -1,4 +1,4 @@
-Gentoo overlay containing pro audio applications.
+Gentoo overlay containing audio production applications.
 
 ## How to use this overlay
 - If you manage [`/etc/portage/repos.conf`](https://wiki.gentoo.org/wiki//etc/portage/repos.conf) manually add the following entry:
@@ -13,14 +13,9 @@ auto-sync = yes
 ```
 eselect repository enable audio-overlay
 ```
-- If you use [layman](https://wiki.gentoo.org/wiki/Layman) add this overlay using:
-```
-layman -a audio-overlay
-```
 
 ## Contact
 Join us at the `#audio-overlay` channel at `irc.libera.chat` or [create an issue](https://github.com/gentoo-audio/audio-overlay/issues/new).
-
 
 ## Packages
 {% for category, category_packages in packages.items() %}
