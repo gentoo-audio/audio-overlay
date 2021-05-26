@@ -21,7 +21,7 @@ layman -a audio-overlay
 ```
 
 ## Contact
-Join us at the `#proaudio-overlay` channel at `irc.freenode.org` or [create an issue](https://github.com/gentoo-audio/audio-overlay/issues/new).
+Join us at the `#audio-overlay` channel at `irc.libera.chat` or [create an issue](https://github.com/gentoo-audio/audio-overlay/issues/new).
 
 ## Quality control
 - GitHub's [branch protection](https://help.github.com/articles/about-protected-branches/) is enabled for the `master` branch.
