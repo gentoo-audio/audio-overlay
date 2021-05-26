@@ -1,6 +1,6 @@
 # Audio overlay [![CircleCI](https://circleci.com/gh/gentoo-audio/audio-overlay.svg?style=svg)](https://circleci.com/gh/gentoo-audio/audio-overlay)
 
-Gentoo/Funtoo overlay containing pro audio applications
+Gentoo/Funtoo overlay containing audio production applications
 
 ## How to use this overlay
 - If you manage [`/etc/portage/repos.conf`](https://wiki.gentoo.org/wiki//etc/portage/repos.conf) manually add the following entry:
@@ -14,10 +14,6 @@ auto-sync = yes
 - If you use [eselect repository](https://wiki.gentoo.org/wiki/Eselect/Repository) enable this overlay using:
 ```
 eselect repository enable audio-overlay
-```
-- If you use [layman](https://wiki.gentoo.org/wiki/Layman) add this overlay using:
-```
-layman -a audio-overlay
 ```
 
 ## Contact
