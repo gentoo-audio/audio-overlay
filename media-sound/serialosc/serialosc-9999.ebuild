@@ -3,7 +3,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python2_7 python3_4 python3_5 python3_6 )
+PYTHON_COMPAT=( python2_7 python3_{6,7,8,9} )
 PYTHON_REQ_USE='threads(+)'
 NO_WAF_LIBDIR=yes
 
