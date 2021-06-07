@@ -4,7 +4,7 @@
 EAPI=6
 
 # Required by waf
-PYTHON_COMPAT=( python3_4 python3_5 python3_6 python3_7 )
+PYTHON_COMPAT=( python3_{8..10} )
 PYTHON_REQ_USE='threads(+)'
 
 inherit python-any-r1 waf-utils
