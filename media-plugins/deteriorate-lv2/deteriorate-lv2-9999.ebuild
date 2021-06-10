@@ -1,10 +1,10 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
 # Required by waf
-PYTHON_COMPAT=( python3_4 python3_5 python3_6 python3_7 )
+PYTHON_COMPAT=( python3_{6,7,8,9} )
 PYTHON_REQ_USE='threads(+)'
 
 inherit python-any-r1 waf-utils
