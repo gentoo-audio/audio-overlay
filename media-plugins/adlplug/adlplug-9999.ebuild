@@ -41,8 +41,6 @@ DEPEND="media-libs/alsa-lib
 "
 RDEPEND="${DEPEND}"
 
-PATCHES="${FILESDIR}/adlplug-juce-fix-gcc9-compatibility.patch"
-
 src_configure() {
 	local mycmakeargs=(
 		-DADLplug_CHIP=OPL3
