@@ -3,12 +3,22 @@
 
 EAPI=7
 
-inherit cmake git-r3 xdg
+inherit cmake xdg
 
 DESCRIPTION="An old-school all-digital drum-kit sampler synthesizer with stereo fx"
 HOMEPAGE="http://drumkv1.sourceforge.net/"
 EGIT_REPO_URI="https://github.com/rncbc/${PN}.git"
-KEYWORDS=""
+if [[ ${PV} == *9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/rncbc/${PN}.git"
+	KEYWORDS=""
+else
+	MY_PV=$(ver_rs 1- _)
+	SRC_URI="https://github.com/rncbc/${PN}/archive/${PN}_${MY_PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
+	RESTRICT="mirror"
+	S="${WORKDIR}/${PN}-${PN}_${MY_PV}"
+fi
 LICENSE="GPL-2+"
 SLOT="0"
 
