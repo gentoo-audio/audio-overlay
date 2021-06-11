@@ -36,6 +36,7 @@ RDEPEND="
 	media-libs/libsndfile
 	standalone? ( virtual/jack )
 	alsa? ( media-libs/alsa-lib )
+	nsm? ( media-sound/new-session-manager )
 	lv2? ( media-libs/lv2 )
 	osc? ( media-libs/liblo )
 "
