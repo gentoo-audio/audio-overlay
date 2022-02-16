@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -18,8 +18,8 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
 	media-sound/jack2[dbus]
-	$(python_gen_cond_dep 'dev-python/PyQt5[dbus,gui,opengl?,svg,widgets,${PYTHON_MULTI_USEDEP}]')
-	$(python_gen_cond_dep 'dev-python/dbus-python[${PYTHON_MULTI_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/PyQt5[dbus,gui,opengl?,svg,widgets,${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/dbus-python[${PYTHON_USEDEP}]')
 	a2jmidid? ( media-sound/a2jmidid[dbus] )
 	ladish? ( >=media-sound/ladish-9999 )
 	pulseaudio? ( media-sound/pulseaudio[jack] )"
