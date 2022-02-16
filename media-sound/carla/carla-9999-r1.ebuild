@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -27,7 +27,7 @@ IUSE="alsa gtk gtk2 opengl osc -pulseaudio rdf sf2 sndfile X"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
-	$(python_gen_cond_dep 'dev-python/PyQt5[gui,opengl?,svg,widgets,${PYTHON_MULTI_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/PyQt5[gui,opengl?,svg,widgets,${PYTHON_USEDEP}]')
 	virtual/jack
 	alsa? ( media-libs/alsa-lib )
 	gtk? ( x11-libs/gtk+:3 )
