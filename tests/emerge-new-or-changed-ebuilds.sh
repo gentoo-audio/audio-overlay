@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Determine which ebuilds are new or changed and emerge them in a clean amd64 stage3
+# Determine which ebuilds are new or changed and emerge them in a clean stage3
 set -e
 
 if [ "${DEBUG}" = True ]; then

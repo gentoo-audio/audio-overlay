@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Run repoman in a clean amd64 stage3
+# Run repoman in a clean stage3
 # Pass package names to only run against these packages, otherwise runs agains the whole overlay
 set -e
 
@@ -18,7 +18,7 @@ docker rm -f portage || true
 docker create --name portage gentoo/portage
 
 # Ensure the stage3 image is up to date
-docker pull gentoo/stage3-amd64
+docker pull gentoo/stage3
 
 # Run the repoman tests in a clean stage3
 docker run --rm -ti \
@@ -33,5 +33,5 @@ docker run --rm -ti \
   -v "${HOME}/.portage-pkgdir":/var/cache/binpkgs \
   -v "${PWD}":/usr/local/portage \
   -w /usr/local/portage \
-  gentoo/stage3-amd64 \
+  gentoo/stage3 \
   /usr/local/portage/tests/resources/repoman.sh "${@}"
