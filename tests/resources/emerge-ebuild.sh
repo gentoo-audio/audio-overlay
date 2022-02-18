@@ -79,7 +79,7 @@ do
 
   # Emerge dependencies first
   echo "Emerging dependencies"
-  emerge --quiet-build --buildpkg --usepkg --onlydeps --autounmask=y --autounmask-continue=y "=${PKG_CATEGORY}/${PKG_FULL_NAME}"
+  emerge --tree --quiet-build --buildpkg --usepkg --onlydeps --autounmask=y --autounmask-continue=y "=${PKG_CATEGORY}/${PKG_FULL_NAME}"
 
   # Emerge the ebuild itself
   echo "Emerging ${EBUILD}"
