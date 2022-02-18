@@ -36,11 +36,6 @@ echo "dev-lang/rust" > /etc/portage/package.mask/audio-overlay
 # Show emerge info for troubleshooting purposes
 emerge --info
 
-# Update @world, to fix issues with out of date gentoo/stage3 images
-# Workaround for bug https://bugs.gentoo.org/723352
-emerge --quiet-build --buildpkg --usepkg sys-libs/libcap
-emerge --quiet-build --buildpkg --usepkg --update --changed-use --deep --with-bdeps=y @world
-
 # Emerge utilities/tools used by this script
 emerge -q --buildpkg --usepkg app-portage/portage-utils
 
