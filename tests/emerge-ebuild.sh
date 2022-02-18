@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Emerge a specific ebuild in a clean amd64 stage3
+# Emerge a specific ebuild in a clean stage3
 set -e
 
 if [ "${DEBUG}" = True ]; then
@@ -20,7 +20,7 @@ docker rm -f portage || true
 docker create --name portage gentoo/portage
 
 # Ensure the stage3 image is up to date
-docker pull gentoo/stage3-amd64
+docker pull gentoo/stage3
 
 # Emerge the ebuild in a clean stage3
 docker run --rm -ti \
@@ -36,5 +36,5 @@ docker run --rm -ti \
   -v "${HOME}/.portage-pkgdir":/var/cache/binpkgs \
   -v "${PWD}":/usr/local/portage \
   -w /usr/local/portage \
-  gentoo/stage3-amd64 \
+  gentoo/stage3 \
   /usr/local/portage/tests/resources/emerge-ebuild.sh "${@}"

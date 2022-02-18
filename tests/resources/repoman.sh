@@ -14,7 +14,7 @@ fi
 export FEATURES="binpkg-multi-instance -news -ipc-sandbox -network-sandbox -pid-sandbox" PORTAGE_RSYNC_EXTRA_OPTS="-q"
 
 # Ensure we use dev-lang/rust-bin
-echo "dev-lang/rust" > /etc/portage/package.mask
+echo "dev-lang/rust" > /etc/portage/package.mask/audio-overlay
 
 # Install dependencies
 emerge -q --buildpkg --usepkg dev-vcs/git app-portage/repoman dev-python/pip

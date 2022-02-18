@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Emerge a random non-live ebuild out of all the ebuilds in the overlay in a clean amd64 stage3
+# Emerge a random non-live ebuild out of all the ebuilds in the overlay in a clean stage3
 # Used to do continuous tests if our ebuilds still work
 # as well as make sure the binary package cache is updated on our CI service
 set -e

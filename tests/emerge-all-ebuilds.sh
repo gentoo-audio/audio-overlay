@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Get all non-live ebuilds that are in the git tree and emerge all of them in a clean amd64 stage3
+# Get all non-live ebuilds that are in the git tree and emerge all of them in a clean stage3
 set -e
 
 if [ "${DEBUG}" = True ]; then
