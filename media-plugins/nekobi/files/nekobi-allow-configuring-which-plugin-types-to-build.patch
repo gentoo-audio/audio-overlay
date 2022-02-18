@@ -1,61 +1,71 @@
-From 1ae960dc5fade7122cbe34f072fb326a6f07bea1 Mon Sep 17 00:00:00 2001
+From a63a5a9dd856c79e7e5067d6e528cfed51c4536d Mon Sep 17 00:00:00 2001
 From: Simon van der Veldt <simon.vanderveldt@gmail.com>
 Date: Fri, 28 Apr 2017 12:46:09 +0200
 Subject: [PATCH] Allow configuring which plugin types to build
 
 ---
- Makefile                | 4 ++++
- plugins/Nekobi/Makefile | 6 ++++++
- 2 files changed, 10 insertions(+)
+ Makefile                |  4 ++++
+ plugins/Nekobi/Makefile | 10 +++++++++-
+ 2 files changed, 13 insertions(+), 1 deletion(-)
 
 diff --git a/Makefile b/Makefile
-index a548af5..da90442 100644
+index e63a9bf..8969833 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -19,8 +19,12 @@ plugins: dgl
+@@ -19,6 +19,7 @@ plugins: dgl
  	$(MAKE) all -C plugins/Nekobi
- 
+
  ifneq ($(CROSS_COMPILING),true)
 +ifeq ($(BUILD_LV2),true)
  gen: plugins dpf/utils/lv2_ttl_generator
  	@$(CURDIR)/dpf/utils/generate-ttl.sh
+
+@@ -27,6 +28,9 @@ dpf/utils/lv2_ttl_generator:
+ else
+ gen:
+ endif
 +else
 +gen:
 +endif
- ifeq ($(MACOS),true)
- 	@$(CURDIR)/dpf/utils/generate-vst-bundles.sh
- endif
+
+ # --------------------------------------------------------------
+
 diff --git a/plugins/Nekobi/Makefile b/plugins/Nekobi/Makefile
-index e9b6de7..c0d6eff 100644
+index 98b5f94..18a77c4 100644
 --- a/plugins/Nekobi/Makefile
 +++ b/plugins/Nekobi/Makefile
-@@ -36,20 +36,26 @@ ifeq ($(HAVE_JACK),true)
+@@ -35,23 +35,31 @@ LINK_FLAGS += -pthread
+ # --------------------------------------------------------------
+ # Enable all possible plugin types
+
++ifeq ($(HAVE_JACK),true)
  TARGETS += jack
- endif
- 
+-TARGETS += dssi_dsp
++endif
+
 +ifeq ($(BUILD_DSSI),true)
- TARGETS += dssi_dsp
- ifeq ($(HAVE_DGL),true)
++TARGETS += dssi_dsp
+ ifeq ($(HAVE_CAIRO_OR_OPENGL),true)
  ifeq ($(HAVE_LIBLO),true)
  TARGETS += dssi_ui
  endif
  endif
 +endif
- 
+
 +ifeq ($(BUILD_LV2),true)
- ifeq ($(HAVE_DGL),true)
+ ifeq ($(HAVE_CAIRO_OR_OPENGL),true)
  TARGETS += lv2_sep
  else
  TARGETS += lv2_dsp
  endif
 +endif
- 
-+ifeq ($(BUILD_VST),true)
- TARGETS += vst
-+endif
- 
- all: $(TARGETS)
- 
--- 
-2.26.2
 
++ifeq ($(BUILD_VST),true)
+ TARGETS += vst2
+ TARGETS += vst3
++endif
+
+ all: $(TARGETS)
+
+--
+2.34.1
