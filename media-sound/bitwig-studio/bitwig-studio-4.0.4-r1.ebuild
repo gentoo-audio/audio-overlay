@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -50,46 +50,20 @@ RDEPEND="${DEPEND}
 	x11-libs/libXtst
 "
 
-QA_PRESTRIPPED="
-	opt/bitwig-studio/bitwig-studio
-	opt/bitwig-studio/bin/.*
-	opt/bitwig-studio/lib/cp/.*
+QA_PREBUILT="
+	opt/bitwig-studio/.*
 "
 
 S=${WORKDIR}
 
 src_install() {
-	BITWIG_HOME="/opt/bitwig-studio"
-	dodir ${BITWIG_HOME}
-	insinto ${BITWIG_HOME}
-	doins -r opt/bitwig-studio/*
-	fperms +x ${BITWIG_HOME}/bitwig-studio
-	fperms +x ${BITWIG_HOME}/bin/BitwigPluginHost-X64-SSE41
-	fperms +x ${BITWIG_HOME}/bin/BitwigStudio
-	fperms +x ${BITWIG_HOME}/bin/BitwigAudioEngine-X64-SSE41
-	fperms +x ${BITWIG_HOME}/bin/BitwigAudioEngine-X64-AVX2
-	fperms +x ${BITWIG_HOME}/bin/BitwigVampHost
-	fperms +x ${BITWIG_HOME}/bin/lwjgl.jar
-	fperms +x ${BITWIG_HOME}/bin/show-file-dialog-gtk3
-	fperms +x ${BITWIG_HOME}/bin/show-splash-gtk
-	fperms 755 ${BITWIG_HOME}/lib/jre/lib/* \
-		${BITWIG_HOME}/lib/jre/lib/server/libjsig.so \
-		${BITWIG_HOME}/lib/jre/lib/server/libjvm.so \
-		${BITWIG_HOME}/lib/jre/bin/keytool \
-		${BITWIG_HOME}/lib/jre/bin/jrunscript
-	fperms 644 ${BITWIG_HOME}/lib/jre/lib/classlist \
-		${BITWIG_HOME}/lib/jre/lib/jrt-fs.jar \
-		${BITWIG_HOME}/lib/jre/lib/jvm.cfg \
-		${BITWIG_HOME}/lib/jre/lib/modules \
-		${BITWIG_HOME}/lib/jre/lib/psfontj2d.properties \
-		${BITWIG_HOME}/lib/jre/lib/psfont.properties.ja \
-		${BITWIG_HOME}/lib/jre/lib/tzdb.dat
-	dosym ${BITWIG_HOME}/bitwig-studio /usr/bin/bitwig-studio
+	insinto /opt
+	cp -a opt/bitwig-studio "${ED}"/opt || die "cp failed"
 
-	if use abi_x86_32; then
-		fperms +x ${BITWIG_HOME}/bin/BitwigPluginHost-X86-SSE41
-	else
-		rm -f "${ED}/${BITWIG_HOME}/bin/BitwigPluginHost-X86-SSE41"
+	dosym ../../opt/bitwig-studio/bitwig-studio /usr/bin/bitwig-studio
+
+	if ! use abi_x86_32; then
+		rm "${ED}/opt/bitwig-studio/bin/BitwigPluginHost-X86-SSE41" || die
 	fi
 
 	doicon -s scalable usr/share/icons/hicolor/scalable/apps/com.bitwig.BitwigStudio.svg
