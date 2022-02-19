@@ -3,11 +3,13 @@ version: 2.1
 jobs:
   check new versions:
     machine: true
+    resource_class: large
     steps:
       - checkout
       - run: ./tests/newversioncheck.sh
   emerge all ebuilds:
     machine: true
+    resource_class: large
     steps:
       - checkout
       - restore_cache:
@@ -19,6 +21,7 @@ jobs:
             - ~/.portage-pkgdir
   emerge all live ebuilds:
     machine: true
+    resource_class: large
     steps:
       - checkout
       - restore_cache:
@@ -30,6 +33,7 @@ jobs:
             - ~/.portage-pkgdir
   repoman:
     machine: true
+    resource_class: large
     steps:
       - checkout
       - restore_cache:
@@ -41,6 +45,7 @@ jobs:
             - ~/.portage-pkgdir
   repoman new or changed ebuilds:
     machine: true
+    resource_class: large
     steps:
       - checkout
       - restore_cache:
@@ -52,6 +57,7 @@ jobs:
             - ~/.portage-pkgdir
   emerge new or changed ebuilds:
     machine: true
+    resource_class: large
     steps:
       - checkout
       - restore_cache:
