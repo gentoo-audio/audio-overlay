@@ -24,8 +24,13 @@ export PORTAGE_RSYNC_EXTRA_OPTS="-q"
 # Don't store any elogs by default
 export PORTAGE_ELOG_SYSTEM="echo"
 
+# Use 4 jobs to speedup emerges
+# CircleCI's large VMs have 4 CPUs and 15GB of memory
+# -j4 doesn't sature the CPUs so increase it by 1
+echo 'MAKEOPTS="-j5"' >> /etc/portage/make.conf
+
 # Only enable intel so LLVM doesn't get pulled in
-echo 'VIDEO_CARDS="intel"' > /etc/portage/make.conf
+echo 'VIDEO_CARDS="intel"' >> /etc/portage/make.conf
 
 # Disable LLVM support in mesa
 echo "media-libs/mesa -llvm" > /etc/portage/package.use/audio-overlay
