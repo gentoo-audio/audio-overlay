@@ -11,7 +11,7 @@ fi
 # Disable news messages from portage as well as the IPC, network and PID sandbox to get rid of the
 # "Unable to unshare: EPERM" messages without requiring the container to be ran in priviliged mode
 # Also disable rsync's output
-export FEATURES="binpkg-multi-instance -news -ipc-sandbox -network-sandbox -pid-sandbox" PORTAGE_RSYNC_EXTRA_OPTS="-q"
+export FEATURES="binpkg-multi-instance parallel-install -news -ipc-sandbox -network-sandbox -pid-sandbox" PORTAGE_RSYNC_EXTRA_OPTS="-q"
 
 # Ensure we use dev-lang/rust-bin
 echo "dev-lang/rust" > /etc/portage/package.mask/audio-overlay

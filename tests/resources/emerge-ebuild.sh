@@ -19,7 +19,7 @@ fi
 # Disable news messages from portage as well as the IPC, network and PID sandbox to get rid of the
 # "Unable to unshare: EPERM" messages without requiring the container to be run in privileged mode
 # Disable rsync output
-export FEATURES="binpkg-multi-instance -news -ipc-sandbox -network-sandbox -pid-sandbox"
+export FEATURES="binpkg-multi-instance parallel-install -news -ipc-sandbox -network-sandbox -pid-sandbox"
 export PORTAGE_RSYNC_EXTRA_OPTS="-q"
 # Don't store any elogs by default
 export PORTAGE_ELOG_SYSTEM="echo"
