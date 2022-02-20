@@ -1,53 +1,50 @@
-From 3559bd0883a7b2130ad6a7d4cec43ff3effede28 Mon Sep 17 00:00:00 2001
+From 695b79a231ed7edf9a3cddebc8c7f430983f316b Mon Sep 17 00:00:00 2001
 From: Simon van der Veldt <simon.vanderveldt@gmail.com>
 Date: Sun, 30 Apr 2017 10:56:40 +0200
 Subject: [PATCH] Allow configuring which plugin types to build
 
 ---
- plugins/MVerb/Makefile | 21 +++++++++++++++++----
- 1 file changed, 17 insertions(+), 4 deletions(-)
+ plugins/MVerb/Makefile | 19 ++++++++++++++++++-
+ 1 file changed, 18 insertions(+), 1 deletion(-)
 
 diff --git a/plugins/MVerb/Makefile b/plugins/MVerb/Makefile
-index cc7aea2..9a7c3a3 100644
+index 337780b..c318a7c 100644
 --- a/plugins/MVerb/Makefile
 +++ b/plugins/MVerb/Makefile
-@@ -31,19 +31,32 @@ ifeq ($(HAVE_JACK),true)
- TARGETS += jack
- endif
+@@ -28,15 +28,32 @@ include ../../dpf/Makefile.plugins.mk
+ # --------------------------------------------------------------
+ # Enable all possible plugin types
  
-+ifeq ($(BUILD_LADSPA),true)
-+ifeq ($(LINUX),true)
- TARGETS += ladspa
--TARGETS += vst
++ifeq ($(HAVE_JACK),true)
+ TARGETS += jack
 +endif
++
++ifeq ($(BUILD_LADSPA),true)
+ TARGETS += ladspa
++endif
++
++ifeq ($(BUILD_LV2),true)
++TARGETS += lv2_dsp
++ifeq ($(HAVE_DGL),true)
+ TARGETS += lv2_sep
++endif
++endif
++
++ifeq ($(BUILD_VST),true)
+ TARGETS += vst2
+ TARGETS += vst3
 +endif
  
 +ifeq ($(BUILD_DSSI),true)
-+ifeq ($(LINUX),true)
 +TARGETS += dssi_dsp
  ifeq ($(HAVE_DGL),true)
  ifeq ($(HAVE_LIBLO),true)
 -TARGETS += dssi
 +TARGETS += dssi_ui
 +endif
-+endif
  endif
  endif
  
-+ifeq ($(BUILD_LV2),true)
-+TARGETS += lv2_dsp
- ifeq ($(HAVE_DGL),true)
- TARGETS += lv2_sep
--else
--TARGETS += lv2_dsp
-+endif
-+endif
-+
-+ifeq ($(BUILD_VST),true)
-+TARGETS += vst
- endif
- 
- all: $(TARGETS)
 -- 
-2.26.2
+2.34.1
 
