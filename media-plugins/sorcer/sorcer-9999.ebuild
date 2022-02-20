@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -26,8 +26,6 @@ RDEPEND="media-libs/lv2
 	dev-libs/boost
 	>=x11-libs/ntk-1.3.1000"
 DEPEND="${RDEPEND}"
-
-PATCHES="${FILESDIR}/${PN}-gcc-9-remove-leading-underscore.patch"
 
 src_prepare() {
 	# Fix hardcoded libdir
