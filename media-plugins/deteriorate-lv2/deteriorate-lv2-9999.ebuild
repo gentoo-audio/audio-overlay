@@ -1,10 +1,10 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
 # Required by waf
-PYTHON_COMPAT=( python3_{6,7,8,9} )
+PYTHON_COMPAT=( python3_{8,9} )
 PYTHON_REQ_USE='threads(+)'
 
 inherit python-any-r1 waf-utils
@@ -31,3 +31,5 @@ RDEPEND="dev-cpp/gtkmm:2.4
 
 DEPEND="${PYTHON_DEPS}
 	${RDEPEND}"
+
+PATCHES="${FILESDIR}/${PN}-1.0.7-wscript-fix-duplicate-manifest-install.patch"
