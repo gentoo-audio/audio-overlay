@@ -62,7 +62,7 @@ Available versions: `9999`
 #### deteriorate-lv2
 Homepage: [github.com/blablack/deteriorate-lv2](https://github.com/blablack/deteriorate-lv2)<br>
 A set of plugins to deteriorate the sound quality<br>
-Available versions: `1.0.7-r1`, `9999`
+Available versions: `1.0.7-r2`, `9999`
 
 #### distrho-ports
 Homepage: [github.com/DISTRHO/DISTRHO-Ports](https://github.com/DISTRHO/DISTRHO-Ports)<br>
