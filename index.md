@@ -21,11 +21,6 @@ Join us at the `#audio-overlay` channel at `irc.libera.chat` or [create an issue
 
 ### media-libs
 
-#### libltc
-Homepage: [github.com/x42/libltc.git](https://github.com/x42/libltc.git)<br>
-Linear/Logitudinal Time Code (LTC) Library<br>
-Available versions: `1.3.1`, `9999`
-
 #### libmonome
 Homepage: [github.com/monome/libmonome](https://github.com/monome/libmonome)<br>
 Library for easy interaction with monome devices<br>
@@ -35,11 +30,6 @@ Available versions: `1.4.3`, `9999`
 Homepage: [das.nasophon.de/pyliblo](http://das.nasophon.de/pyliblo)<br>
 A Python wrapper for the liblo OSC library<br>
 Available versions: `0.10.0-r2`
-
-#### zita-resampler
-Homepage: [kokkinizita.linuxaudio.org/linuxaudio/](http://kokkinizita.linuxaudio.org/linuxaudio/)<br>
-C++ library for real-time resampling of audio signals<br>
-Available versions: `1.6.0`
 
 
 ### media-plugins
@@ -98,11 +88,6 @@ Available versions: `1.0.2`, `9999`
 Homepage: [openavproductions.com/sorcer](http://openavproductions.com/sorcer)<br>
 Polyphonic wavetable synth LV2 plugin<br>
 Available versions: `1.1.3-r1`, `9999`
-
-#### x42-plugins
-Homepage: [github.com/x42/x42-plugins](https://github.com/x42/x42-plugins)<br>
-Collection of LV2 plugins<br>
-Available versions: `20200714-r1`
 
 
 ### media-sound
