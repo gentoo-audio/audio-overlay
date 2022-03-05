@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>proaudio@gentoo.org</email>
+		<name>Gentoo ProAudio Project</name>
+	</maintainer>
+	<use>
+		<flag name="systray">Enables the system tray</flag>
+	</use>
+	<upstream>
+		<bugs-to>https://gitlab.freedesktop.org/rncbc/qpwgraph/-/issues</bugs-to>
+		<changelog>https://gitlab.freedesktop.org/rncbc/qpwgraph/-/releases</changelog>
+		<doc>https://gitlab.freedesktop.org/rncbc/qpwgraph/-/wikis/home</doc>
+	</upstream>
+</pkgmetadata>
