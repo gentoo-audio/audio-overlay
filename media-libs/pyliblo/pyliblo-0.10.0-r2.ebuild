@@ -19,3 +19,5 @@ RDEPEND=">=media-libs/liblo-0.27
 	${PYTHON_DEPS}"
 DEPEND="${RDEPEND}
 	dev-python/cython[${PYTHON_USEDEP}]"
+
+distutils_enable_tests unittest
