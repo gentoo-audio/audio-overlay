@@ -1,4 +1,8 @@
-Gentoo overlay containing audio production applications.
+Gentoo overlay containing audio production applications
+
+## We're looking for maintainers!
+This overlay is looking for maintainers.
+If you use this overlay and would like to (help) maintain it, please post a message in [this issue](https://github.com/gentoo-audio/audio-overlay/issues/507).
 
 ## How to use this overlay
 - If you manage [`/etc/portage/repos.conf`](https://wiki.gentoo.org/wiki//etc/portage/repos.conf) manually add the following entry:
