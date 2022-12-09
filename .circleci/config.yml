@@ -8,30 +8,24 @@ jobs:
       - checkout
       - run: ./tests/newversioncheck.sh
 
-  repoman:
-    machine: true
+  pkgcheck all:
+    docker:
+      - image: registry.gitlab.fem-net.de/gentoo/fem-overlay-ci-image:master
     resource_class: large
     steps:
       - checkout
-      - restore_cache:
-          key: portage-pkgdir-repoman
-      - run: ./tests/repoman.sh
-      - save_cache:
-          key: portage-pkgdir-repoman-{{ epoch }}
-          paths:
-            - ~/.portage-pkgdir
-  repoman new or changed ebuilds:
-    machine: true
+      - run: pkgcheck scan
+
+  pkgcheck changes:
+    docker:
+      - image: registry.gitlab.fem-net.de/gentoo/fem-overlay-ci-image:master
     resource_class: large
     steps:
       - checkout
-      - restore_cache:
-          key: portage-pkgdir-repoman
-      - run: ./tests/repoman-new-or-changed-ebuilds.sh
-      - save_cache:
-          key: portage-pkgdir-repoman-{{ epoch }}
-          paths:
-            - ~/.portage-pkgdir
+      - run: |
+          git fetch
+          pkgcheck scan --commits origin/master..HEAD
+
   emerge new or changed ebuilds:
     machine: true
     resource_class: large
@@ -74,22 +68,16 @@ workflows:
                - master
     jobs:
       - check new versions
-      - repoman
-      - emerge all ebuilds:
-          requires:
-            - repoman
-      - emerge all live ebuilds:
-          requires:
-            - emerge all ebuilds
+      - pkgcheck all
   pullrequest:
     jobs:
-      - repoman new or changed ebuilds:
+      - pkgcheck changes:
           filters:
             branches:
               ignore: master
       - emerge new or changed ebuilds:
           requires:
-            - repoman new or changed ebuilds
+            - pkgcheck changes
           filters:
             branches:
               ignore: master
