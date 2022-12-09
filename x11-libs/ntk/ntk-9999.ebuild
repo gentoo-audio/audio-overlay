@@ -29,7 +29,7 @@ RDEPEND="x11-libs/libX11
 	media-libs/fontconfig
 	x11-libs/libXft
 	x11-libs/cairo[X]
-	virtual/jpeg:*
+	media-libs/libjpeg-turbo:=
 	media-libs/libpng:*
 	opengl? ( media-libs/glu )"
 DEPEND="${RDEPEND}"
