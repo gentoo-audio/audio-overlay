@@ -22,7 +22,7 @@ LICENSE="ISC"
 SLOT="0"
 RESTRICT="mirror"
 
-IUSE="osc -python udev"
+IUSE="osc python udev"
 
 RDEPEND="udev? ( virtual/libudev )
 	osc? ( media-libs/liblo )
