@@ -22,7 +22,7 @@ fi
 LICENSE="ISC"
 SLOT="0"
 
-IUSE="-zeroconf"
+IUSE="zeroconf"
 
 RDEPEND="virtual/libudev
 	media-libs/liblo
