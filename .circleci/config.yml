@@ -11,7 +11,7 @@ jobs:
   pkgcheck all:
     docker:
       - image: registry.gitlab.fem-net.de/gentoo/fem-overlay-ci-image:master
-    resource_class: large
+    resource_class: small
     steps:
       - checkout
       - run: pkgcheck scan
@@ -19,7 +19,7 @@ jobs:
   pkgcheck changes:
     docker:
       - image: registry.gitlab.fem-net.de/gentoo/fem-overlay-ci-image:master
-    resource_class: large
+    resource_class: small
     steps:
       - checkout
       - run: |
@@ -29,7 +29,7 @@ jobs:
   manifest all:
     docker:
       - image: registry.gitlab.fem-net.de/gentoo/fem-overlay-ci-image:master
-    resource_class: large
+    resource_class: small
     steps:
       - checkout
       - run: MANIFEST_ONLY_DIFF=false /tools/manifest_packages.sh
@@ -37,7 +37,7 @@ jobs:
   manifest changes:
     docker:
       - image: registry.gitlab.fem-net.de/gentoo/fem-overlay-ci-image:master
-    resource_class: large
+    resource_class: small
     steps:
       - checkout
       - run: MANIFEST_ONLY_DIFF=true /tools/manifest_packages.sh
