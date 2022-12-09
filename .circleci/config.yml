@@ -54,6 +54,7 @@ jobs:
           key: portage-pkgdir-emerge-{{ epoch }}
           paths:
             - ~/.portage-pkgdir
+
   generate site:
     machine: true
     steps:
@@ -82,6 +83,7 @@ workflows:
            branches:
              only:
                - master
+
     jobs:
       - check new versions
       - pkgcheck all
@@ -113,6 +115,7 @@ workflows:
           filters:
             branches:
               ignore: master
+
   update site:
     jobs:
       - generate site:
@@ -120,6 +123,7 @@ workflows:
             branches:
               only:
                 - master
+
       - deploy site:
           requires:
             - generate site
