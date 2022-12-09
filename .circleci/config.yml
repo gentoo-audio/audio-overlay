@@ -26,6 +26,22 @@ jobs:
           git fetch
           pkgcheck scan --commits origin/master..HEAD
 
+  manifest all:
+    docker:
+      - image: registry.gitlab.fem-net.de/gentoo/fem-overlay-ci-image:master
+    resource_class: large
+    steps:
+      - checkout
+      - run: MANIFEST_ONLY_DIFF=false /tools/manifest_packages.sh
+
+  manifest changes:
+    docker:
+      - image: registry.gitlab.fem-net.de/gentoo/fem-overlay-ci-image:master
+    resource_class: large
+    steps:
+      - checkout
+      - run: MANIFEST_ONLY_DIFF=true /tools/manifest_packages.sh
+
   emerge new or changed ebuilds:
     machine: true
     resource_class: large
@@ -69,9 +85,25 @@ workflows:
     jobs:
       - check new versions
       - pkgcheck all
+
+  weekly tests:
+    triggers:
+      - schedule:
+          cron: "0 9 * * 1"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - manifest all
+
   pullrequest:
     jobs:
       - pkgcheck changes:
+          filters:
+            branches:
+              ignore: master
+      - manifest changes:
           filters:
             branches:
               ignore: master
