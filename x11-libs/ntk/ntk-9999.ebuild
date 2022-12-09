@@ -23,7 +23,7 @@ LICENSE="FLTK"
 SLOT="0"
 RESTRICT="mirror"
 
-IUSE="-opengl"
+IUSE="opengl"
 
 RDEPEND="x11-libs/libX11
 	media-libs/fontconfig
