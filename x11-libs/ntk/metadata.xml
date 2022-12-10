@@ -5,4 +5,8 @@
 		<email>simon.vanderveldt+audio-overlay@gmail.com</email>
 		<name>Simon van der Veldt</name>
 	</maintainer>
+	<maintainer type="person">
+		<name>Adrian Schollmeyer</name>
+		<email>nex+b-g-o@nexadn.de</email>
+	</maintainer>
 </pkgmetadata>
