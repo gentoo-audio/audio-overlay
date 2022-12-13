@@ -1,4 +1,0 @@
-# Unmask pyliblo. We need it as a dependency for Carla
-# It has been masked because it's going to be dropped from the gentoo tree, see https://bugs.gentoo.org/708172
-# It has been added to this overlay to ensure it stays available even after it gets dropped from the gentoo tree
-media-libs/pyliblo
