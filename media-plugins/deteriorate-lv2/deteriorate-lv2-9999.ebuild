@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 # Required by waf
 PYTHON_COMPAT=( python3_{8,9} )
@@ -29,7 +29,7 @@ RDEPEND="dev-cpp/gtkmm:2.4
 	media-libs/lv2
 	media-libs/lvtk[gtk2]"
 
-DEPEND="${PYTHON_DEPS}
-	${RDEPEND}"
+DEPEND="${RDEPEND}"
+BDEPEND="${PYTHON_DEPS}"
 
 PATCHES="${FILESDIR}/${PN}-1.0.7-wscript-fix-duplicate-manifest-install.patch"
