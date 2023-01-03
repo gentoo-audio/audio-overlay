@@ -1,7 +1,7 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 PYTHON_COMPAT=( python2_7 python3_{6,7,8,9} )
 PYTHON_REQ_USE='threads(+)'
@@ -28,6 +28,7 @@ RDEPEND="udev? ( virtual/libudev )
 	osc? ( media-libs/liblo )
 	python? ( dev-python/cython )"
 DEPEND="${RDEPEND}"
+BDEPEND="${PYTHON_DEPS}"
 
 src_configure() {
 	local mywafconfargs=(
