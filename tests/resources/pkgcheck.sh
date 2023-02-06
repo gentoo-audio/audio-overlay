@@ -34,10 +34,4 @@ PKGCHECK_EXITCODE=$?
 echo "Scanning repo... done"
 pkgcheck replay --color=true "$REPORT"
 
-# Post output as comment on PR when running on CI
-if [[ -n "${CIRCLE_PULL_REQUEST}" ]]; then
-  echo "Sending QA results back to pull request"
-  pkgcheck replay --color=false "$REPORT" | travis-bot --description "pkgcheck QA results:"
-fi
-
 exit $PKGCHECK_EXITCODE
