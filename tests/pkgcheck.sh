@@ -34,4 +34,4 @@ docker run --rm -ti \
   -v "${PWD}":/usr/local/portage \
   -w /usr/local/portage \
   gentoo/stage3 \
-  /usr/local/portage/tests/resources/repoman.sh "${@}"
+  /usr/local/portage/tests/resources/pkgcheck.sh "${@}"
