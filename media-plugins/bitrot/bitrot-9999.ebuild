@@ -1,7 +1,7 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 # Required by waf
 PYTHON_COMPAT=( python3_{6,7,8,9} )
@@ -16,7 +16,7 @@ KEYWORDS=""
 LICENSE="Apache-2.0"
 SLOT="0"
 
-DEPEND="${PYTHON_DEPS}"
+BDEPEND="${PYTHON_DEPS}"
 
 src_prepare() {
 	# Fix hardcoded libdir

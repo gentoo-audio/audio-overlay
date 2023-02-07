@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 # Required by waf
 PYTHON_COMPAT=( python3_{6,7,8,9} )
@@ -32,8 +32,8 @@ RDEPEND="x11-libs/libX11
 	virtual/jpeg:*
 	media-libs/libpng:*
 	opengl? ( media-libs/glu )"
-DEPEND="${PYTHON_DEPS}
-	${RDEPEND}"
+DEPEND="${RDEPEND}"
+BDEPEND="${PYTHON_DEPS}"
 
 PATCHES=( "${FILESDIR}/${PN}-dont-run-ldconfig.patch"
 	"${FILESDIR}/${PN}-no-default-cflags-optimizations.patch" )
