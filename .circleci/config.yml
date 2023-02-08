@@ -31,28 +31,32 @@ jobs:
           key: portage-pkgdir-emerge-{{ epoch }}
           paths:
             - ~/.portage-pkgdir
-  repoman:
+  pkgcheck:
     machine: true
     resource_class: large
     steps:
       - checkout
       - restore_cache:
-          key: portage-pkgdir-repoman
-      - run: ./tests/repoman.sh
+          key: portage-pkgdir-pkgcheck
+      - run: ./tests/pkgcheck.sh
+
       - save_cache:
-          key: portage-pkgdir-repoman-{{ epoch }}
+          key: portage-pkgdir-pkgcheck-{{ epoch }}
           paths:
             - ~/.portage-pkgdir
-  repoman new or changed ebuilds:
+  pkgcheck commits:
     machine: true
     resource_class: large
     steps:
       - checkout
       - restore_cache:
-          key: portage-pkgdir-repoman
-      - run: ./tests/repoman-new-or-changed-ebuilds.sh
+          key: portage-pkgdir-pkgcheck
+      - run: |
+          git fetch
+          ./tests/pkgcheck.sh --commits origin/master..HEAD
+
       - save_cache:
-          key: portage-pkgdir-repoman-{{ epoch }}
+          key: portage-pkgdir-pkgcheck-{{ epoch }}
           paths:
             - ~/.portage-pkgdir
   emerge new or changed ebuilds:
@@ -97,22 +101,22 @@ workflows:
                - master
     jobs:
       - check new versions
-      - repoman
+      - pkgcheck
       - emerge all ebuilds:
           requires:
-            - repoman
+            - pkgcheck
       - emerge all live ebuilds:
           requires:
             - emerge all ebuilds
   pullrequest:
     jobs:
-      - repoman new or changed ebuilds:
+      - pkgcheck commits:
           filters:
             branches:
               ignore: master
       - emerge new or changed ebuilds:
           requires:
-            - repoman new or changed ebuilds
+            - pkgcheck commits
           filters:
             branches:
               ignore: master

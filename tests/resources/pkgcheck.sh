@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# "Lint" using repoman if any ebuilds have basic issues
+# "Lint" using pkgcheck if any ebuilds have basic issues
 # In case of a PR the result is added as a comment to the PR
 set -e
 
@@ -17,31 +17,21 @@ export FEATURES="binpkg-multi-instance parallel-install -news -ipc-sandbox -netw
 echo "dev-lang/rust" > /etc/portage/package.mask/audio-overlay
 
 # Install dependencies
-emerge -q --buildpkg --usepkg dev-vcs/git app-portage/repoman dev-python/pip
+emerge -q --buildpkg --usepkg dev-vcs/git dev-util/pkgcheck dev-python/pip
 pip install --user https://github.com/simonvanderveldt/travis-github-pr-bot/archive/master.zip
 PATH="${HOME}/.local/bin:$PATH"
 
-REPOMAN_OUTPUT=""
-REPOMAN_EXITCODES=0
+REPORT="$(mktemp)"
 
-if [[ -n "${1}" ]]; then
-  IFS=' ' read -ra PACKAGES <<< "${@}"
-  for PACKAGE in "${PACKAGES[@]}"
-  do
-    pushd "${PACKAGE}"
-    REPOMAN_OUTPUT+="${PACKAGE}: $(repoman full -d -q)\n" || REPOMAN_EXITCODES+=${?}
-    popd
-  done
-else
-  REPOMAN_OUTPUT+=$(repoman full -d -q) || REPOMAN_EXITCODES+=${?}
-fi
+# We don't need to ensure ownership of the directory is sane,
+# since this is run inside a throwaway container
+git config --global --add safe.directory '/usr/local/portage'
 
-echo -e "${REPOMAN_OUTPUT}"
-# Post repoman output as comment on PR when running on CI
-if [[ -n "${CIRCLE_PULL_REQUEST}" ]]; then
-  echo -e "${REPOMAN_OUTPUT}" | travis-bot --description "Repoman QA results:"
-fi
+echo "Scanning repo..."
+pkgcheck scan -R JsonStream "$@" > "$REPORT"
+PKGCHECK_EXITCODE=$?
 
-if (( REPOMAN_EXITCODES > 0 )); then
-  exit 1
-fi
+echo "Scanning repo... done"
+pkgcheck replay --color=true "$REPORT"
+
+exit $PKGCHECK_EXITCODE
