@@ -104,13 +104,4 @@ do
   fi
 done
 
-# Post QA result as comment on PR when running on CI
-if [[ -n "${CIRCLE_PULL_REQUEST}" ]]; then
-  # Install dependencies
-  emerge -q --buildpkg --usepkg dev-vcs/git dev-python/pip
-  pip install --user https://github.com/simonvanderveldt/travis-github-pr-bot/archive/master.zip
-  PATH="${HOME}/.local/bin:$PATH"
-  cat /tmp/qa.log | travis-bot --description "Portage QA results:"
-else
-  cat /tmp/qa.log
-fi
+cat /tmp/qa.log
