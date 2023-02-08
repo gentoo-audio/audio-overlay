@@ -1,9 +1,9 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2023 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python2_7 python3_{6,7,8,9} )
+PYTHON_COMPAT=( python3_{8..9} )
 PYTHON_REQ_USE='threads(+)'
 NO_WAF_LIBDIR=yes
 
@@ -22,7 +22,7 @@ fi
 LICENSE="ISC"
 SLOT="0"
 
-IUSE="-zeroconf"
+IUSE="zeroconf"
 
 RDEPEND="virtual/libudev
 	media-libs/liblo
