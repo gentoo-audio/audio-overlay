@@ -31,9 +31,13 @@ RDEPEND="media-libs/alsa-lib
 	dev-libs/expat
 	lash? ( !media-sound/lash )
 	${PYTHON_DEPS}"
-DEPEND="${RDEPEND}
+DEPEND="${RDEPEND}"
+BDEPEND="
+	dev-util/intltool
+	virtual/pkgconfig
+
 	doc? ( app-doc/doxygen )
-	virtual/pkgconfig"
+"
 
 DOCS=( AUTHORS README NEWS )
 
