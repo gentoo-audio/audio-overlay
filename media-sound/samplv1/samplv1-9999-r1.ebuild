@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 inherit cmake xdg
 
 DESCRIPTION="An old-school all-digital drum-kit sampler synthesizer with stereo fx"
-HOMEPAGE="http://samplv1.sourceforge.net/"
+HOMEPAGE="https://samplv1.sourceforge.net/"
 
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
@@ -43,6 +43,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 src_prepare() {
+	# allow portage to control binary stripping
 	sed -i 's:strip:true:' src/CMakeLists.txt || die
 	cmake_src_prepare
 }
