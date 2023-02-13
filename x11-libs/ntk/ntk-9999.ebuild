@@ -34,8 +34,11 @@ RDEPEND="x11-libs/libX11
 DEPEND="${RDEPEND}"
 BDEPEND="${PYTHON_DEPS}"
 
-PATCHES=( "${FILESDIR}/${PN}-dont-run-ldconfig.patch"
-	"${FILESDIR}/${PN}-no-default-cflags-optimizations.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-configurable-libdir.patch"
+	"${FILESDIR}/${PN}-dont-run-ldconfig.patch"
+	"${FILESDIR}/${PN}-no-default-cflags-optimizations.patch"
+)
 
 src_configure() {
 	local mywafconfargs=(
