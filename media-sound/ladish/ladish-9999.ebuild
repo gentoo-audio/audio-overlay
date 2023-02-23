@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{6,7,8,9} )
+PYTHON_COMPAT=( python3_{9..11} )
 PYTHON_REQ_USE='threads(+)'
 
 inherit flag-o-matic python-single-r1 waf-utils
@@ -12,13 +12,10 @@ DESCRIPTION="LADI Session Handler - a session management system for JACK applica
 HOMEPAGE="https://ladish.org"
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://git.nedk.org/lad/ladish.git"
-	KEYWORDS=""
-	EGIT_SUBMODULES=()
+	EGIT_REPO_URI="https://github.com/LADI/ladish.git"
+	EGIT_BRANCH="main"
 else
-	inherit vcs-snapshot
-	SRC_URI="https://github.com/LADI/ladish/archive/${P}.tar.gz
-		https://git.nedk.org/lad/ladish.git/plain/waf -> ${P}-waf-2.0.22"
+	SRC_URI="https://github.com/LADI/ladish/archive/${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 LICENSE="GPL-2"
@@ -34,15 +31,21 @@ RDEPEND="media-libs/alsa-lib
 	dev-libs/expat
 	lash? ( !media-sound/lash )
 	${PYTHON_DEPS}"
-DEPEND="${RDEPEND}
+DEPEND="${RDEPEND}"
+BDEPEND="
+	dev-util/intltool
+	virtual/pkgconfig
+
 	doc? ( app-doc/doxygen )
-	virtual/pkgconfig"
+"
 
 DOCS=( AUTHORS README NEWS )
 
 PATCHES=(
 	"${FILESDIR}/${P}-disable-gladish.patch"
 )
+
+QA_SONAME=( ".*/libalsapid.so" )
 
 src_prepare()
 {
@@ -65,4 +68,6 @@ src_install() {
 	use doc && HTML_DOCS="${S}/build/default/html/*"
 	waf-utils_src_install
 	python_fix_shebang "${ED}"
+
+	rm "${ED}/usr/share/ladish/COPYING" || die
 }
