@@ -1,0 +1,13 @@
+diff --git a/source/modules/water/text/String.h b/source/modules/water/text/String.h
+index b6361468d..ab0afc65a 100644
+--- a/source/modules/water/text/String.h
++++ b/source/modules/water/text/String.h
+@@ -26,6 +26,8 @@
+ #ifndef WATER_STRING_H_INCLUDED
+ #define WATER_STRING_H_INCLUDED
+ 
++#include <limits>
++
+ #include "CharPointer_UTF8.h"
+ #include "../memory/Memory.h"
+ 

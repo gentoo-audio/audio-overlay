@@ -13,7 +13,6 @@ if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/falkTX/Carla.git"
 	EGIT_SUBMODULES=()
-	KEYWORDS=""
 else
 	SRC_URI="https://github.com/falkTX/Carla/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	RESTRICT="mirror"
@@ -23,7 +22,7 @@ fi
 LICENSE="GPL-2 LGPL-3"
 SLOT="0"
 
-IUSE="alsa gtk gtk2 opengl osc -pulseaudio rdf sf2 sndfile X"
+IUSE="alsa gtk gtk2 opengl osc pulseaudio rdf sf2 sndfile X"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
