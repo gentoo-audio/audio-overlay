@@ -3,7 +3,8 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7,8,9} )
+PYTHON_COMPAT=( python3_{8..11} )
+DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
 DESCRIPTION="A Python wrapper for the liblo OSC library"
@@ -19,3 +20,5 @@ RDEPEND=">=media-libs/liblo-0.27
 	${PYTHON_DEPS}"
 DEPEND="${RDEPEND}
 	dev-python/cython[${PYTHON_USEDEP}]"
+
+distutils_enable_tests unittest
