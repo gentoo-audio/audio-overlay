@@ -17,9 +17,7 @@ export FEATURES="binpkg-multi-instance parallel-install -news -ipc-sandbox -netw
 echo "dev-lang/rust" > /etc/portage/package.mask/audio-overlay
 
 # Install dependencies
-emerge -q --buildpkg --usepkg dev-vcs/git dev-util/pkgcheck dev-python/pip
-pip install --user https://github.com/simonvanderveldt/travis-github-pr-bot/archive/master.zip
-PATH="${HOME}/.local/bin:$PATH"
+emerge -q --buildpkg --usepkg dev-vcs/git dev-util/pkgcheck
 
 REPORT="$(mktemp)"
 
