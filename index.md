@@ -109,7 +109,7 @@ Available versions: `9999-r7`
 #### carla
 Homepage: [kxstudio.linuxaudio.org/Applications:Carla](http://kxstudio.linuxaudio.org/Applications:Carla)<br>
 Fully-featured audio plugin host, supports many audio drivers and plugin formats<br>
-Available versions: `2.2.0`, `2.5.2`, `9999-r1`
+Available versions: `2.5.2`, `2.5.4`, `9999-r1`
 
 #### drumkv1
 Homepage: [drumkv1.sourceforge.net/](http://drumkv1.sourceforge.net/)<br>
