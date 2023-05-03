@@ -177,6 +177,6 @@ Available versions: `0.9.18`, `0.9.19`, `0.9.21`, `9999-r1`
 #### ntk
 Homepage: []()<br>
 <br>
-Available versions: `1.3.1001`, `9999`
+Available versions: `1.3.1001-r1`, `9999`
 
 
