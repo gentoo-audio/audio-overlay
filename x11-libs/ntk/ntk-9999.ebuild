@@ -4,7 +4,7 @@
 EAPI=8
 
 # Required by waf
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_{9..10} )
 PYTHON_REQ_USE='threads(+)'
 
 inherit python-any-r1 waf-utils
@@ -34,8 +34,11 @@ RDEPEND="x11-libs/libX11
 DEPEND="${RDEPEND}"
 BDEPEND="${PYTHON_DEPS}"
 
-PATCHES=( "${FILESDIR}/${PN}-dont-run-ldconfig.patch"
-	"${FILESDIR}/${PN}-no-default-cflags-optimizations.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-configurable-libdir.patch"
+	"${FILESDIR}/${PN}-dont-run-ldconfig.patch"
+	"${FILESDIR}/${PN}-no-default-cflags-optimizations.patch"
+)
 
 src_configure() {
 	local mywafconfargs=(
