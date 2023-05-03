@@ -46,7 +46,7 @@ Available versions: `1.0.2`, `9999`
 #### artyfx
 Homepage: [openavproductions.com/artyfx](http://openavproductions.com/artyfx)<br>
 Plugin bundle of artistic real-time audio effects<br>
-Available versions: `1.3-r1`, `1.3.1`, `9999`
+Available versions: `1.3.1`, `9999`
 
 #### bitrot
 Homepage: []()<br>
@@ -61,12 +61,12 @@ Available versions: `1.0.7-r2`, `9999`
 #### distrho-ports
 Homepage: [github.com/DISTRHO/DISTRHO-Ports](https://github.com/DISTRHO/DISTRHO-Ports)<br>
 Linux ports of Distrho plugins<br>
-Available versions: `20201227`, `20210115`, `99999999`
+Available versions: `20210115`, `99999999`
 
 #### dragonfly-reverb
 Homepage: [github.com/michaelwillis/dragonfly-reverb](https://github.com/michaelwillis/dragonfly-reverb)<br>
 A set of free reverb effects<br>
-Available versions: `3.2.1`, `3.2.3`, `9999`
+Available versions: `3.2.3`, `9999`
 
 #### fabla
 Homepage: [openavproductions.com/fabla2](http://openavproductions.com/fabla2)<br>
