@@ -13,7 +13,6 @@ HOMEPAGE="https://github.com/monome/libmonome"
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/monome/libmonome.git"
-	KEYWORDS=""
 else
 	SRC_URI="https://github.com/monome/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
