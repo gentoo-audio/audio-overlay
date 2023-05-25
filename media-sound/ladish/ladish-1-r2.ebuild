@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7,8,9} )
+PYTHON_COMPAT=( python3_{10,11} )
 PYTHON_REQ_USE='threads(+)'
 
 inherit flag-o-matic python-single-r1 waf-utils
