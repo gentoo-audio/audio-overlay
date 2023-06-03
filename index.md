@@ -159,7 +159,7 @@ Available versions: `0.96.7`, `0.96.8`, `9999`
 #### serialosc
 Homepage: []()<br>
 <br>
-Available versions: `1.4.1`, `9999`
+Available versions: `1.4.3`, `9999`
 
 #### setbfree
 Homepage: [setbfree.org](http://setbfree.org)<br>
