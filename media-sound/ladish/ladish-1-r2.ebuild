@@ -13,7 +13,6 @@ HOMEPAGE="https://ladish.org"
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://git.nedk.org/lad/ladish.git"
-	KEYWORDS=""
 	EGIT_SUBMODULES=()
 else
 	inherit vcs-snapshot
