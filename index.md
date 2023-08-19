@@ -23,6 +23,14 @@ Join us at the `#audio-overlay` channel at `irc.libera.chat` or [create an issue
 
 ## Packages
 
+### dev-libs
+
+#### cdbus
+Homepage: []()<br>
+<br>
+Available versions: `1.0_pre20230703`, `9999`
+
+
 ### media-libs
 
 #### libmonome
