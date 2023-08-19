@@ -13,12 +13,11 @@ HOMEPAGE="https://ladish.org"
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://git.nedk.org/lad/ladish.git"
-	KEYWORDS=""
 	EGIT_SUBMODULES=()
 else
 	inherit vcs-snapshot
 	SRC_URI="https://github.com/LADI/ladish/archive/${P}.tar.gz
-		https://git.nedk.org/lad/ladish.git/plain/waf?id=f15b80e6394ba0cbb4b76aa1b32071bfb971a8fa -> ${P}-waf-2.0.22"
+		https://gitea.ladish.org/LADI/ladish/raw/commit/30994438a1363306f00078a5791202cc4a73151f/waf -> ${P}-waf-2.0.22"
 	KEYWORDS="~amd64"
 fi
 LICENSE="GPL-2"
@@ -36,6 +35,7 @@ RDEPEND="media-libs/alsa-lib
 	${PYTHON_DEPS}"
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )
+	dev-util/intltool
 	virtual/pkgconfig"
 
 DOCS=( AUTHORS README NEWS )

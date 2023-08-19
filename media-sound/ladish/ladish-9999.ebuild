@@ -28,6 +28,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RDEPEND="media-libs/alsa-lib
 	media-sound/jack2[dbus]
 	sys-apps/dbus
+	dev-libs/cdbus
 	dev-libs/expat
 	lash? ( !media-sound/lash )
 	${PYTHON_DEPS}"
@@ -39,16 +40,11 @@ BDEPEND="
 	doc? ( app-doc/doxygen )
 "
 
-DOCS=( AUTHORS README NEWS )
-
-PATCHES=(
-	"${FILESDIR}/${P}-disable-gladish.patch"
-)
-
 QA_SONAME=( ".*/libalsapid.so" )
 
 src_prepare()
 {
+	rm -rf ".git" || die "Failed to remove git dir"
 	sed -i -e "s/RELEASE = False/RELEASE = True/" wscript
 	append-cxxflags '-std=c++11'
 	default
