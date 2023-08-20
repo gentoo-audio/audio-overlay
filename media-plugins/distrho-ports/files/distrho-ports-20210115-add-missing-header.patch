@@ -1,0 +1,14 @@
+Include missing header. This allows the code to be compiled with GCC 12 or
+later.
+
+diff a/libs/juce-current/source/modules/juce_gui_basics/native/x11/juce_linux_XWindowSystem.cpp b/libs/juce-current/source/modules/juce_gui_basics/native/x11/juce_linux_XWindowSystem.cpp
+--- a/libs/juce-current/source/modules/juce_gui_basics/native/x11/juce_linux_XWindowSystem.cpp
++++ b/libs/juce-current/source/modules/juce_gui_basics/native/x11/juce_linux_XWindowSystem.cpp
+@@ -23,6 +23,7 @@
+   ==============================================================================
+ */
+ 
++#include <array>
+ #include <unordered_map>
+ 
+ namespace juce

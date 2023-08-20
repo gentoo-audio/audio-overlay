@@ -27,6 +27,10 @@ RDEPEND="media-libs/alsa-lib
 	x11-libs/libXrender"
 DEPEND="${RDEPEND}"
 
+PATCHES=(
+	"${FILESDIR}/${P}-add-missing-header.patch"
+)
+
 src_prepare() {
 	# Remove stripping of binaries
 	sed -i -e "/'-Wl,--strip-all',/d" meson.build || die "sed failed"
