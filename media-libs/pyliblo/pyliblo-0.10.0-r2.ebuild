@@ -19,6 +19,6 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RDEPEND=">=media-libs/liblo-0.27
 	${PYTHON_DEPS}"
 DEPEND="${RDEPEND}
-	dev-python/cython[${PYTHON_USEDEP}]"
+	<dev-python/cython-3[${PYTHON_USEDEP}]"
 
 distutils_enable_tests unittest
