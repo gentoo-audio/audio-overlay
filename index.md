@@ -105,9 +105,9 @@ Available versions: `1.1.3-r1`, `9999`
 ### media-sound
 
 #### bitwig-studio
-Homepage: [bitwig.com](http://bitwig.com)<br>
-Multi-platform music-creation system for production, performance and DJing<br>
-Available versions: `1.3.16`, `2.5.1`, `3.0.3`, `3.1.3`, `3.2.8`, `3.3.11`, `4.0.8`
+Homepage: []()<br>
+<br>
+Available versions: `1.3.16`, `2.5.1`, `3.0.3`, `3.1.3`, `3.2.8`, `3.3.11`, `4.0.8`, `5.0.9`
 
 #### cadence
 Homepage: []()<br>
