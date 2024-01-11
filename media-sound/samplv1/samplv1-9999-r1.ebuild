@@ -1,12 +1,13 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit autotools xdg-utils
+inherit cmake xdg
 
-DESCRIPTION="Old-school polyphonic sampler"
-HOMEPAGE="http://samplv1.sourceforge.io"
+DESCRIPTION="An old-school all-digital drum-kit sampler synthesizer with stereo fx"
+HOMEPAGE="https://samplv1.sourceforge.net/"
+
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/rncbc/${PN}.git"
@@ -21,10 +22,11 @@ fi
 LICENSE="GPL-2+"
 SLOT="0"
 
-IUSE="debug standalone alsa lv2 osc"
+IUSE="debug standalone alsa lv2 nsm osc"
 REQUIRED_USE="
 	|| ( standalone lv2 )
-	alsa? ( standalone )"
+	alsa? ( standalone )
+	nsm? ( standalone )"
 
 RDEPEND="
 	dev-qt/qtcore:5
@@ -34,45 +36,26 @@ RDEPEND="
 	media-libs/libsndfile
 	standalone? ( virtual/jack )
 	alsa? ( media-libs/alsa-lib )
+	nsm? ( media-sound/new-session-manager )
 	lv2? ( media-libs/lv2 )
 	osc? ( media-libs/liblo )
 "
 DEPEND="${RDEPEND}"
 
 src_prepare() {
-	eautoreconf
-
-	# Remove compression of manpages
-	sed -i -e "/@gzip.*man1/d" Makefile.in || die "sed failed"
-
-	# Disable stripping
-	echo "QMAKE_STRIP=" >> src/src_core.pri.in
-	echo "QMAKE_STRIP=" >> src/src_jack.pri.in
-	echo "QMAKE_STRIP=" >> src/src_ui.pri.in
-	echo "QMAKE_STRIP=" >> src/src_lv2.pri.in
-	sed -i -e '/strip $(TARGET)/d' src/src_jack.pro || die "sed failed"
-	sed -i -e '/strip $(TARGET)/d' src/src_lv2.pro || die "sed failed"
-
-	default
+	# allow portage to control binary stripping
+	sed -i 's:strip:true:' src/CMakeLists.txt || die
+	cmake_src_prepare
 }
 
 src_configure() {
-	local -a myeconfargs=(
-		$(use_enable debug)
-		$(use_enable standalone jack)
-		$(use_enable alsa alsa-midi)
-		$(use_enable lv2)
-		$(use_enable osc liblo)
+	local -a mycmakeargs=(
+		-DCONFIG_LV2=$(usex lv2)
+		-DCONFIG_JACK=$(usex standalone)
+		-DCONFIG_LIBLO=$(usex osc)
+		-DCONFIG_NSM=$(usex nsm)
+		-DCONFIG_ALSA_MIDI=$(usex alsa)
+		-DCONFIG_DEBUG=$(usex debug)
 	)
-	econf "${myeconfargs[@]}"
-}
-
-pkg_postinst() {
-	xdg_mimeinfo_database_update
-	xdg_icon_cache_update
-}
-
-pkg_postrm() {
-	xdg_mimeinfo_database_update
-	xdg_icon_cache_update
+	cmake_src_configure
 }

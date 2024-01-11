@@ -8,5 +8,6 @@
 	<use>
 		<flag name="standalone">Enable building of standalone application</flag>
 		<flag name="lv2">Enable building of LV2 plugin</flag>
+		<flag name="nsm">New Session Management support</flag>
 	</use>
 </pkgmetadata>
