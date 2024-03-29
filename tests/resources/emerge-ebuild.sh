@@ -19,7 +19,7 @@ fi
 # Disable news messages from portage as well as the IPC, network and PID sandbox to get rid of the
 # "Unable to unshare: EPERM" messages without requiring the container to be run in privileged mode
 # Disable rsync output
-export FEATURES="binpkg-multi-instance parallel-install -news -ipc-sandbox -network-sandbox -pid-sandbox"
+export FEATURES="binpkg-multi-instance getbinpkg parallel-install -news -ipc-sandbox -network-sandbox -pid-sandbox"
 export PORTAGE_RSYNC_EXTRA_OPTS="-q"
 # Don't store any elogs by default
 export PORTAGE_ELOG_SYSTEM="echo"
@@ -37,6 +37,9 @@ echo "media-libs/mesa -llvm" > /etc/portage/package.use/audio-overlay
 
 # Ensure we use dev-lang/rust-bin
 echo "dev-lang/rust" > /etc/portage/package.mask/audio-overlay
+
+# Install Gentoo binhost keyring
+getuto
 
 # Show emerge info for troubleshooting purposes
 emerge --info
