@@ -9,4 +9,8 @@
 		<flag name="standalone">Enable building of standalone application</flag>
 		<flag name="lv2">Enable building of LV2 plugin</flag>
 	</use>
+	<upstream>
+		<remote-id type="github">rncbc/drumkv1</remote-id>
+		<remote-id type="sourceforge">drumkv1</remote-id>
+	</upstream>
 </pkgmetadata>
