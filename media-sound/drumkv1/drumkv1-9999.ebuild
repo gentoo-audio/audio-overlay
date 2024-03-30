@@ -51,6 +51,7 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	qt6? ( dev-qt/qtsvg:6= )
+	!qt6? ( dev-qt/qtsvg:5= )
 "
 
 src_prepare() {
