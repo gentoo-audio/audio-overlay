@@ -39,7 +39,9 @@ RDEPEND="${PYTHON_DEPS}
 	rdf? ( dev-python/rdflib )
 	sf2? ( media-sound/fluidsynth )
 	sndfile? ( media-libs/libsndfile )
-	X? ( x11-base/xorg-server )"
+	X? ( x11-libs/libX11 )
+	!X? ( gui-libs/pugl:= )
+"
 DEPEND=${RDEPEND}
 
 src_prepare() {
