@@ -107,7 +107,7 @@ Available versions: `1.1.3-r1`, `9999`
 #### bitwig-studio
 Homepage: []()<br>
 <br>
-Available versions: `1.3.16`, `2.5.1`, `3.0.3`, `3.1.3`, `3.2.8`, `3.3.11`, `4.0.8`, `5.0.9`, `5.1.2`
+Available versions: `5.1.2`
 
 #### cadence
 Homepage: []()<br>
@@ -160,8 +160,8 @@ Third party plugins for SuperCollider<br>
 Available versions: `3.11.0`, `3.11.1`, `9999`
 
 #### sequencer64
-Homepage: [github.com/ahlstromcj/sequencer64](https://github.com/ahlstromcj/sequencer64)<br>
-Reboot of seq24, a minimal loop based midi sequencer<br>
+Homepage: []()<br>
+<br>
 Available versions: `0.96.7`, `0.96.8`, `9999`
 
 #### serialosc
@@ -170,8 +170,8 @@ Homepage: []()<br>
 Available versions: `1.4.3`, `9999`
 
 #### setbfree
-Homepage: [setbfree.org](http://setbfree.org)<br>
-MIDI controlled DSP tonewheel organ<br>
+Homepage: []()<br>
+<br>
 Available versions: `0.8.10`, `0.8.11-r1`, `9999`
 
 #### synthv1
