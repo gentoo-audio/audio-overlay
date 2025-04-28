@@ -34,7 +34,7 @@ RDEPEND="media-libs/alsa-lib
 	lash? ( !media-sound/lash )
 	${PYTHON_DEPS}"
 DEPEND="${RDEPEND}
-	doc? ( app-doc/doxygen )
+	doc? ( app-text/doxygen )
 	dev-util/intltool
 	virtual/pkgconfig"
 
