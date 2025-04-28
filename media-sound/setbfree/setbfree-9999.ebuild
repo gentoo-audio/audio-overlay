@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="6"
+EAPI=8
 
 inherit toolchain-funcs multilib
 
@@ -32,9 +32,11 @@ RDEPEND="virtual/jack
 	media-fonts/dejavu
 	media-libs/ftgl
 	x11-libs/libX11"
-DEPEND="${RDEPEND}
+DEPEND="${RDEPEND}"
+BDEPEND="
 	sys-apps/help2man
-	virtual/pkgconfig"
+	virtual/pkgconfig
+"
 
 DOCS=(ChangeLog README.md)
 
