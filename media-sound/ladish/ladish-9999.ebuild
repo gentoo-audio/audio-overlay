@@ -37,7 +37,7 @@ BDEPEND="
 	dev-util/intltool
 	virtual/pkgconfig
 
-	doc? ( app-doc/doxygen )
+	doc? ( app-text/doxygen )
 "
 
 QA_SONAME=( ".*/libalsapid.so" )
