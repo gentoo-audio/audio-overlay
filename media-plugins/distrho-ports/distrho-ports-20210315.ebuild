@@ -3,12 +3,14 @@
 
 EAPI=7
 
-inherit meson git-r3
+inherit meson
 
 DESCRIPTION="Linux ports of Distrho plugins"
 HOMEPAGE="https://github.com/DISTRHO/DISTRHO-Ports"
-EGIT_REPO_URI="https://github.com/DISTRHO/DISTRHO-Ports"
-KEYWORDS=""
+MY_PN="${PV:0:4}-${PV:4:2}-${PV:6:2}"
+SRC_URI="https://github.com/DISTRHO/DISTRHO-Ports/archive/${MY_PN}.tar.gz -> ${P}.tar.gz"
+KEYWORDS="~amd64"
+S="${WORKDIR}/DISTRHO-Ports-${MY_PN}"
 LICENSE="GPL-2"
 SLOT="0"
 RESTRICT="mirror"
