@@ -1,0 +1,11 @@
+--- mruby-zest-build-3.0.5/src/mruby-widget-lib/src/api.c.old	2020-08-11 21:46:43.476973373 +0900
++++ mruby-zest-build-3.0.5/src/mruby-widget-lib/src/api.c	2020-08-11 21:47:29.006957050 +0900
+@@ -97,7 +97,7 @@
+ 
+ 
+     //Verify that the search path is usable
+-    char *path = get_search_path();
++    char *path = "/usr/share/zyn-fusion/";
+     if(!dev_mode) {
+         if(strstr(path, "libzest"))
+             strstr(path, "libzest")[0] = 0;
