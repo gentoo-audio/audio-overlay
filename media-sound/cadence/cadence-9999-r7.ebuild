@@ -3,8 +3,8 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_10 )
-inherit git-r3 python-single-r1 gnome2-utils
+PYTHON_COMPAT=( python3_{10..11} )
+inherit git-r3 python-single-r1 xdg desktop
 
 DESCRIPTION="Collection of tools useful for audio production"
 HOMEPAGE="http://kxstudio.linuxaudio.org/Applications:Cadence"
@@ -17,12 +17,19 @@ IUSE="pulseaudio a2jmidid ladish opengl"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
-	media-sound/jack2[dbus]
 	$(python_gen_cond_dep 'dev-python/pyqt5[dbus,gui,opengl?,svg,widgets,${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/dbus-python[${PYTHON_USEDEP}]')
+	virtual/jack
+	media-sound/jack_capture
 	a2jmidid? ( media-sound/a2jmidid[dbus] )
 	ladish? ( >=media-sound/ladish-9999 )
-	pulseaudio? ( media-sound/pulseaudio[jack] )"
+	pulseaudio? (
+		|| (
+			media-video/pipewire[jack-sdk]
+			media-sound/pulseaudio-daemon[jack]
+		)
+	)
+"
 DEPEND=${RDEPEND}
 
 src_prepare() {
@@ -68,12 +75,9 @@ src_install() {
 		rm -rf "${D}/usr/share/applications/claudia.desktop"
 		rm -rf "${D}/usr/share/applications/claudia-launcher.desktop"
 	fi
-}
 
-pkg_postinst() {
-	gnome2_icon_cache_update
-}
-
-pkg_postrm() {
-	gnome2_icon_cache_update
+	# Replace desktop entries with QA issues with these
+	make_desktop_entry cadence Cadence cadence "AudioVideo;AudioVideoEditing;Qt"
+	make_desktop_entry catia Catia catia "AudioVideo;AudioVideoEditing;Qt"
+	make_desktop_entry catarina Catarina catarina "AudioVideo;AudioVideoEditing;Qt"
 }
