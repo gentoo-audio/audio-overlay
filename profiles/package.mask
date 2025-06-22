@@ -29,23 +29,3 @@
 ## funny. (bug #987654)
 ## app-misc/some-package
 #--- END OF EXAMPLES ---
-
-
-# Adrian Schollmeyer <nex+b-g-o@nexadn.de>
-# Lacks py3.11 support, dead upstream and
-# original upstream is gone anyway
-# Removal in 30 days.
-# https://github.com/gentoo-audio/audio-overlay/issues/568
-x11-libs/ntk
-
-# Adrian Schollmeyer <nex+b-g-o@nexadn.de> (17 May 2025)
-# Lacks py3.11 support, dead and archived upstream
-# Removal in 30 days.
-# https://github.com/gentoo-audio/audio-overlay/issues/567
-media-plugins/deteriorate-lv2
-
-# Adrian Schollmeyer <nex+b-g-o@nexadn.de> (17 May 2025)
-# Lacks py3.11 support, dead upstream
-# Removal in 30 days.
-# https://github.com/gentoo-audio/audio-overlay/issues/566
-media-plugins/bitrot
